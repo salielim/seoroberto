@@ -1,0 +1,66 @@
+<!-- TODO: Insert and retrieve data to / from MySQL DB-->
+<!-- TODO: 5 Add new page that retrieves and displays department information from the departments table and-->
+<!-- TODO: 5 gives users option to display departments' managers' names and IDs-->
+<!-- TODO: 5.1 create html partial-->
+<div class="container" ng-controller="SearchDBCtrl as ctrl">
+
+    <div class="page-header">
+        <h1>Department Management System
+            <small>SearchDB</small>
+        </h1>
+    </div>
+
+    <form name="queryForm" novalidate class="form-inline">
+        <div class="form-group">
+            <input id="searchString"
+                   class="form-control"
+                   size="50"
+                   type="text"
+                   name="searchString"
+                   ng-model="ctrl.searchString"
+                   placeholder="Enter department name or number">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-info form-control" ng-disabled="queryForm.$invalid"
+                    ng-click="ctrl.search()">
+                Search Department
+            </button>
+            <button class="btn btn-info form-control" ng-disabled="queryForm.$invalid"
+                    ng-click="ctrl.searchForManager()">
+                Search with Department Manager Info
+            </button>
+        </div>
+    </form>
+    <hr>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Department No</th>
+            <th>Department name</th>
+            <th ng-show="ctrl.showManager">Department Manager Id</th>
+            <th ng-show="ctrl.showManager">Department Manager Name</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="dept in ctrl.departments">
+            <td>{{dept.dept_no }}</td>
+            <td>{{ dept.dept_name }}</td>
+            <td>
+            <span ng-show="ctrl.showManager">
+                 <!-- Handles display of departments that have not been assigned any manager -->
+                {{ dept.managers[0] ? dept.managers[0].emp_no : " "}}
+            </span>
+            </td>
+            <td>
+            <span ng-show="ctrl.showManager">
+                 <!-- Handles display of departments that have not been assigned any manager -->
+                {{ dept.managers[0]
+                ? (dept.managers[0].employee.first_name + " " + dept.managers[0].employee.last_name)
+                : " "}}
+            </span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

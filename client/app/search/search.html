@@ -1,0 +1,42 @@
+<!--The ng-controller directive tells Angular the scope of the controller. In this case, the SearchCtrl is given
+the scope of the <div> element where it is called. We then use SearchCtrl (as ctrl) to manipulate elements within
+this <div>-->
+<div ng-controller="SearchCtrl as ctrl">
+    <div class="page-header">
+        <h1>Department Management System
+            <small>Search</small>
+        </h1>
+    </div>
+    <br/>
+
+    <!--Search UI-->
+    <!-- Creates Input Form and fields for uesr to enter search string -->
+    <form name="queryForm" class="form-inline">
+        <div class="form-group">
+            <input id="deptName" class="form-control" type="text"
+                   name="deptName"
+                   ng-model = "ctrl.queryString"
+                   size="50"
+                   placeholder="Enter department number / name">
+        </div>
+    </form>
+    <hr>
+    <!-- Creates area to display search result-->
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Department No</th>
+            <th>Department Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!--ng-repeat directive repeats an HTML element a number of times. The syntax ng-repeat = "x in y" allows us
+        to iterate through an array or object. In the case below, we are iterating through the contents of the array
+        of objects ctrl.departments, dept is assigned an instance (i.e, an object) of the array-->
+        <tr class="animation" ng-repeat="dept in ctrl.departments | filter:ctrl.queryString">
+            <td>{{dept.deptNo }}</td>
+            <td>{{ dept.deptName }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

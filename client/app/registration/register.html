@@ -1,0 +1,91 @@
+<!--The ng-controller directive tells Angular the scope of the controller-->
+<!--In this case, the RegCtrl is given the scope of the <div> element where it is called-->
+<!--We then use RegCtrl (as ctrl) to manipulate elements within this <div>-->
+<div ng-controller="RegCtrl as ctrl">
+    <div class="page-header">
+        <h1>Department Management System
+            <small>Registration</small>
+        </h1>
+    </div>
+    <br/>
+
+
+    <!-- Creates Input Form and fields -->
+    <!--1. The ng-submit directive specifies the function called when the Register button is clicked or ENTER is
+    pressed
+    2. novalidate is an HTML5 boolean property that tells HTML5 to ignore validation constraints (i.e., do not
+    perform validation) when form is submitted-->
+    <form name="regForm" novalidate ng-submit="ctrl.register()" autocomplete="off">
+
+        <!--Input field for department number-->
+        <div class="form-group"  ng-class="{ 'has-error': regForm.deptNo.$touched && regForm.deptNo.$invalid }">
+
+            <label for="deptNo">Department No:</label>
+            <!--1. Using the ng-model directive, we perform a 2-way data binding between the department input field and
+            he ctrl.department.id data model. By doing so, we automatically sync the view data and the data
+            model data
+            2. The required property tells HTML5 that the input field is mandatory. type="number" specifies that a
+            numerical value is expected-->
+            <input type="number" id="deptNo" name="deptNo"
+                   class="form-control"
+                   ng-model="ctrl.department.id"
+                   required>
+
+            <!-- 1. help-block is a bootstrap class that allows for better formatting of help texts
+            2. ng-message directive hides or shows message based on value of expression, i.e., if regForm.deptNo.$error
+            evaluates to true then error message is shown
+            3. $touched is a boolean that indicates whether or not field has been touched (visited)-->
+            <div class="help-block" ng-messages="regForm.deptNo.$error" ng-if="regForm.deptNo.$touched">
+                <p ng-message="required">Department Number Required</p>
+            </div>
+        </div>
+
+        <!--Input field for department name-->
+        <div class="form-group" ng-class="{ 'has-error': regForm.deptName.$touched && regForm.deptName.$invalid }">
+            <label for="deptName">Department name:</label>
+
+            <!--1. Using the ng-model directive, we perform a 2-way data binding between the department input field and
+            the ctrl.department data model. This automatically syncs the view data and the data model data-->
+            <input type="text" id="deptName" name="deptName"
+                   class="form-control"
+                   ng-model="ctrl.department.name"
+                   ng-minlength="2"
+                   required>
+
+            <div class="help-block" ng-messages="regForm.deptName.$error" ng-if="regForm.deptName.$touched">
+                <p ng-message="required">Department Name Required</p>
+                <p ng-message="minlength">Department Name Too Short</p>
+            </div>
+        </div>
+
+
+        <!-- Creates button used to submit data -->
+        <div class="form-group">
+
+            <!--1. The <button> type attribute specifies the behavior of the button. A button with type=submit submits
+            form data to the server
+            2. The ng-disabled directive specifies whether to enable or disable an HTML element based on the value
+            of the expression it's evaluating-->
+            <button type="submit"
+                    class="btn-success form-control"
+                    ng-disabled="regForm.$invalid">
+                Register
+            </button>
+
+        </div>
+
+    </form>
+
+    <!--Handles status messages-->
+    <div class="alert" role="alert" alert-dismissable ng-show="ctrl.status.code"
+         ng-class="{'alert-success': ctrl.status.code == 0, 'alert-danger': ctrl.status.code != 0 }">
+
+        <button class="close" data-dismiss="alert">
+            <!-- data dismiss removes the element. This alert won't show up again before refreshing -->
+            &times;
+        </button>
+
+        <p>Error No: {{ ctrl.status.code + " " + ctrl.status.message }}</p>
+
+    </div>
+</div>
