@@ -1,21 +1,21 @@
 
 // Always use an IIFE, i.e., (function() {})();
 (function () {
-    // Attaches DeptService service to the DMS module
+    // Attaches DataService service to the DMS module
     angular
         .module("DMS")
-        .service("DeptService", DeptService);
+        .service("DataService", DataService);
 
     // Dependency injection. Here we inject $http because we need this built-in service to communicate with the server
     // There are different ways to inject dependencies; $inject is minification safe
-    DeptService.$inject = ['$http'];
+    DataService.$inject = ['$http'];
 
-    // DeptService function declaration
+    // DataService function declaration
     // Accepts the injected dependency as a parameter. We name it $http for consistency, but you may assign any name
-    function DeptService($http) {
+    function DataService($http) {
 
-        // Declares the var service and assigns it the object this (in this case, the DeptService). Any function or
-        // variable that you attach to service will be exposed to callers of DeptService, e.g., search.controller.js
+        // Declares the var service and assigns it the object this (in this case, the DataService). Any function or
+        // variable that you attach to service will be exposed to callers of DataService, e.g., search.controller.js
         // and register.controller.js
         var service = this;
 

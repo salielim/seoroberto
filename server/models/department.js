@@ -4,7 +4,7 @@
 // http://docs.sequelizejs.com/en/latest/docs/getting-started/#your-first-model
 // http://docs.sequelizejs.com/en/latest/docs/models-definition/
 module.exports = function (sequelize, Sequelize) {
-    var Department = sequelize.define("departments",
+    var DepartmentModel = sequelize.define("departments",
         {
             dept_no: {
                 type: Sequelize.STRING,
@@ -13,7 +13,8 @@ module.exports = function (sequelize, Sequelize) {
             },
             dept_name: {
                 type: Sequelize.STRING,
-                allowNull: false
+                allowNull: false,
+                unique: true,
             }
         },
         {
@@ -21,5 +22,5 @@ module.exports = function (sequelize, Sequelize) {
             timestamps: false
          });
 
-    return Department;
+    return DepartmentModel;
 };

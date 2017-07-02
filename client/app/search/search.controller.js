@@ -6,13 +6,13 @@
         .module("DMS")
         .controller("SearchCtrl", SearchCtrl);
 
-    // Dependency injection. An empty [] means RegCtrl does not have dependencies. Here we inject DeptService so
+    // Dependency injection. An empty [] means RegCtrl does not have dependencies. Here we inject DataService so
     // RegCtrl can call services related to department.
     // Dependency injection. An empty [] means SearchCtrl does not have dependencies
-    SearchCtrl.$inject = ['DeptService'];
+    SearchCtrl.$inject = ['DataService'];
 
     // Search function declaration
-    function SearchCtrl(DeptService) {
+    function SearchCtrl(DataService) {
 
         // Declares the var vm (for ViewModel) and assigns it the object this (in this case, the SearchCtrl). Any
         // function or variable that you attach to vm will be exposed to callers of SearchCtrl, e.g., search.html
@@ -34,9 +34,9 @@
         // The init function initializes view
         function init() {
 
-            // We call DeptService.retrieveDept to handle retrieval of department information. The data retrieved from
+            // We call DataService.retrieveDept to handle retrieval of department information. The data retrieved from
             // this function is used to populate search.html.
-            DeptService
+            DataService
                 .retrieveDept()
                 .then(function(results){
                     vm.departments = results.data;

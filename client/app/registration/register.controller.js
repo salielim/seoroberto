@@ -9,15 +9,15 @@
                                             // specified as you can see, angular methods are chainable
 
 
-    // Dependency injection. An empty [] means RegCtrl does not have dependencies. Here we inject DeptService so
+    // Dependency injection. An empty [] means RegCtrl does not have dependencies. Here we inject DataService so
     // RegCtrl can call services related to department.
-    RegCtrl.$inject = ['$window', 'DeptService'];
+    RegCtrl.$inject = ['$window', 'DataService'];
 
 
     // RegCtrl function declaration. A function declaration uses the syntax: functionName([arg [, arg [...]]]){ ... }
-    // RegCtrl accepts the injected dependency as a parameter. We name it DeptService for consistency, but you may
+    // RegCtrl accepts the injected dependency as a parameter. We name it DataService for consistency, but you may
     // assign any name
-    function RegCtrl($window, DeptService) {
+    function RegCtrl($window, DataService) {
 
         // Declares the var vm (for ViewModel) and assigns it the object this (in this case, the RegCtrl)
         // Any function or variable that you attach to vm will be exposed to callers of RegCtrl, e.g., register.html
@@ -53,9 +53,9 @@
             console.log("Department id: " + vm.department.id);
             console.log("Department name: " + vm.department.name);
 
-            // We call DeptService.insertDept to handle registration of department information. The data sent to this
+            // We call DataService.insertDept to handle registration of department information. The data sent to this
             // function will eventually be inserted into the database.
-            DeptService
+            DataService
                 .insertDept(vm.department)
                 .then(function (result) {
                     console.log("result " + JSON.stringify(result));

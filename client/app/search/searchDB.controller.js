@@ -3,9 +3,9 @@
         .module("DMS")
         .controller("SearchDBCtrl", SearchDBCtrl);
 
-    SearchDBCtrl.$inject = ['DeptService'];
+    SearchDBCtrl.$inject = ['DataService'];
 
-    function SearchDBCtrl(DeptService) {
+    function SearchDBCtrl(DataService) {
         var vm = this;
 
         vm.searchString = '';
@@ -25,10 +25,10 @@
         // Function declaration and definition -------------------------------------------------------------------------
         // The init function initializes view
         function init() {
-            // We call DeptService.retrieveDeptDB to handle retrieval of department information. The data retrieved
+            // We call DataService.retrieveDeptDB to handle retrieval of department information. The data retrieved
             // from this function is used to populate search.html. Since we are initializing the view, we want to
             // display all available departments, thus we ask service to retrieve '' (i.e., match all)
-            DeptService
+            DataService
                 .retrieveDeptDB('')
                 .then(function (results) {
                     // The result returned by the DB contains a data object, which in turn contains the records read
@@ -47,7 +47,7 @@
         // matched against the department name and department number alike.
         function search() {
             vm.showManager = false;
-            DeptService
+            DataService
                 // we pass contents of vm.searchString to service so that we can search the DB for this string
                 .retrieveDeptDB(vm.searchString)
                 .then(function (results) {
@@ -67,7 +67,7 @@
         // matched against the department name and department number alike.
         function searchForManager() {
             vm.showManager = true;
-            DeptService
+            DataService
             // we pass contents of vm.searchString to service so that we can search the DB for this string
                 .retrieveDeptManager(vm.searchString)
                 .then(function (results){
