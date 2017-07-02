@@ -1,6 +1,4 @@
 # SEORoberto
-
-## What does SEORoberto do?
 This tool automates the monitoring of each and every webpage on a website. 
 
 With a click of the button, the tool crawls every webpage and saves the title, headings, meta description and other important elements of the webpage in a database. 

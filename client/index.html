@@ -26,17 +26,40 @@
                 <a class="navbar-brand" a href="#product" data-toggle="tab">SEORoberto</a>
             </div>
 
-            <!-- Search -->
+            <!-- Scan -->
             <div class="col-xs-6 col-md-6 search">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for...">
+                    <input ng-model="scanCtrl.domainURL" type="text" class="form-control" placeholder="Enter domain URL">
                     <span class="input-group-btn">
-                        <button class="btn btn-default go" type="button">Go!</button>
+                        <button ng-click="scanCtrl.startScan()" class="btn btn-default go" type="button" a href="#scan" data-toggle="tab">
+                            Go!
+                            <span class="glyphicon glyphicon-scale" aria-hidden="true"></span>
+                        </button>
                     </span>
                 </div>
             </div>
 
-            <!-- Right Menu Tabs -->
+            <!-- Logged in Menu Tabs 
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+                        SEO Scan Tools 
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Compare Scan</a></li>
+                        <li><a href="#">Generate Report</a></li>
+                        <li><a href="#">Schedule Scan</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Account Settings</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#logout" data-toggle="tab">Logout<span class="sr-only">(logout)</span></a>
+                </li>
+            </ul> -->
+
+            <!-- Not Logged in Menu Tabs -->
             <ul class="nav navbar-nav navbar-right">
                 <li class="nav-item active">
                     <a href="#product" data-toggle="tab">Product <span class="sr-only">(product)</span></a>
@@ -54,8 +77,6 @@
                     <a href="#register" data-toggle="tab"><b>Try Now</b><span class="sr-only">(register)</span></a>
                 </li>
             </ul>
-
-        </div>
         </div>
     </nav>
 
@@ -76,11 +97,8 @@
         <div class="tab-pane fade" id="register">
             <ng-include src="'/app/registration/register.html'"></ng-include>
         </div>
-        <div class="tab-pane fade" id="search">
-            <ng-include src="'/app/search/search.html'"></ng-include>
-        </div>
-        <div class="tab-pane fade" id="searchDB">
-            <ng-include src="'/app/search/searchDB.html'"></ng-include>
+        <div class="tab-pane fade" id="scan">
+            <ng-include src="'/app/scan/scan.html'"></ng-include>
         </div>
     </div>
 
@@ -90,16 +108,9 @@
     <script src="bower_components/angular-messages/angular-messages.min.js"></script>
     <script src="bower_components/angular-animate/angular-animate.min.js"></script>
 
-    <!--DMS module-->
     <script src="app/app.js"></script>
-    <!--SearchCtrl controller-->
-    <script src="app/services/department.services.js"></script>
-    <!--RegCtrl controller-->
+    <script src="app/services/data.services.js"></script>
     <script src="app/registration/register.controller.js"></script>
-    <!--SearchCtrl controller-->
-    <script src="app/search/search.controller.js"></script>
-    <!--SearchDBCtrl controller-->
-    <script src="app/search/searchDB.controller.js"></script>
 </body>
 
 </html>
