@@ -48,5 +48,5 @@ var c = new Scanner({
     }
 });
 
-domainName = "https://en.wikipedia.org"
+domainName = "https://www.shopback.ph"
 c.queue(domainName);

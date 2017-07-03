@@ -26,7 +26,7 @@
                 <a class="navbar-brand" a href="#product" data-toggle="tab">SEORoberto</a>
             </div>
 
-            <!-- Scan -->
+            <!-- Scan  --> 
             <div class="col-xs-6 col-md-6 search">
                 <div class="input-group">
                     <input ng-model="scanCtrl.domainURL" type="text" class="form-control" placeholder="Enter domain URL">
@@ -39,7 +39,7 @@
                 </div>
             </div>
 
-            <!-- Logged in Menu Tabs 
+            <!-- Logged in Menu Tabs  -->
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -47,19 +47,19 @@
                         SEO Scan Tools 
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Compare Scan</a></li>
-                        <li><a href="#">Generate Report</a></li>
-                        <li><a href="#">Schedule Scan</a></li>
+                        <li a href="#compare" data-toggle="tab">Compare Scan</li>
+                        <li a href="#report" data-toggle="tab">Generate Report</a></li>
+                        <li a href="#schedule" data-toggle="tab">Schedule Scan</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">Account Settings</a></li>
+                        <li a href="#settings" data-toggle="tab">Account Settings</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
                     <a href="#logout" data-toggle="tab">Logout<span class="sr-only">(logout)</span></a>
                 </li>
-            </ul> -->
+            </ul>
 
-            <!-- Not Logged in Menu Tabs -->
+            <!-- Not Logged in Menu Tabs
             <ul class="nav navbar-nav navbar-right">
                 <li class="nav-item active">
                     <a href="#product" data-toggle="tab">Product <span class="sr-only">(product)</span></a>
@@ -76,7 +76,7 @@
                 <li class="nav-item">
                     <a href="#register" data-toggle="tab"><b>Try Now</b><span class="sr-only">(register)</span></a>
                 </li>
-            </ul>
+            </ul>-->
         </div>
     </nav>
 
@@ -99,6 +99,18 @@
         </div>
         <div class="tab-pane fade" id="scan">
             <ng-include src="'/app/scan/scan.html'"></ng-include>
+        </div>
+        <div class="tab-pane fade" id="compare">
+            <ng-include src="'/app/scan/compare.html'"></ng-include>
+        </div>
+        <div class="tab-pane fade" id="report">
+            <ng-include src="'/app/scan/report.html'"></ng-include>
+        </div>
+        <div class="tab-pane fade" id="schedule">
+            <ng-include src="'/app/scan/schedule.html'"></ng-include>
+        </div>
+        <div class="tab-pane fade" id="settings">
+            <ng-include src="'/app/scan/settings.html'"></ng-include>
         </div>
     </div>
 
