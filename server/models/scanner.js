@@ -11,19 +11,23 @@ var c = new Scanner({
             var url = res.request.uri.href;
             var title = $("title").text();
             var metaDescription = $("meta[name='description']").attr('content');
+            var ogTitle = $("meta[property='og:title']").attr('content');
+            var ogDescription = $("meta[property='og:description']").attr('content');
             var h1 = $("h1").text();
             var h2 = $("h2").text();
 
             console.log("URL: " + url);
             console.log("Title: " + title);
             console.log("Meta Description: " + metaDescription);
+            console.log("OG Title: " + ogTitle);
+            console.log("OG Description: " + ogDescription);
             console.log("H1: " + h1);
             console.log("H2: " + h2);
             console.log("---------");
         }
 
         var httpReg = new RegExp(/http|www/);
-        var symbReg = new RegExp(/#|%|\?|:/);
+        var symbReg = new RegExp(/#|%|\?|:|%/);
         $("a").each(function(index,a) {
             var hrefAttr = $(a).attr('href');
             if (hrefAttr==undefined) {
@@ -36,17 +40,24 @@ var c = new Scanner({
                 // if ahref value is full url (contains http), pop into queue
                 //console.log("full url: " + hrefAttr);
                 var fullUrl = domainName;
-                c.queue(fullUrl);
+                if (!urlArr.includes(fullUrl)) { // if URL is not already in crawl queue
+                    urlArr.push(fullUrl); 
+                    c.queue(fullUrl);
+                }
             } else {
                 // if ahref value is the slug, concatenate with domain address before popping into queue
                 //console.log("slug only: " + domainName + hrefAttr);
                 var fullUrl = domainName + hrefAttr;
-                c.queue(fullUrl);
+                if (!urlArr.includes(fullUrl)) { // if URL is not already in crawl queue
+                    urlArr.push(fullUrl); 
+                    c.queue(fullUrl);
+                }
             }
         });
         done();
     }
 });
 
-domainName = "https://www.shopback.ph"
-c.queue(domainName);
+domainName = "http://www.shopback.ph";
+urlArr = [domainName];
+c.queue(urlArr);
