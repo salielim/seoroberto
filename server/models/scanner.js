@@ -9,6 +9,7 @@ var c = new Scanner({
             var $ = res.$; // $ is Cheerio by default
 
             var url = res.request.uri.href;
+            var metaRobots = $("meta[name='robots']").attr('content');
             var title = $("title").text();
             var metaDescription = $("meta[name='description']").attr('content');
             var ogTitle = $("meta[property='og:title']").attr('content');
@@ -17,6 +18,7 @@ var c = new Scanner({
             var h2 = $("h2").text();
 
             console.log("URL: " + url);
+            console.log("Meta Robots: " + metaRobots);
             console.log("Title: " + title);
             console.log("Meta Description: " + metaDescription);
             console.log("OG Title: " + ogTitle);
