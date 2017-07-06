@@ -60,6 +60,6 @@ var c = new Scanner({
     }
 });
 
-domainName = "http://www.shopback.ph";
+domainName = "https://en.wikipedia.org";
 urlArr = [domainName];
 c.queue(urlArr);

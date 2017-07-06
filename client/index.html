@@ -23,7 +23,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-                <a class="navbar-brand" a href="#product" data-toggle="tab">SEORoberto</a>
+                <a ui-sref="product" class="navbar-brand">SEORoberto</a>
             </div>
 
             <!-- Scan  --> 
@@ -31,7 +31,7 @@
                 <div class="input-group">
                     <input ng-model="scanCtrl.domainURL" type="text" class="form-control" placeholder="Enter domain URL">
                     <span class="input-group-btn">
-                        <button ng-click="scanCtrl.startScan()" class="btn btn-default go" type="button" a href="#scan" data-toggle="tab">
+                        <button ng-click="scanCtrl.startScan()" class="btn btn-default go" type="button" a ui-sref="scan">
                             Go!
                             <span class="glyphicon glyphicon-scale" aria-hidden="true"></span>
                         </button>
@@ -47,82 +47,53 @@
                         SEO Scan Tools 
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li a href="#compare" data-toggle="tab">Compare Scan</li>
-                        <li a href="#report" data-toggle="tab">Generate Report</a></li>
-                        <li a href="#schedule" data-toggle="tab">Schedule Scan</a></li>
+                        <li a ui-sref="compare">Compare Scan<span class="sr-only">(compare scan)</span></li>
+                        <li a ui-sref="report">Generate Report<span class="sr-only">(generate report)</span></a></li>
+                        <li a ui-sref="schedule">Schedule Scan<span class="sr-only">(schedule scan)</span></a></li>
                         <li role="separator" class="divider"></li>
-                        <li a href="#settings" data-toggle="tab">Account Settings</a></li>
+                        <li a ui-sref="settings">Account Settings<span class="sr-only">(account settings)</span></a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="#logout" data-toggle="tab">Logout<span class="sr-only">(logout)</span></a>
+                    <a ui-sref="#">Logout<span class="sr-only">(logout)</span></a>
                 </li>
             </ul>
 
-            <!-- Not Logged in Menu Tabs
+            <!-- Not Logged in Menu Tabs 
             <ul class="nav navbar-nav navbar-right">
                 <li class="nav-item active">
-                    <a href="#product" data-toggle="tab">Product <span class="sr-only">(product)</span></a>
+                    <a ui-sref="product">Product<span class="sr-only">(product)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="#pricing" data-toggle="tab">Pricing<span class="sr-only">(pricing)</span></a>
+                    <a ui-sref="pricing">Pricing<span class="sr-only">(pricing)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="#contact" data-toggle="tab">Contact<span class="sr-only">(contact)</span></a>
+                    <a ui-sref="contact">Contact<span class="sr-only">(contact)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="#login" data-toggle="tab">Login<span class="sr-only">(login)</span></a>
+                    <a ui-sref="login">Login<span class="sr-only">(login)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="#register" data-toggle="tab"><b>Try Now</b><span class="sr-only">(register)</span></a>
+                    <a ui-sref="register"><b>Try Now</b><span class="sr-only">(register)</span></a>
                 </li>
-            </ul>-->
+            </ul> -->
         </div>
     </nav>
 
-    <!-- Tab panes -->
-    <div class="container tab-content">
-        <div class="tab-pane fade in active" id="product">
-            <ng-include src="'/app/product/product.html'"></ng-include>
-        </div>
-        <div class="tab-pane fade" id="pricing">
-            <ng-include src="'/app/pricing/pricing.html'"></ng-include>
-        </div>
-        <div class="tab-pane fade" id="contact">
-            <ng-include src="'/app/contact/contact.html'"></ng-include>
-        </div>
-        <div class="tab-pane fade" id="login">
-            <ng-include src="'/app/login/login.html'"></ng-include>
-        </div>
-        <div class="tab-pane fade" id="register">
-            <ng-include src="'/app/registration/register.html'"></ng-include>
-        </div>
-        <div class="tab-pane fade" id="scan">
-            <ng-include src="'/app/scan/scan.html'"></ng-include>
-        </div>
-        <div class="tab-pane fade" id="compare">
-            <ng-include src="'/app/scan/compare.html'"></ng-include>
-        </div>
-        <div class="tab-pane fade" id="report">
-            <ng-include src="'/app/scan/report.html'"></ng-include>
-        </div>
-        <div class="tab-pane fade" id="schedule">
-            <ng-include src="'/app/scan/schedule.html'"></ng-include>
-        </div>
-        <div class="tab-pane fade" id="settings">
-            <ng-include src="'/app/scan/settings.html'"></ng-include>
-        </div>
-    </div>
+    <div ui-view class="view"></div>
 
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="bower_components/angular/angular.min.js"></script>
-    <script src="bower_components/angular-messages/angular-messages.min.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 
     <script src="app/app.js"></script>
+    <script src="app/config/app.route.js"></script>
+
     <script src="app/services/data.services.js"></script>
-    <script src="app/registration/register.controller.js"></script>
+    <script src="app/register/register.controller.js"></script>
 </body>
 
 </html>
