@@ -7,7 +7,7 @@ module.exports = function(conn, Sequelize) {
             autoIncrement: true
         },
         email: {
-            type: Sequelize.EMAIL,
+            type: Sequelize.STRING,
             allowNull: false
         },
         password: {

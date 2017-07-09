@@ -6,11 +6,6 @@ module.exports = function(conn, Sequelize) {
             primaryKey: true,
             autoIncrement: true
         },
-        user_id: {
-            type: Sequelize.INTEGER(11),
-            allowNull: false,
-            autoIncrement: true
-        },
         date: {
             type: Sequelize.DATE,
             allowNull: false
@@ -19,11 +14,23 @@ module.exports = function(conn, Sequelize) {
             type: Sequelize.STRING,
             allowNull: false
         },
+        meta_robots: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
         title: {
             type: Sequelize.STRING,
             allowNull: false
         },
         meta_desc: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
+        og_title: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
+        og_desc: {
             type: Sequelize.STRING,
             allowNull: false
         },

@@ -20,7 +20,7 @@ var app = express();
 
 // DBs, Models
 var sequelize = new Sequelize(
-    'employees',
+    'data',
     MYSQL_USERNAME,
     MYSQL_PASSWORD,
     {
@@ -35,10 +35,10 @@ var sequelize = new Sequelize(
     }
 );
 
-// DB Tables
-    // var User = require('./models/user')(sequelize, Sequelize);
-    // var Data = require('./models/data')(sequelize, Sequelize);
-    // User.hasMany(Data, {foreignKey: 'user_id'});
+// Models
+var User = require('./models/user')(sequelize, Sequelize);
+var Data = require('./models/data')(sequelize, Sequelize);
+User.hasMany(Data, {foreignKey: 'user_id'});
 
 // Middlewares
 app.use(express.static(CLIENT_FOLDER));
@@ -46,7 +46,7 @@ app.use(bodyParser.json());
 
 
 // ROUTE HANDLERS
-    // ......
+    // ....
 
 // Error Handling
 app.use(function (req, res) {
