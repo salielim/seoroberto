@@ -1,25 +1,25 @@
 (function () {
     angular
         .module("DMS")
-        .controller("RegisterCtrl", ["$sanitize", "$state", "AuthFactory", "Flash", RegisterCtrl]);
+        .controller("RegisterCtrl", ["$state", RegisterCtrl]);
 
-    function RegisterCtrl($sanitize, $state, AuthFactory, Flash){
+    function RegisterCtrl($state, AuthFactory){
         var vm = this;
         vm.email = "";
         vm.password = "";
         vm.confirmPassword = "";
 
         vm.register = function () {
-            AuthFactory.register($sanitize(vm.email), $sanitize(vm.password))
+            AuthFactory.register()
                 .then(function () {
                     vm.disabled = false;
 
                     vm.email = "";
                     vm.password = "";
                     vm.confirmPassword = "";
-                    Flash.clear();
-                    Flash.create('success', "Successfully sign up with us, Please proceed to login", 0, {class: 'custom-class', id: 'custom-id'}, true);
-                    $state.go("SignIn");
+                    // Flash.clear();
+                    // Flash.create('success', "Successfully sign up with us, Please proceed to login", 0, {class: 'custom-class', id: 'custom-id'}, true);
+                    // $state.go("SignIn");
                 }).catch(function () {
                 console.error("registration having issues");
             });
