@@ -1,47 +1,55 @@
 <div class="page-header">
-        <h1>Start your 30-day unlimited free trial </br>
-            <small>No obligation, no credit card required.</small>
-        </h1>
+    <h1>Start your 30-day unlimited free trial </br>
+        <small>No obligation, no credit card required.</small>
+    </h1>
+</div>
+
+<!-- Register form -->
+<form name="registerForm" ng-submit="ctrl.register()" novalidate autocomplete="off">
+
+    <!-- Email -->
+    <div class="form-group input-field col s6" ng-class="{ 'has-error': registerForm.email.$touched && registerForm.email.$invalid }">
+        <input type="email" class="form-control" ng-model="ctrl.email"
+                name="email" placeholder="Email address" required>
+        <div class="help-block"
+                ng-messages="registerForm.email.$error" ng-if="registerForm.email.$touched">
+            <span class="help-inline" ng-message="required">Email Address is mandatory</span>
+            <span class="help-inline" ng-message="email">Email Address is invalid</span>
+        </div>
+    </div>
+    
+    <!-- Password -->
+    <div class="form-group input-field col s6" ng-class="{ 'has-error': registerForm.password.$touched && registerForm.password.$invalid }">
+        <input type="password" class="form-control" ng-model="ctrl.password"
+                name="password" placeholder="Password" 
+                minlength="8" 
+                ng-pattern ="/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/"
+                required>
+        <div class="help-block" 
+            ng-messages="registerForm.password.$error" ng-if="registerForm.password.$touched">
+            <span class="help-inline" ng-message="required">Password is mandatory.</span>
+            <span class="help-inline" ng-message="minlength">Password must be at least 8 characters long.</span>
+            <span class="help-inline" ng-message="pattern">Password must include a number, a special character (@, #, $), and both upper and lower cases.</span>
+        </div>
     </div>
 
-    <form name="registerForm" ng-submit="ctrl.register()" novalidate autocomplete="off">
-            <div class="form-group input-field col s6" ng-class="{ 'has-error': registerForm.email.$touched && registerForm.email.$invalid }">
-                <input type="email" class="form-control" ng-model="ctrl.email"
-                       name="email" placeholder="Email address" required>
-                <div class="help-block"
-                     ng-messages="registerForm.email.$error" ng-if="registerForm.email.$touched">
-                    <span class="help-inline" ng-message="required">Email Address is mandatory</span>
-                    <span class="help-inline" ng-message="email">Email Address is invalid</span>
-                </div>
-            </div>
-            
-            <div class="form-group input-field col s6" ng-class="{ 'has-error': registerForm.password.$touched && registerForm.password.$invalid }">
-                <input type="password" class="form-control" ng-model="ctrl.password"
-                       name="password" placeholder="Password" 
-                       minlength="8" 
-                       ng-pattern ="/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/"
-                       required>
-                <div class="help-block" 
-                    ng-messages="registerForm.password.$error" ng-if="registerForm.password.$touched">
-                    <span class="help-inline" ng-message="required">Password is mandatory.</span>
-                    <span class="help-inline" ng-message="minlength">Password must be at least 8 characters long.</span>
-                    <span class="help-inline" ng-message="pattern">Password must include a number, a special character (@, #, $), and both upper and lower cases.</span>
-                </div>
-            </div>
-            <div class="form-group input-field col s6" ng-class="{ 'has-error': registerForm.confirmPassword.$touched && registerForm.confirmPassword.$invalid }">
-                <input type="password" class="form-control" ng-model="ctrl.confirmPassword"
-                       name="confirmPassword" placeholder="Confirm Password" 
-                       compare-to="ctrl.password" 
-                       minlength="8" 
-                       ng-pattern ="/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/"
-                       required>
-                <div class="help-block" 
-                    ng-messages="registerForm.confirmPassword.$error" ng-if="registerForm.confirmPassword.$touched">
-                    <span class="help-inline" ng-message="required">Confirm Password is mandatory.</span>
-                    <span class="help-inline" ng-message="compareTo">Confirm Passwords do not match</span>
-                    <span class="help-inline" ng-message="minlength">Confirm Password must be at least 8 characters long.</span>
-                    <span class="help-inline" ng-message="pattern">Confirm Password must include a number, a special character (@, #, $), and both upper and lower cases.</span>
-                </div>
-            </div>
-            <button type="submit" ng-disabled="registerForm.$invalid" class="btn btn-lg btn-warning btn-block">SignUp</button>
-        </form>
+    <!-- Confirm Password -->
+    <div class="form-group input-field col s6" ng-class="{ 'has-error': registerForm.confirmPassword.$touched && registerForm.confirmPassword.$invalid }">
+        <input type="password" class="form-control" ng-model="ctrl.confirmPassword"
+                name="confirmPassword" placeholder="Confirm Password" 
+                compare-to="ctrl.password" 
+                minlength="8" 
+                ng-pattern ="/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/"
+                required>
+        <div class="help-block" 
+            ng-messages="registerForm.confirmPassword.$error" ng-if="registerForm.confirmPassword.$touched">
+            <span class="help-inline" ng-message="required">Confirm Password is mandatory.</span>
+            <span class="help-inline" ng-message="compareTo">Confirm Passwords do not match</span>
+            <span class="help-inline" ng-message="minlength">Confirm Password must be at least 8 characters long.</span>
+            <span class="help-inline" ng-message="pattern">Confirm Password must include a number, a special character (@, #, $), and both upper and lower cases.</span>
+        </div>
+    </div>
+
+    <!-- Register Button -->
+    <button type="submit" ng-disabled="registerForm.$invalid" class="btn btn-lg btn-warning btn-block">SignUp</button>
+</form>
