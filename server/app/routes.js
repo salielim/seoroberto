@@ -5,38 +5,38 @@ module.exports = function(app, passport) {
     // });
 
     // Login
-    app.get('/login', function(req, res) {
+    app.get('/api/login', function(req, res) {
         res.render('login.html', { message: req.flash('loginMessage') }); 
     });
 
     // Process Login form
-    app.post('/login', passport.authenticate('local-login', {
+    app.post('/api/login', passport.authenticate('local-login', {
         successRedirect : '/#!/settings', // redirect to the secure settings section
         failureRedirect : '/#!/login', // redirect back to the register page if there is an error
         failureFlash : true // allow flash messages
     }));
 
     // Register
-    app.get('/register', function(req, res) {
+    app.get('/api/register', function(req, res) {
         res.render('register.html', { message: req.flash('registerMessage') });
     });
 
     // Process register form
-   app.post('/register', passport.authenticate('local-register', {
+    app.post('/api/register', passport.authenticate('local-register', {
         successRedirect : '/#!/settings',
         failureRedirect : '/#!/register',
         failureFlash : true
     }));
 
     // Account Settings
-    app.get('/settings', isLoggedIn, function(req, res) {
+    app.get('/api/settings', isLoggedIn, function(req, res) {
         res.render('settings.html', {
             user : req.user // get the user out of session and pass to template
         });
     });
 
     // Logout
-    app.get('/logout', function(req, res) {
+    app.get('/api/logout', function(req, res) {
         req.logout();
         res.redirect('/');
     });

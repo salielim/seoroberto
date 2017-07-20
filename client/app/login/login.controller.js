@@ -14,7 +14,7 @@
             console.log("Email: " + vm.email);
             return $http({
                 method: 'POST',
-                url: '/login',
+                url: '/api/login',
                 data: {
                         email: vm.email,
                         password: vm.password,
