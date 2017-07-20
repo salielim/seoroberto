@@ -15,7 +15,10 @@
             return $http({
                 method: 'POST',
                 url: '/login',
-                data: {user: user}
+                data: {
+                        email: vm.email,
+                        password: vm.password,
+                      }
             });
         };
     }

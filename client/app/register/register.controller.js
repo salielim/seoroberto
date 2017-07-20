@@ -10,12 +10,15 @@
         vm.email = "";
         vm.password = "";
 
-        vm.register = function (user) {
+        vm.register = function (data) {
             console.log("Email: " + vm.email);
             return $http({
                 method: 'POST',
                 url: '/register',
-                data: {user: user}
+                data: {
+                        email: vm.email,
+                        password: vm.password,
+                      }
             });
         };
     }
