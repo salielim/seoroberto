@@ -1,58 +1,44 @@
 // Dependencies
 var express = require("express");
+var app = express();
+
 var path = require("path");
 var bodyParser = require("body-parser");
-var Sequelize = require("sequelize");
 
-var session = require("express-session");
-var watch = require("connect-ensure-login");
-var passport = require("passport");
-var LocalStrategy = require("passport-local").Strategy;
+var mongoose = require('mongoose');
+var passport = require('passport');
+var flash = require('connect-flash');
+var morgan = require('morgan');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+
+// Database
+var configDB = require('./config/database.js');
+mongoose.connect(configDB.url);
 
 // Constants
 const NODE_PORT = process.env.NODE_PORT || 8080;
 
 // Paths
-const CLIENT_FOLDER = path.join(__dirname + '/../client');  // CLIENT FOLDER is the public directory
+const CLIENT_FOLDER = path.join(__dirname + '/../client');
 const MSG_FOLDER = path.join(CLIENT_FOLDER + '/assets/messages');
 
-// MySQL configuration
-const MYSQL_USERNAME = 'root';
-const MYSQL_PASSWORD = 'root';
-
-// Other vars
-var app = express();
-
-// DBs, Models
-var sequelize = new Sequelize(
-    'data',
-    MYSQL_USERNAME,
-    MYSQL_PASSWORD,
-    {
-        host: 'localhost',         // default port    : 3306
-        logging: console.log,
-        dialect: 'mysql',
-        pool: {
-            max: 5,
-            min: 0,
-            idle: 10000
-        }
-    }
-);
-
-// Models
-var User = require('./models/user')(sequelize, Sequelize);
-var Data = require('./models/data')(sequelize, Sequelize);
-User.hasMany(Data, { foreignKey: 'user_id' });
-
 // Middlewares
+require('./config/passport')(passport); 
+
 app.use(express.static(CLIENT_FOLDER));
-app.use(bodyParser.urlencoded({ extended: false }));
-// app.use(bodyParser.json());
+app.use(morgan('dev')); // log every request to the console
+app.use(cookieParser()); // read cookies (needed for auth)
+app.use(bodyParser()); // get information from html forms
 
+// Passport
+app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(flash()); // use connect-flash for flash messages stored in session
 
-// ROUTE HANDLERS
-// ....
+// Routes
+require('./app/routes.js')(app, passport);
 
 // Error Handling
 app.use(function (req, res) {
@@ -63,41 +49,6 @@ app.use(function (req, res) {
 app.use(function (err, req, res, next) {
     res.status(500).sendFile(path.join(MSG_FOLDER + '/500.html'));
 });
-
-// ***Passport
-var authenticate = function (username, password, done) {
-    var valid = password123; //authenticate with credentials, not shown
-    if (valid)
-        return (done(null, username));
-    return (done(null, false));
-}
-
-app.post("/login", passport.authenticate("local", {
-  successRedirect: "/status/202",
-  failureRedirect: "/status/403" }));
-
-passport.use(new LocalStrategy({
-    usernameField: "email",
-    passwordField: "password"
-}, authenticate));
-
-// passport.serializeUser(function(username, done) {
-//     done(null, username);
-// });
-
-// passport.deserializeUser(function(id, done) {
-//     var userObject = ...  //Construct user profile based on id
-//     done(null, userObject);
-// });
-
-app.use(session({
-    secret: "my-secret",
-    resave: false,
-    saveUninitialized: true
-}));
-
-app.use(passport.initialize());
-app.use(passport.session());
 
 // Server & Port Setup
 app.listen(NODE_PORT, function () {
