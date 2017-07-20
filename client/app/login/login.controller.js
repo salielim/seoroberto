@@ -1,20 +1,20 @@
 (function () {
     angular
         .module("DMS")
-        .controller("RegisterCtrl", RegisterCtrl);
+        .controller("LoginCtrl", LoginCtrl);
     
-    RegisterCtrl.$inject = ['$http'];
+    LoginCtrl.$inject = ['$http'];
 
-    function RegisterCtrl($http){
+    function LoginCtrl($http){
         var vm = this;
         vm.email = "";
         vm.password = "";
 
-        vm.register = function (user) {
+        vm.login = function (user) {
             console.log("Email: " + vm.email);
             return $http({
                 method: 'POST',
-                url: '/register',
+                url: '/login',
                 data: {user: user}
             });
         };

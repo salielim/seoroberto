@@ -14,7 +14,7 @@ module.exports = function(passport) {
         });
     });
 
-    // register
+    // Register
     passport.use('local-register', new LocalStrategy({
         usernameField : 'email', // override with email
         passwordField : 'password',

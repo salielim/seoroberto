@@ -4,16 +4,11 @@
     </h1>
 </div>
 
-<form class="form-signin">
+<form action="/#!/login" method="post">
     <label for="inputEmail" class="sr-only">Email address</label>
-    <input name="username" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+    <input name="email" type="email" id="email" class="form-control" placeholder="Email address" required autofocus>
     <label name="password" for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-    <div class="checkbox">
-        <label>
-            <input type="checkbox" value="remember-me"> Remember me
-        </label>
-    </div>
+    <input name="password" type="password" id="password" class="form-control" placeholder="Password" required>
     <button class="btn btn-lg btn-warning btn-block" type="submit">Sign in</button>
 </form>
 </br>
