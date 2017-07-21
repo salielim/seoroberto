@@ -7,6 +7,12 @@
     </div>
 
     <!-- Login form -->
+    <flash-message
+                duration="5000"
+                show-close="true"
+                on-dismiss="myCallback(flash);"
+    ></flash-message>
+
     <form name="loginForm" ng-submit="ctrl.login()" novalidate autocomplete="off">
 
         <!-- Email -->

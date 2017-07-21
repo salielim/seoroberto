@@ -6,6 +6,12 @@
         </h1>
     </div>
 
+    <flash-message
+                duration="5000"
+                show-close="true"
+                on-dismiss="myCallback(flash);"
+    ></flash-message>
+
     <!-- Register form -->
     <form name="registerForm" ng-submit="ctrl.register()" novalidate autocomplete="off">
 

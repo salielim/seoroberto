@@ -14,7 +14,7 @@
             console.log("Email: " + vm.email);
             return $http({
                 method: 'POST',
-                url: '/api/register',
+                url: '/register',
                 data: {
                         email: vm.email,
                         password: vm.password,
