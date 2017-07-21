@@ -20,7 +20,6 @@
     "angular-messages": "^1.6.2",
     "angular-animate": "^1.6.2",
     "angular-ui-router": "^1.0.5",
-    "angular-http-auth": "^1.5.0",
-    "angular-flash-alert": "^2.4.0"
+    "angular-http-auth": "^1.5.0"
   }
 }

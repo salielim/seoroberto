@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="bower_components/angular-flash-alert/dist/angular-flash.min.css">
     <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -56,7 +55,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="/logout">Logout<span class="sr-only">(logout)</span></a>
+                    <a ui-sref="logout">Logout<span class="sr-only">(logout)</span></a>
                 </li>
             </ul>
 
@@ -87,12 +86,11 @@
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-messages/angular-messages.js"></script>
-    <link rel="stylesheet" href="bower_components/angular-flash-alert/dist/angular-flash.min.css">
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 
     <script src="app/app.js"></script>
-    <script src="app/config/route.js"></script>
+    <script src="app/config/routes.js"></script>
 
     <script src="app/services/data.services.js"></script>
     <script src="app/register/register.controller.js"></script>

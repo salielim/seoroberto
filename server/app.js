@@ -7,7 +7,6 @@ var bodyParser = require("body-parser");
 
 var mongoose = require('mongoose');
 var passport = require('passport');
-var flash = require('connect-flash');
 var morgan = require('morgan');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
@@ -35,7 +34,6 @@ app.use(bodyParser()); // get information from html forms
 app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
-app.use(flash()); // use connect-flash for flash messages stored in session
 
 // Routes
 require('./app/routes.js')(app, passport);

@@ -31,7 +31,7 @@ module.exports = function(passport) {
                 return done(err);
 
             if (user) {
-                return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
+                return done(null, false);
             } else {
 
                 // if no user with that email, create the user
@@ -70,15 +70,14 @@ module.exports = function(passport) {
 
             // if no user found, return message
             if (!user)
-                return done(null, false, req.flash('loginMessage', 'No user found.'));
+                return done(null, false);
 
             // if user found but password is wrong
         
             if (!user.validPassword(password)){
                 // console.log('invalid password');
                 // console.log(user);
-                return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.')); 
-                // create loginMessage, save to session as flashdata
+                return done(null, false); 
             }
             // return successful user
             // console.log('hello from local hey');

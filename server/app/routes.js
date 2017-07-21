@@ -43,26 +43,24 @@ module.exports = function(app, passport) {
 
     // Login
     app.get("/login", function(req, res) {
-        res.render("/app/login/login.html", { message: req.flash("loginMessage") }); 
+        res.render("/app/login/login.html"); 
     });
 
     // Process login form
     app.post("/login", passport.authenticate("local-login", {
         successRedirect : "/returnSuccess",
         failureRedirect : "/returnFailed",
-        failureFlash : true
     }));
 
     // Register
     app.get("/register", function(req, res) {
-        res.render("/app/register/register.html", { message: req.flash("registerMessage") });
+        res.render("/app/register/register.html");
     });
 
     // Process register form
     app.post("/register", passport.authenticate("local-register", {
         successRedirect : "/returnSuccess",
         failureRedirect : "/returnFailed",
-        failureFlash : true
     }));
 
     // Account Settings
@@ -74,8 +72,10 @@ module.exports = function(app, passport) {
 
     // Logout
     app.get("/logout", function(req, res) {
+        console.log("start logged out");
         req.logout();
         res.redirect("/");
+        console.log("finish logged out");
     });
 };
 
