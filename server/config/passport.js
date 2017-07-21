@@ -62,7 +62,7 @@ module.exports = function(passport) {
         passReqToCallback : true
     },
     function(req, email, password, done) {
-
+        console.log('hello from local');
         // find a user whose email is the same as the forms email
         User.findOne({ 'local.email' :  email }, function(err, user) {
             if (err)
@@ -73,10 +73,17 @@ module.exports = function(passport) {
                 return done(null, false, req.flash('loginMessage', 'No user found.'));
 
             // if user found but password is wrong
-            if (!user.validPassword(password))
-                return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.')); // create loginMessage, save to session as flashdata
+        
+            if (!user.validPassword(password)){
+                console.log('invalid password');
+                console.log(user);
+                return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.')); 
+                // create loginMessage, save to session as flashdata
 
+
+            }
             // return successful user
+            console.log('hello from local hey');
             return done(null, user);
         });
 
