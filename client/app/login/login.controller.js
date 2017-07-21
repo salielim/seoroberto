@@ -25,8 +25,9 @@
                 if(user.data)
                     $state.go("scan");
                 else {
-                    console.log('failed block entry')
-                    $state.go('login');
+                    // console.log('failed block entry')
+                    // $state.go('login');
+                    vm.msg = "Failed login, please check your email or password.";
                 }
             })
             .catch(function(err){

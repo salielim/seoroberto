@@ -1,16 +1,14 @@
 <div class="container" ng-controller="RegisterCtrl as ctrl">
-    
+
     <div class="page-header">
         <h1>Start your 30-day unlimited free trial </br>
             <small>No obligation, no credit card required.</small>
         </h1>
     </div>
 
-    <flash-message
-                duration="5000"
-                show-close="true"
-                on-dismiss="myCallback(flash);"
-    ></flash-message>
+    <span class="msg-text">
+        {{ctrl.msg}}
+    </span>
 
     <!-- Register form -->
     <form name="registerForm" ng-submit="ctrl.register()" novalidate autocomplete="off">

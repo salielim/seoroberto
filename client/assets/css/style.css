@@ -32,3 +32,8 @@
 .view {
     margin: 80px;
 }
+
+.msg-text {
+    color: #F0AD4E;
+    font-size: 16px;
+}

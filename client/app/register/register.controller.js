@@ -10,6 +10,8 @@
         vm.email = "";
         vm.password = "";
 
+        vm.msg = "";
+
         vm.register = function (data) {
             console.log("Email: " + vm.email);
             return $http({
@@ -25,8 +27,9 @@
                 if(user.data)
                     $state.go("scan");
                 else {
-                    console.log('failed block entry')
-                    $state.go('register');
+                    // console.log('failed registration');
+                    // $state.go('register');
+                    vm.msg = "Failed registration, please check if you already have an account with us.";
                 }
             })
             .catch(function(err){
