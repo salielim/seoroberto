@@ -30,18 +30,20 @@ module.exports = function(app, passport) {
     //     next();
     // });
 
-    // Login
-    app.get("/login", function(req, res) {
-        res.render("/app/login/login.html", { message: req.flash("loginMessage") }); 
-    });
-
+    // Return success or failed
     app.use('/returnSuccess', function(req, res){
         console.log('in returnSuccess');
         res.send("successful");
     });
+
     app.use('/returnFailed', function(req, res){
-        console.log('in Failed');
+        console.log('in returnFailed');
         res.send(null);
+    });
+
+    // Login
+    app.get("/login", function(req, res) {
+        res.render("/app/login/login.html", { message: req.flash("loginMessage") }); 
     });
 
     // Process login form
@@ -58,8 +60,8 @@ module.exports = function(app, passport) {
 
     // Process register form
     app.post("/register", passport.authenticate("local-register", {
-        successRedirect : "/app/protected/scan/scan.html",
-        failureRedirect : "/",
+        successRedirect : "/returnSuccess",
+        failureRedirect : "/returnFailed",
         failureFlash : true
     }));
 

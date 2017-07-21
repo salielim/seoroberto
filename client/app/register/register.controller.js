@@ -3,9 +3,9 @@
         .module("DMS")
         .controller("RegisterCtrl", RegisterCtrl);
     
-    RegisterCtrl.$inject = ['$http'];
+    RegisterCtrl.$inject = ['$http', '$state'];
 
-    function RegisterCtrl($http){
+    function RegisterCtrl($http, $state){
         var vm = this;
         vm.email = "";
         vm.password = "";
@@ -19,6 +19,18 @@
                         email: vm.email,
                         password: vm.password,
                       }
+            })
+            .then(function(user){
+                console.log(user);
+                if(user.data)
+                    $state.go("scan");
+                else {
+                    console.log('failed block entry')
+                    $state.go('register');
+                }
+            })
+            .catch(function(err){
+                console.log(err);
             });
         };
     }

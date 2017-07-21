@@ -20,18 +20,18 @@
                         password: vm.password,
                       }
             })
-                    .then(function(user){
-                        console.log(user);
-                        if(user.data)
-                            $state.go("scan");
-                        else {
-                            console.log('failed block entry')
-                            $state.go('register');
-                        }
-                    })
-                    .catch(function(err){
-                        console.log(err);
-                    });
+            .then(function(user){
+                console.log(user);
+                if(user.data)
+                    $state.go("scan");
+                else {
+                    console.log('failed block entry')
+                    $state.go('login');
+                }
+            })
+            .catch(function(err){
+                console.log(err);
+            });
         };       
     }
 })();

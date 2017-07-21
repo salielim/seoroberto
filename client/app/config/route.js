@@ -51,6 +51,6 @@
             templateUrl: "app/protected/settings/settings.html"
         });
 
-        $urlRouterProvider.otherwise('/register');
+        $urlRouterProvider.otherwise('/login');
     }
 })();
