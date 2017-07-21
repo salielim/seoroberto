@@ -7,6 +7,7 @@
 
     function uiRouteConfig($stateProvider, $urlRouterProvider) {
         $stateProvider
+        // Public
         .state("product", {
             url: "/product",
             templateUrl: "app/static/product.html"
@@ -27,25 +28,27 @@
             url: "/register",
             templateUrl: "app/register/register.html"
         })
+
+        // Protected
         .state("scan", {
             url: "/scan",
-            templateUrl: "app/scan/scan.html"
+            templateUrl: "app/protected/scan/scan.html"
         })
         .state("compare", {
             url: "/compare",
-            templateUrl: "app/compare/compare.html"
+            templateUrl: "app/protected/compare/compare.html"
         })
         .state("report", {
             url: "/report",
-            templateUrl: "app/report/report.html"
+            templateUrl: "app/protected/report/report.html"
         })
         .state("schedule", {
             url: "/schedule",
-            templateUrl: "app/schedule/schedule.html"
+            templateUrl: "app/protected/schedule/schedule.html"
         })
         .state("settings", {
             url: "/settings",
-            templateUrl: "app/settings/settings.html"
+            templateUrl: "app/protected/settings/settings.html"
         });
     }
 })();
