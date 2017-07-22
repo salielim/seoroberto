@@ -27,7 +27,7 @@
             </div>
 
             <!-- Scan  --> 
-            <div class="col-xs-6 col-md-6 search" >
+            <div class="col-xs-6 col-md-6 search" ng-show="currentUser">
                 <div class="input-group">
                     <input ng-model="scanCtrl.domainURL" type="text" class="form-control" placeholder="Enter domain URL">
                     <span class="input-group-btn">
@@ -40,7 +40,7 @@
             </div>
 
             <!-- Logged in Menu Tabs  -->
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right" ng-show="currentUser">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
@@ -60,7 +60,7 @@
             </ul>
 
             <!-- Not Logged in Menu Tabs -->
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right" ng-show="!currentUser">
                 <li class="nav-item active">
                     <a ui-sref="product">Product<span class="sr-only">(product)</span></a>
                 </li>
@@ -71,10 +71,10 @@
                     <a ui-sref="contact">Contact<span class="sr-only">(contact)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a ui-sref="login" ng-show="!currentUser">Login<span class="sr-only">(login)</span></a>
+                    <a ui-sref="login">Login<span class="sr-only">(login)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a ui-sref="register" ng-show="!currentUser"><b>Try Now</b><span class="sr-only">(register)</span></a>
+                    <a ui-sref="register"><b>Try Now</b><span class="sr-only">(register)</span></a>
                 </li>
             </ul> 
         </div>
