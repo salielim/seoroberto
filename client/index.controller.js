@@ -1,50 +1,23 @@
 (function () {
     angular
         .module("DMS")
-        .controller("IndexCtrl", ["$q", "$rootScope", "$state", "$location", "$http", IndexCtrl]);
+        .controller("IndexCtrl", ["$http", "$q", "$rootScope", "$location", IndexCtrl]);
 
-    IndexCtrl.$inject = ["$q", "$rootScope", "$state", "$location", "$http"];
+    IndexCtrl.$inject = ["$http", "$q", "$rootScope", "$location"];
 
-    function IndexCtrl($q, AuthFactory, $rootScope, $state, $location, $http) {
+    function IndexCtrl($http, $q, $rootScope, $location) {
         var vm = this;
 
-        getUserStatus(function(result){
-             vm.isUserLogon = result;
-        });
-
-        function getUserStatus(callback) {
-            $http.get("/status/user")
-                // handle success
-                .then(function (data) {
-                    var authResult = JSON.stringify(data);
-                    if (data["data"] != '') {
-                        user = true;
-                        callback(user);
-                    } else {
-                        user = false;
-                        callback(user);
-                    }
+        vm.logout = function (user) {
+            // send a get request to the server
+            return $http.get("/logout")
+                .then(function (user) {
+                    $rootScope.currentUser = null;
+                    $location.url("/");
+                })
+                .catch(function () {
+                    console.log("Logout error");
                 });
         }
-
-        vm.isUserLogon = isLoggedIn();
-
-        $rootScope.$watch('user', function () {
-            console.log(vm.isUserLogon);
-            console.log($state.$current.url);
-            if ($state.$current.url != "" && !vm.isUserLogon) {
-                $state.go('SignIn');
-            }
-        });
-
-
-        var defer = $q.defer();
-        vm.err = null;
-
-        vm.isActive = function (viewLocation) {
-            //console.log(viewLocation);
-            console.log($location.path());
-            return viewLocation === $location.path();
-        };
     }
 })();

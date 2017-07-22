@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="DMS">
+<html lang="en" ng-app="DMS" ng-controller="IndexCtrl as ctrl">
 
 <head>
     <meta charset="utf-8">
@@ -27,7 +27,7 @@
             </div>
 
             <!-- Scan  --> 
-            <div class="col-xs-6 col-md-6 search">
+            <div class="col-xs-6 col-md-6 search" >
                 <div class="input-group">
                     <input ng-model="scanCtrl.domainURL" type="text" class="form-control" placeholder="Enter domain URL">
                     <span class="input-group-btn">
@@ -55,7 +55,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a ui-sref="logout">Logout<span class="sr-only">(logout)</span></a>
+                    <a ng-click="ctrl.logout()">Logout<span class="sr-only">(logout)</span></a>
                 </li>
             </ul>
 
@@ -71,10 +71,10 @@
                     <a ui-sref="contact">Contact<span class="sr-only">(contact)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a ui-sref="login">Login<span class="sr-only">(login)</span></a>
+                    <a ui-sref="login" ng-show="!currentUser">Login<span class="sr-only">(login)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a ui-sref="register"><b>Try Now</b><span class="sr-only">(register)</span></a>
+                    <a ui-sref="register" ng-show="!currentUser"><b>Try Now</b><span class="sr-only">(register)</span></a>
                 </li>
             </ul> 
         </div>
@@ -92,9 +92,10 @@
     <script src="app/app.js"></script>
     <script src="app/config/routes.js"></script>
 
-    <script src="app/services/data.services.js"></script>
+    <script src="/index.controller.js"></script>
     <script src="app/register/register.controller.js"></script>
     <script src="app/login/login.controller.js"></script>
+
 </body>
 
 </html>

@@ -28,9 +28,9 @@
             url: "/register",
             templateUrl: "app/register/register.html"
         })
-        .state("logout", {
-            url: "/logout",
-        })
+        // .state("logout", {
+        //     url: "/logout",
+        // })
 
         // Protected
         .state("scan", {
