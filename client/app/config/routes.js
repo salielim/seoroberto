@@ -54,6 +54,6 @@
             templateUrl: "app/protected/settings/settings.html"
         });
 
-        $urlRouterProvider.otherwise('/');
+        // $urlRouterProvider.otherwise('/');
     }
 })();

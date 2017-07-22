@@ -41,3 +41,9 @@
 .pointer {
     cursor: pointer;
 }
+
+.drop-menu {
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px;
+}
