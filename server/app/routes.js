@@ -52,4 +52,10 @@ module.exports = function(app, passport) {
         req.logout();
         res.redirect("/#!/login");
     });
+
+    // Loggedin
+    app.get("/loggedin", function(req, res) {
+      res.send(req.isAuthenticated() ? req.user : '0');
+    });
+
 };

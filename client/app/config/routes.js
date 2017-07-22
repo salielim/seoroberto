@@ -42,7 +42,14 @@
             })
             .state("compare", {
                 url: "/compare",
-                templateUrl: "app/protected/compare/compare.html"
+                templateUrl: "app/protected/compare/compare.html",
+                resolve: {
+                    authenticated: function (AuthService) {
+                        console.log("authenticated ?");
+                        //console.log(AuthService.checkLoggedin());
+                        return AuthService.checkLoggedin();
+                    }
+                },
             })
             .state("report", {
                 url: "/report",

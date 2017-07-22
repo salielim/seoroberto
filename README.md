@@ -12,3 +12,9 @@ See [futurama.wikia.com](http://futurama.wikia.com/wiki/Roberto)
 ## More Information
 * ***Product/Service:*** Search Engine Optimisation (SEO) Website Crawler Tool 
 * ***Type:*** Software as a service (SaaS), monthly subscription
+
+## How to get it up and running
+* bower install
+* npm install
+* Requirements: mongoDB
+
