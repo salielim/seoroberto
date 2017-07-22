@@ -55,13 +55,13 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a ng-click="ctrl.logout()">Logout<span class="sr-only">(logout)</span></a>
+                    <a ng-click="ctrl.logout()" class="pointer">Logout<span class="sr-only">(logout)</span></a>
                 </li>
             </ul>
 
             <!-- Not Logged in Menu Tabs -->
             <ul class="nav navbar-nav navbar-right" ng-show="!currentUser">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a ui-sref="product">Product<span class="sr-only">(product)</span></a>
                 </li>
                 <li class="nav-item">
