@@ -43,8 +43,7 @@ module.exports = function(app, passport) {
 
     // Login
     app.get("/login", function(req, res) {
-        res.render("/app/login/login.html"); 
-        $rootScope.currentUser = response;
+        res.render("/app/login/login.html");
     });
 
     // Logged in
@@ -61,7 +60,6 @@ module.exports = function(app, passport) {
     // Register
     app.get("/register", function(req, res) {
         res.render("/app/register/register.html");
-        $rootScope.currentUser = user;
     });
 
     // Process register form
@@ -93,23 +91,4 @@ function isLoggedIn(req, res, next) {
 
     // if user is not authenticated, redirect to home page
     res.redirect("/");
-}
-
-// checkloggedin
-var checkLoggedin = function($q, $timeout, $http, $location, $rootScope) {
-  var deferred = $q.defer();
-
-  $http.get('/loggedin').success(function(user) {
-    $rootScope.errorMessage = null;
-    //User is Authenticated
-    if (user !== '0') {
-      $rootScope.currentUser = user;
-      deferred.resolve();
-    } else { //User is not Authenticated
-      $rootScope.errorMessage = 'You need to log in.';
-      deferred.reject();
-      $location.url('/login');
-    }
-  });
-  return deferred.promise;
 }

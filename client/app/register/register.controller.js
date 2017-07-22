@@ -1,11 +1,11 @@
 (function () {
     angular
         .module("DMS")
-        .controller("RegisterCtrl", RegisterCtrl);
+        .controller("RegisterCtrl", ["$http", "$state", "$rootScope", RegisterCtrl]);
     
-    RegisterCtrl.$inject = ['$http', '$state'];
+    RegisterCtrl.$inject = ["$http", "$state", "$rootScope"];
 
-    function RegisterCtrl($http, $state){
+    function RegisterCtrl($http, $state, $rootScope){
         var vm = this;
         vm.email = "";
         vm.password = "";
@@ -15,8 +15,8 @@
         vm.register = function (data) {
             console.log("Email: " + vm.email);
             return $http({
-                method: 'POST',
-                url: '/register',
+                method: "POST",
+                url: "/register",
                 data: {
                         email: vm.email,
                         password: vm.password,
@@ -24,11 +24,12 @@
             })
             .then(function(user){
                 console.log(user);
-                if(user.data)
+                if(user.data) {
                     $state.go("scan");
-                else {
-                    // console.log('failed registration');
-                    // $state.go('register');
+                    $rootScope.currentUser = user;
+                } else {
+                    // console.log("failed registration");
+                    // $state.go("register");
                     vm.msg = "Failed registration, please check if you already have an account with us.";
                 }
             })
