@@ -35,34 +35,57 @@
             // Protected
             .state("scan", {
                 url: "/scan",
-                templateUrl: "app/protected/scan/scan.html"
-                // resolve: {
-                //     logincheck: checkLoggedin
-                // }
+                templateUrl: "app/protected/scan/scan.html",
+                resolve: {
+                    authenticated: checkLoggedin
+                }
             })
             .state("compare", {
                 url: "/compare",
-                templateUrl: "app/protected/compare/compare.html"
-                // ,resolve: {
-                //     authenticated: function (AuthService) {
-                //         console.log("authenticated start");
-                //         console.log(AuthService.checkLoggedin());
-                //         return AuthService.checkLoggedin();
-                //     }
-                // },
+                templateUrl: "app/protected/compare/compare.html",
+                resolve: {
+                    authenticated: checkLoggedin
+                }
             })
-            .state("report", {  
+            .state("report", {
                 url: "/report",
-                templateUrl: "app/protected/report/report.html"
+                templateUrl: "app/protected/report/report.html",
+                resolve: {
+                    authenticated: checkLoggedin
+                }
             })
             .state("schedule", {
                 url: "/schedule",
-                templateUrl: "app/protected/schedule/schedule.html"
+                templateUrl: "app/protected/schedule/schedule.html",
+                resolve: {
+                    authenticated: checkLoggedin
+                }
             })
             .state("settings", {
                 url: "/settings",
-                templateUrl: "app/protected/settings/settings.html"
+                templateUrl: "app/protected/settings/settings.html",
+                resolve: {
+                    authenticated: checkLoggedin
+                }
             });
-        $urlRouterProvider.otherwise('/');         
+        $urlRouterProvider.otherwise('/');
     }
+
+    var checkLoggedin = function ($q, $timeout, $http, $location, $rootScope) {
+            var deferred = $q.defer();
+
+            $http.get('/loggedin').then(function (user) {
+                $rootScope.errorMessage = null;
+                //User is Authenticated
+                if (user !== '0') {
+                    $rootScope.currentUser = user;
+                    deferred.resolve();
+                } else { //User is not Authenticated
+                    $rootScope.errorMessage = 'You need to log in.';
+                    deferred.reject();
+                    $location.url('/login');
+                }
+            });
+            return deferred.promise;
+        }
 })();

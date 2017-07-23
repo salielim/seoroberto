@@ -41,9 +41,10 @@ module.exports = function(app, passport) {
     });
 
     // Logout
-    app.get("/logout", function(req, res) {
+    app.post("/logout", function(req, res) {
         req.logout();
-        res.redirect("/#!/login");
+        res.send(200);
+        // res.redirect("/#!/login");
     });
 
     // Loggedin
