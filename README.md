@@ -14,7 +14,10 @@ See [futurama.wikia.com](http://futurama.wikia.com/wiki/Roberto)
 * ***Type:*** Software as a service (SaaS), monthly subscription
 
 ## How to get it up and running
-* bower install
-* npm install
-* Requirements: mongoDB
+* `bower install`
+* `npm install`
+* `npm start`
+* requirements: mongoDB
+* modify the url in database.js to connect to mongoDB 
+* start server with node `server/app.js`
 

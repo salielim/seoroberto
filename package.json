@@ -16,7 +16,7 @@
     "passport-local": "^1.0.0",
     "mongoose" : "~3.8.1",  
     "passport" : "~0.1.17",         
-    "passport-local" : "~0.1.6"
+    "passport-local" : "~0.1.6",
     "bcrypt-nodejs" : "latest",
     "morgan": "~1.0.0",
     "cookie-parser": "~1.0.0",
