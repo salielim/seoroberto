@@ -1,12 +1,5 @@
 module.exports = function(app, passport) {
 
-    // Protected
-    // app.get("/protected/", checkLoggedin, function(req, res){
-    //     if(req.user == null){
-    //         res.redirect("/#!/login");
-    //     }
-    // })
-
     // Return success or failed
     app.use('/returnSuccess', function(req, res){
         console.log('in returnSuccess');
@@ -57,5 +50,12 @@ module.exports = function(app, passport) {
     app.get("/loggedin", function(req, res) {
       res.send(req.isAuthenticated() ? req.user : '0');
     });
+
+    // Protected
+    // app.get("/protected/", checkLoggedin, function(req, res){
+    //     if(req.user == null){
+    //         res.redirect("/#!/login");
+    //     }
+    // })
 
 };

@@ -42,16 +42,16 @@
             })
             .state("compare", {
                 url: "/compare",
-                templateUrl: "app/protected/compare/compare.html",
-                resolve: {
-                    authenticated: function (AuthService) {
-                        console.log("authenticated ?");
-                        //console.log(AuthService.checkLoggedin());
-                        return AuthService.checkLoggedin();
-                    }
-                },
+                templateUrl: "app/protected/compare/compare.html"
+                // ,resolve: {
+                //     authenticated: function (AuthService) {
+                //         console.log("authenticated start");
+                //         console.log(AuthService.checkLoggedin());
+                //         return AuthService.checkLoggedin();
+                //     }
+                // },
             })
-            .state("report", {
+            .state("report", {  
                 url: "/report",
                 templateUrl: "app/protected/report/report.html"
             })
@@ -63,6 +63,6 @@
                 url: "/settings",
                 templateUrl: "app/protected/settings/settings.html"
             });
-        // $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/');         
     }
 })();
