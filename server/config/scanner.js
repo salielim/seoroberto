@@ -15,8 +15,8 @@ var c = new Scanner({
             metaDesc = $("meta[name='description']").attr('content');
             ogTitle = $("meta[property='og:title']").attr('content');
             ogDesc = $("meta[property='og:description']").attr('content');
-            h1 = $("h1").text();
-            h2 = $("h2").text();
+            // h1 = $("h1").text();
+            // h2 = $("h2").text();
 
             console.log("URL: " + url);
             console.log("Meta Robots: " + metaRobots);
@@ -24,10 +24,11 @@ var c = new Scanner({
             console.log("Meta Description: " + metaDesc);
             console.log("OG Title: " + ogTitle);
             console.log("OG Description: " + ogDesc);
-            console.log("H1: " + h1);
-            console.log("H2: " + h2);
+            // console.log("H1: " + h1);
+            // console.log("H2: " + h2);
             console.log("---------");
 
+            // Insert title
             var newPage = new Page();
             newPage.scanned.title = "title";
             newPage.save(function (err) {
@@ -70,6 +71,11 @@ var c = new Scanner({
     }
 });
 
-domainName = "https://en.wikipedia.org";
-urlArr = [domainName];
-c.queue(urlArr);
+var domainName = "";
+exports.scan = function(domain) {
+    //domainName = "https://en.wikipedia.org";
+    console.log("im in export scan");
+    urlArr = [domain];
+    domainName = domain;
+    c.queue(urlArr);
+}

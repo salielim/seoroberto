@@ -15,6 +15,8 @@ var session = require('express-session');
 var configDB = require('./config/database.js');
 mongoose.connect(configDB.url);
 
+var scanner = require("./config/scanner.js");
+
 // Constants
 const NODE_PORT = process.env.NODE_PORT || 8080;
 
@@ -38,6 +40,12 @@ app.use(passport.session()); // persistent login sessions
 // Routes
 require('./app/routes.js')(app, passport);
 
+//** */
+app.post("/api/scan", function (req, res) {
+    console.log("hi api scan");
+    scanner.scan(req.body.domain);
+});
+
 // Error Handling
 app.use(function (req, res) {
     res.status(404).sendFile(path.join(MSG_FOLDER + "/404.html"));
@@ -45,6 +53,7 @@ app.use(function (req, res) {
 
 // Error handler: server error
 app.use(function (err, req, res, next) {
+    console.log(err);
     res.status(500).sendFile(path.join(MSG_FOLDER + '/500.html'));
 });
 
