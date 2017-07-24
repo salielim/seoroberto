@@ -15,6 +15,10 @@ var session = require('express-session');
 var configDB = require('./config/database.js');
 mongoose.connect(configDB.url);
 
+// Models
+var Page = require('./app/models/page');
+var User = require('./app/models/user');
+
 var scanner = require("./config/scanner.js");
 
 // Constants
@@ -25,7 +29,7 @@ const CLIENT_FOLDER = path.join(__dirname + '/../client');
 const MSG_FOLDER = path.join(CLIENT_FOLDER + '/assets/messages');
 
 // Middlewares
-require('./config/passport')(passport); 
+require('./config/passport')(passport);
 
 app.use(express.static(CLIENT_FOLDER));
 app.use(morgan('dev')); // log every request to the console
@@ -46,28 +50,16 @@ app.post("/api/scan", function (req, res) {
     scanner.scan(req.body.domain);
 });
 
-app.get("/api/page", function (req, res) {
-    Department
-        .findAll({
-            where: {
-                $or: [
-                    {dept_name: {$like: "%" + req.query.searchString + "%"}},
-                    {dept_no: {$like: "%" + req.query.searchString + "%"}}
-                    // passed via non-URL params
-                ]
-            }
-        })
-        .then(function (departments) {
-            res
-                .status(200)
-                .json(departments);
-        })
-        .catch(function (err) {
-            res
-                .status(500)
-                .json(err);
+app.get("/api/data", function (req, res) {
+    Page.find({ "scanned.url": "https://www.shopback.sg/health-beauty" }, function (err, data) {
+            if (err) 
+                return err;
+            if (data) 
+                //console.log(page);
+                res.send(data);
         });
-});
+    }
+);
 
 // Error Handling
 app.use(function (req, res) {

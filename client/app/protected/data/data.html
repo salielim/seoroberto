@@ -1,14 +1,16 @@
-<div ng-controller="ScanCtrl as scanCtrl">
+<div class="page-header" ng-controller="ScanCtrl as scanCtrl">
+    <h1>Scanned Data</h1>
+</div>
 
-    <div class="page-header" ng-controller="ScanCtrl as scanCtrl">
-        <h1>(domainURL) scanned on (date)</h1>
-        <!-- <select>
-            <option>20 June 2017</option>
-            <option>6 June 2017</option>
-            <option>29 June 2017</option>
-        </select> -->
-    </div>
+    <h2>{{ scanCtrl.domainURL }}</h2>
+    <h3>(date)</h3>
     
+    <!-- <select>
+        <option>20 June 2017</option>
+        <option>6 June 2017</option>
+        <option>29 June 2017</option>
+    </select> -->
+
     <!-- Search 
     <input class="form-control" type="text" size="10" placeholder="Search URL or keyword">
     -->
