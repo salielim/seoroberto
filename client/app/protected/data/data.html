@@ -1,0 +1,67 @@
+<div ng-controller="ScanCtrl as scanCtrl">
+
+    <div class="page-header" ng-controller="ScanCtrl as scanCtrl">
+        <h1>(domainURL) scanned on (date)</h1>
+        <!-- <select>
+            <option>20 June 2017</option>
+            <option>6 June 2017</option>
+            <option>29 June 2017</option>
+        </select> -->
+    </div>
+    
+    <!-- Search 
+    <input class="form-control" type="text" size="10" placeholder="Search URL or keyword">
+    -->
+
+    <!-- Scanned Data Table -->
+    <div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>URL <span class="glyphicon glyphicon-filter" aria-hidden="true"></span></th>
+                    <th>Meta Robots <span class="glyphicon glyphicon-filter" aria-hidden="true"></span></th>
+                    <th>Title <span class="glyphicon glyphicon-filter" aria-hidden="true"></th>
+                    <th>Meta Description <span class="glyphicon glyphicon-filter" aria-hidden="true"></th>
+                    <th>OG Title <span class="glyphicon glyphicon-filter" aria-hidden="true"></th>
+                    <th>OG Description <span class="glyphicon glyphicon-filter" aria-hidden="true"></th>
+                    <th>H1 <span class="glyphicon glyphicon-filter" aria-hidden="true"></th>
+                    <th>H2 <span class="glyphicon glyphicon-filter" aria-hidden="true"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">https://www....</th>
+                    <td>....</td>
+                    <td>....</td>
+                    <td>....</td>
+                    <td>....</td>
+                    <td>....</td>
+                    <td>....</td>
+                    <td>....</td>
+                </tr>
+                <tr>
+                    <th scope="row">https://www....</th>
+                    <td>....</td>
+                    <td>....</td>
+                    <td>....</td>
+                    <td>....</td>
+                    <td>....</td>
+                    <td>....</td>
+                    <td>....</td>
+                </tr>
+                <tr>
+                    <th scope="row">https://www....</th>
+                    <td>....</td>
+                    <td>....</td>
+                    <td>....</td>
+                    <td>....</td>
+                    <td>....</td>
+                    <td>....</td>
+                    <td>....</td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="btn btn-warning" type="submit">Export as CSV</button>
+        <button class="btn btn-warning" type="submit" a ui-sref="report">Generate Report</button>
+    </div>
+</div>

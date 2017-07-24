@@ -40,6 +40,13 @@
                     authenticated: checkLoggedin
                 }
             })
+            .state("data", {
+                url: "/data",
+                templateUrl: "app/protected/data/data.html",
+                resolve: {
+                    authenticated: checkLoggedin
+                }
+            })
             .state("compare", {
                 url: "/compare",
                 templateUrl: "app/protected/compare/compare.html",

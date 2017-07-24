@@ -23,7 +23,7 @@
             .then(function(user){
                 console.log(user);
                 if(user.data) {
-                    $state.go("scan");
+                    $state.go("data");
                     $rootScope.currentUser = user;
                 } else {
                     // console.log("failed block entry")

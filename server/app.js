@@ -40,10 +40,33 @@ app.use(passport.session()); // persistent login sessions
 // Routes
 require('./app/routes.js')(app, passport);
 
-//** */
+// **APIs
 app.post("/api/scan", function (req, res) {
     console.log("hi api scan");
     scanner.scan(req.body.domain);
+});
+
+app.get("/api/page", function (req, res) {
+    Department
+        .findAll({
+            where: {
+                $or: [
+                    {dept_name: {$like: "%" + req.query.searchString + "%"}},
+                    {dept_no: {$like: "%" + req.query.searchString + "%"}}
+                    // passed via non-URL params
+                ]
+            }
+        })
+        .then(function (departments) {
+            res
+                .status(200)
+                .json(departments);
+        })
+        .catch(function (err) {
+            res
+                .status(500)
+                .json(err);
+        });
 });
 
 // Error Handling
