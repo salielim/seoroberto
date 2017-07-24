@@ -45,21 +45,35 @@ app.use(passport.session()); // persistent login sessions
 require('./app/routes.js')(app, passport);
 
 // **APIs
+// Scan
 app.post("/api/scan", function (req, res) {
     console.log("hi api scan");
     scanner.scan(req.body.domain);
 });
 
+// Retrieve All
 app.get("/api/data", function (req, res) {
-    Page.find({ "scanned.url": "https://www.shopback.sg/health-beauty" }, function (err, data) {
+    Page.find({}, function (err, data) {
             if (err) 
                 return err;
             if (data) 
-                //console.log(page);
+                console.log(data);
                 res.send(data);
         });
     }
 );
+
+// Find via URL
+// app.get("/api/data", function (req, res) {
+//     Page.find({ "scanned.url": "https://www.shopback.sg/health-beauty" }, function (err, data) {
+//             if (err) 
+//                 return err;
+//             if (data) 
+//                 console.log(data);
+//                 res.send(data);
+//         });
+//     }
+// );
 
 // Error Handling
 app.use(function (req, res) {
