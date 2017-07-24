@@ -28,13 +28,19 @@ var c = new Scanner({
             // console.log("H2: " + h2);
             console.log("---------");
 
-            // Insert title
+            // Insert page data into DB
             var newPage = new Page();
-            newPage.scanned.title = "title";
+            newPage.scanned.url = url;
+            newPage.scanned.meta_robots = metaRobots;
+            newPage.scanned.title = title;
+            newPage.scanned.meta_desc = metaDesc;
+            newPage.scanned.og_title = ogTitle;
+            newPage.scanned.og_desc = ogDesc;
+
             newPage.save(function (err) {
                 if (err)
                     throw err;
-                    console.log("error");
+                    // console.log("error");
                 return done(null, newPage);
             });
         }
