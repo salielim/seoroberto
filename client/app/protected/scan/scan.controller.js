@@ -12,13 +12,6 @@
         var vm = this;
 
         vm.domainURL = "";
-        
-        // vm.date = "";
-        // vm.url = "";
-        // vm.title = "";
-        // vm.metaDescription = "";
-        // vm.h1 = "";
-        // vm.h2 = "";
 
         vm.startScan = startScan;
 
