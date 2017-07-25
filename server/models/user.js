@@ -9,6 +9,8 @@ var userSchema = mongoose.Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Page' 
         } // userforeign key
+    }, {
+    timestamps: { createdAt: 'created_at' }
 });
 
 // generating hash

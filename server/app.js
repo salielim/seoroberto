@@ -44,7 +44,8 @@ app.use(passport.session()); // persistent login sessions
 // Routes
 require('./config/user.routes.js')(app, passport);
 
-// **APIs
+// *** APIs - move & export this into API folder later
+// For complete list of API Endpoints, refer to image in readme.md 
 // Scan
 app.post("/api/scan", function (req, res) {
     console.log("hi api scan");

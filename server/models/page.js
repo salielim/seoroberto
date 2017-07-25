@@ -13,6 +13,8 @@ var pageSchema = mongoose.Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref: 'User' 
         } // userforeign key
+}, {
+    timestamps: true
 });
 
 // create model for pages
