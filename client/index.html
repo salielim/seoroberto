@@ -32,15 +32,17 @@
 
             <!-- Scan  --> 
             <div class="col-xs-6 col-md-6 search" ng-show="currentUser"  ng-controller="ScanCtrl as scanCtrl">
-                <div class="input-group">
-                    <input ng-model="scanCtrl.domainURL" type="text" class="form-control" placeholder="Enter domain URL">
-                    <span class="input-group-btn">
-                        <button ng-click="scanCtrl.startScan()" class="btn btn-default go" type="button" a ui-sref="scan">
-                            Go!
-                            <span class="glyphicon glyphicon-scale" aria-hidden="true"></span>
-                        </button>
-                    </span>
-                </div>
+                <form name="scanForm" novalidate ng-submit="uploadCtrl.upload()" autocomplete="off">
+                    <div class="input-group">
+                        <input ng-model="scanCtrl.domainURL" type="text" class="form-control" placeholder="Enter domain URL" required>
+                        <span class="input-group-btn">
+                            <button ng-click="scanCtrl.startScan()" class="btn btn-default go" type="button" a ui-sref="data" ng-disabled="scanForm.$invalid">
+                                Go!
+                                <span class="glyphicon glyphicon-scale" aria-hidden="true"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
             </div>
 
             <!-- Logged in Menu Tabs  -->
