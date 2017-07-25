@@ -7,7 +7,6 @@ module.exports = function(app) {
 
     // Scan
     app.post("/api/scan", function (req, res) {
-        console.log("hi api scan");
         scanner.scan(req.body.domain);
     });
 

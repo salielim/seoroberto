@@ -153,8 +153,8 @@
                     },
                     'content': {
                         templateUrl: "app/protected/settings/settings.html",
-                        // controller: "SettingsCtrl",
-                        // controllerAs: "settingCtrl"
+                        controller: "SettingsCtrl",
+                        controllerAs: "settingCtrl"
                     }
                 }
             });

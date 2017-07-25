@@ -1,3 +1,6 @@
+var Page = require('../app/models/page');
+var User = require('../app/models/user');
+
 module.exports = function(app, passport) {
 
     // For complete list of API Endpoints, refer to image in readme.md 
@@ -35,9 +38,9 @@ module.exports = function(app, passport) {
         failureRedirect : "/returnFailed",
     }));
 
-    // Account Settings
-    app.get("/settings", function(req, res) {
-        res.render("/app/protected/settings/settings.html", {
+    // Profile & Settings
+    app.get('/settings', function(req, res) {
+        res.render('/app/protected/settings/settings.html', {
             user : req.user // get the user out of session and pass to template
         });
     });
