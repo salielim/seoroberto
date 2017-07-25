@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 var pageSchema = mongoose.Schema({
     // auto-incrementing ID is added by mongoDB automatically
-    date: Date, // added with newDate(), mongoose inbuilt timestamp doesn't work, neither does the plugin
+    date: { type: Date, default: Date.now }, // mongoose inbuilt timestamp doesn't work, neither does the plugin
     url: String,
     meta_robots: String,
     title: String,

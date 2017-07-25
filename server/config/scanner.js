@@ -26,24 +26,8 @@ var c = new Scanner({
             // console.log("H2: " + h2);
             console.log("---------");
 
-            // Add Today's Date
-            var today = new Date();
-            var dd = today.getDate();
-            var mm = today.getMonth() + 1;
-
-            var yyyy = today.getFullYear();
-            if (dd < 10) {
-                dd = '0' + dd;
-            }
-            if (mm < 10) {
-                mm = '0' + mm;
-            }
-            // var today = dd + '/' + mm + '/' + yyyy;
-            var today = yyyy-mm-dd;
-
             // Insert page data into DB
             var newPage = new Page();
-            newPage.date = today;
             newPage.url = url;
             newPage.meta_robots = metaRobots;
             newPage.title = title;
