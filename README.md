@@ -1,5 +1,5 @@
 ## API Endpoints (assessment 3)
-![Image of API Endpoints](http://i.imgur.com/s1BEhTs.png)
+![Image of API Endpoints](http://i.imgur.com/WGdqJ0B.png)
 
 ## How to get it up and running
 * `bower install`
