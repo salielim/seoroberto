@@ -2,19 +2,14 @@ var mongoose = require('mongoose');
 
 var pageSchema = mongoose.Schema({
     // auto-incrementing ID is added by mongoDB automatically
-    date: String,
+    date: String, // added with newDate(), mongoose inbuilt timestamp doesn't work, neither does the plugin
     url: String,
     meta_robots: String,
     title: String,
     meta_desc: String,
     og_title: String,
-    og_desc: String
-    , _user: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'User' 
-        } // userforeign key
-}, {
-    timestamps: true
+    og_desc: String,
+    user_id: String, // foreign key
 });
 
 // create model for pages

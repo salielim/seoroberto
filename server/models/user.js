@@ -4,13 +4,8 @@ var bcrypt = require('bcrypt-nodejs');
 var userSchema = mongoose.Schema({
     // auto-incrementing ID is added by mongoDB automatically
     email: String,
-    password: String
-    , _page: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Page' 
-        } // userforeign key
-    }, {
-    timestamps: { createdAt: 'created_at' }
+    password: String,
+    date: Date
 });
 
 // generating hash
