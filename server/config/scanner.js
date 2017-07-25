@@ -15,8 +15,6 @@ var c = new Scanner({
             metaDesc = $("meta[name='description']").attr('content');
             ogTitle = $("meta[property='og:title']").attr('content');
             ogDesc = $("meta[property='og:description']").attr('content');
-            // h1 = $("h1").text();
-            // h2 = $("h2").text();
 
             console.log("URL: " + url);
             console.log("Meta Robots: " + metaRobots);
@@ -30,12 +28,12 @@ var c = new Scanner({
 
             // Insert page data into DB
             var newPage = new Page();
-            newPage.scanned.url = url;
-            newPage.scanned.meta_robots = metaRobots;
-            newPage.scanned.title = title;
-            newPage.scanned.meta_desc = metaDesc;
-            newPage.scanned.og_title = ogTitle;
-            newPage.scanned.og_desc = ogDesc;
+            newPage.url = url;
+            newPage.meta_robots = metaRobots;
+            newPage.title = title;
+            newPage.meta_desc = metaDesc;
+            newPage.og_title = ogTitle;
+            newPage.og_desc = ogDesc;
 
             newPage.save(function (err) {
                 if (err)

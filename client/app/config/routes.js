@@ -49,7 +49,9 @@
                 templateUrl: "app/protected/data/data.html",
                 resolve: {
                     authenticated: checkLoggedin
-                }
+                },
+                controller: 'DataCtrl',
+                controllerAs: "dataCtrl"
             })
             .state("compare", {
                 url: "/compare",

@@ -13,13 +13,6 @@
 
         vm.domainURL = "";
 
-        // vm.date = "";
-        // vm.url = "";
-        // vm.title = "";
-        // vm.metaDescription = "";
-        // vm.h1 = "";
-        // vm.h2 = "";
-
         vm.retrieveAll = retrieveAll;
         vm.result = [];
 
