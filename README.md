@@ -1,16 +1,5 @@
 ## API Endpoints (assessment 3)
-**`server/config/routes.js`**
-
-* **/login** (GET & POST): check if user exists and login
-* **/register** (GET & POST): check if email is already registered, login if it isn't
-* **/settings** (GET): retrieve user info
-* **/logout** (POST): log user out
-* **/loggedin** (GET): check if user is logged in
-
-**`server/api/data.js`**
-
-* **api/scan**: starts scanner when URL is input and button is clicked
-* **api/data**: retrieves scanned data from database
+![Image of API Endpoints](http://i.imgur.com/s1BEhTs.png)
 
 ## How to get it up and running
 * `bower install`
