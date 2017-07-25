@@ -2,10 +2,9 @@ var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
 
 var userSchema = mongoose.Schema({
-    local: {
-        email: String,
-        password: String,
-    }
+    // auto-incrementing ID is added by mongoDB automatically
+    email: String,
+    password: String,
 });
 
 // generating hash
@@ -15,7 +14,7 @@ userSchema.methods.generateHash = function (password) {
 
 // check if password valid
 userSchema.methods.validPassword = function (password) {
-    return bcrypt.compareSync(password, this.local.password);
+    return bcrypt.compareSync(password, this.password);
 };
 
 // create model for users

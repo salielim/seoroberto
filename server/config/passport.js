@@ -26,7 +26,7 @@ module.exports = function(passport) {
         process.nextTick(function() {
 
         // find a user whose email is the same as the forms email
-        User.findOne({ 'local.email' :  email }, function(err, user) {
+        User.findOne({ 'email' :  email }, function(err, user) {
             if (err)
                 return done(err);
 
@@ -38,8 +38,8 @@ module.exports = function(passport) {
                 var newUser = new User();
 
                 // set user's local credentials
-                newUser.local.email    = email;
-                newUser.local.password = newUser.generateHash(password);
+                newUser.email    = email;
+                newUser.password = newUser.generateHash(password);
 
                 // save the user
                 newUser.save(function(err) {
@@ -64,7 +64,7 @@ module.exports = function(passport) {
     function(req, email, password, done) {
         // console.log('hello from local');
         // find a user whose email is the same as the forms email
-        User.findOne({ 'local.email' :  email }, function(err, user) {
+        User.findOne({ 'email' :  email }, function(err, user) {
             if (err)
                 return done(err);
 
