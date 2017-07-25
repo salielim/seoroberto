@@ -65,7 +65,9 @@ var c = new Scanner({
                 // if ahref value is the slug, concatenate with domain address before popping into queue
                 //console.log("slug only: " + domainName + hrefAttr);
                 var fullUrl = domainName + hrefAttr;
-                if (!urlArr.includes(fullUrl)) { // if URL is not already in crawl queue
+                if (!urlArr.includes(fullUrl) && urlArr.length < 8) {
+                    // stop at 8 crawled URLs 
+                    // if URL is not already in crawl queue
                     urlArr.push(fullUrl);
                     c.queue(fullUrl);
                 }
