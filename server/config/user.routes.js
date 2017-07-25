@@ -1,5 +1,7 @@
 module.exports = function(app, passport) {
 
+    // For complete list of API Endpoints, refer to image in readme.md 
+
     // Return success or failed
     app.use('/returnSuccess', function(req, res){
         console.log('in returnSuccess');

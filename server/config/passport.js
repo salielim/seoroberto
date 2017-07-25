@@ -2,6 +2,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var User = require('../app/models/user');
 
 module.exports = function(passport) {
+    
     // passport serialize & unserialize users out of session, required for persistent login sessions
 
     passport.serializeUser(function(user, done) {

@@ -3,6 +3,8 @@ var User = require('../app/models/user');
 
 module.exports = function(app) {
 
+    // For complete list of API Endpoints, refer to image in readme.md 
+
     // Scan
     app.post("/api/scan", function (req, res) {
         console.log("hi api scan");
