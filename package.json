@@ -19,7 +19,6 @@
     "mongoose": "~4.0.0",
     "morgan": "~1.0.0",
     "passport": "~0.1.17",
-    "passport-local": "~0.1.6",
-    "timestamp": "0.0.1"
+    "passport-local": "~0.1.6"
   }
 }
