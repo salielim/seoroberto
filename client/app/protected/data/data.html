@@ -1,28 +1,31 @@
-<div class="page-header" ng-controller="ScanCtrl as scanCtrl">
+<div class="page-header">
     <h1>Scanned Data</h1>
 </div>
+<button ng-controller="DataCtrl as dataCtrl" type="button" class="btn btn-success" ng-click="dataCtrl.retrieveAll()">Retrieve Products</button>
 
-    <h2>{{ scanCtrl.domainURL }}</h2>
-    <h3>(date)</h3>
-    
-    <!-- <select>
+
+<h2>{{ dataCtrl.data[0].scanned.title }}</h2>
+<!-- <h2>{{ scanCtrl.domainURL }}</h2> -->
+<h3>(date)</h3>
+
+<!-- <select>
         <option>20 June 2017</option>
         <option>6 June 2017</option>
         <option>29 June 2017</option>
     </select> -->
 
-    <!-- Search 
+<!-- Search 
     <input class="form-control" type="text" size="10" placeholder="Search URL or keyword">
     -->
 
-    <!-- Scanned Data Table -->
-    <div>
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>URL <span class="glyphicon glyphicon-filter" aria-hidden="true"></span></th>
-                    <th>Meta Robots <span class="glyphicon glyphicon-filter" aria-hidden="true"></span></th>
-                    <th>Title <span class="glyphicon glyphicon-filter" aria-hidden="true"></th>
+<!-- Scanned Data Table -->
+<div>
+    <table class="table table-hover">
+        <thead>
+            <tr ng-repeat="x in dataCtrl.result">
+                <th>URL <span class="glyphicon glyphicon-filter" aria-hidden="true"></span></th>
+                <th>Meta Robots <span class="glyphicon glyphicon-filter" aria-hidden="true"></span></th>
+                <th>Title <span class="glyphicon glyphicon-filter" aria-hidden="true"></th>
                     <th>Meta Description <span class="glyphicon glyphicon-filter" aria-hidden="true"></th>
                     <th>OG Title <span class="glyphicon glyphicon-filter" aria-hidden="true"></th>
                     <th>OG Description <span class="glyphicon glyphicon-filter" aria-hidden="true"></th>
@@ -32,8 +35,8 @@
             </thead>
             <tbody>
                 <tr>
-                    <th scope="row">https://www....</th>
-                    <td>....</td>
+                    <th>{{ x.scanned.url }}</th>
+                    <td>{{ x.scanned.title }}</td>
                     <td>....</td>
                     <td>....</td>
                     <td>....</td>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="DMS" ng-controller="ScanCtrl as scanCtrl">
+<html lang="en" ng-app="DMS">
 
 <head>
     <meta charset="utf-8">
@@ -31,7 +31,7 @@
             </div>
 
             <!-- Scan  --> 
-            <div class="col-xs-6 col-md-6 search" ng-show="currentUser">
+            <div class="col-xs-6 col-md-6 search" ng-show="currentUser"  ng-controller="ScanCtrl as scanCtrl">
                 <div class="input-group">
                     <input ng-model="scanCtrl.domainURL" type="text" class="form-control" placeholder="Enter domain URL">
                     <span class="input-group-btn">
@@ -101,7 +101,10 @@
     <script src="app/register/register.controller.js"></script>
     <script src="app/login/login.controller.js"></script>
     <script src="app/protected/scan/scan.controller.js"></script>
+    <script src="app/protected/data/data.controller.js"></script>
+    
     <script src="app/services/auth.services.js"></script>
+    <script src="app/services/data.services.js"></script>
 
 
 </body>

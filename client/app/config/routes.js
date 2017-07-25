@@ -8,6 +8,10 @@
     function uiRouteConfig($stateProvider, $urlRouterProvider) {
         $stateProvider
             // Public
+            .state("index", {
+                url: "/index",
+                templateUrl: "app/index.html"
+            })
             .state("product", {
                 url: "/product",
                 templateUrl: "app/static/product.html"
@@ -75,22 +79,22 @@
                     authenticated: checkLoggedin
                 }
             });
-        $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise("/");
     }
 
     var checkLoggedin = function ($q, $timeout, $http, $location, $rootScope) {
             var deferred = $q.defer();
 
-            $http.get('/loggedin').then(function (user) {
+            $http.get("/loggedin").then(function (user) {
                 $rootScope.errorMessage = null;
                 //User is Authenticated
-                if (user !== '0') {
+                if (user !== "0") {
                     $rootScope.currentUser = user;
                     deferred.resolve();
                 } else { //User is not Authenticated
-                    $rootScope.errorMessage = 'You need to log in.';
+                    $rootScope.errorMessage = "You need to log in.";
                     deferred.reject();
-                    $location.url('/login');
+                    $location.url("/login");
                 }
             });
             return deferred.promise;
