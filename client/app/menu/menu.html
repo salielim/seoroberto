@@ -1,0 +1,75 @@
+<!-- Navigation Bar -->
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a ui-sref="product" class="navbar-brand brand-text">    
+                    <img src="assets/images/roberto.png" class="logo-img">
+                    SEORoberto
+                </a>
+        </div>
+
+        <!-- Scan  -->
+        <div class="col-xs-6 col-md-6 search" ng-show="currentUser" ng-controller="ScanCtrl as scanCtrl">
+            <form name="scanForm" novalidate ng-submit="uploadCtrl.upload()" autocomplete="off">
+                <div class="input-group">
+                    <input ng-model="scanCtrl.domainURL" type="text" class="form-control" placeholder="Enter domain URL" required>
+                    <span class="input-group-btn">
+                            <button ng-click="scanCtrl.startScan()" class="btn btn-default go" type="button" a ui-sref="data" ng-disabled="scanForm.$invalid">
+                                Go!
+                                <span class="glyphicon glyphicon-scale" aria-hidden="true"></span>
+                    </button>
+                    </span>
+                </div>
+            </form>
+        </div>
+
+        <!-- Logged in Menu Tabs  -->
+        <ul class="nav navbar-nav navbar-right" ng-show="currentUser">
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+                        SEO Scan Tools 
+                        <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li a ui-sref="data" class="drop-menu">Scanned Data<span class="sr-only">(scanned scan)</span></li>
+                    <li a ui-sref="compare" class="drop-menu">Compare Scan<span class="sr-only">(compare scan)</span></li>
+                    <li a ui-sref="report" class="drop-menu">Generate Report<span class="sr-only">(generate report)</span></a>
+                    </li>
+                    <li a ui-sref="schedule" class="drop-menu">Schedule Scan<span class="sr-only">(schedule scan)</span></a>
+                    </li>
+                    <li role="separator" class="drop-menu"></li>
+                    <li a ui-sref="settings" class="drop-menu">Account Settings<span class="sr-only">(account settings)</span></a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a ng-controller="IndexCtrl as indexCtrl" ng-click="indexCtrl.logout()" class="pointer">Logout<span class="sr-only">(logout)</span></a>
+            </li>
+        </ul>
+
+        <!-- Not Logged in Menu Tabs -->
+        <ul class="nav navbar-nav navbar-right" ng-show="!currentUser">
+            <li class="nav-item">
+                <a ui-sref="product">Product<span class="sr-only">(product)</span></a>
+            </li>
+            <li class="nav-item">
+                <a ui-sref="pricing">Pricing<span class="sr-only">(pricing)</span></a>
+            </li>
+            <li class="nav-item">
+                <a ui-sref="contact">Contact<span class="sr-only">(contact)</span></a>
+            </li>
+            <li class="nav-item">
+                <a ui-sref="login">Login<span class="sr-only">(login)</span></a>
+            </li>
+            <li class="nav-item">
+                <a ui-sref="register"><b>Try Now</b><span class="sr-only">(register)</span></a>
+            </li>
+        </ul>
+    </div>
+</nav>
