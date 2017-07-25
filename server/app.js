@@ -16,8 +16,8 @@ var configDB = require('./config/database.js');
 mongoose.connect(configDB.url);
 
 // Models
-var Page = require('./app/models/page');
-var User = require('./app/models/user');
+var Page = require('./models/page');
+var User = require('./models/user');
 
 var scanner = require("./config/scanner.js");
 

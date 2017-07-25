@@ -1,5 +1,5 @@
-var Page = require('../app/models/page');
-var User = require('../app/models/user');
+var Page = require('../models/page');
+var User = require('../models/user');
 
 module.exports = function(app) {
 

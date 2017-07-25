@@ -1,4 +1,4 @@
-var Page = require('../app/models/page');
+var Page = require('../models/page');
 var Scanner = require("crawler");
 
 var c = new Scanner({
