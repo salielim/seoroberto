@@ -12,7 +12,7 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 
 // Fix bson bug
-bson = require('./node_modules/mongoose/node_modules/bson/browser_build/bson.js');
+// bson = require('./node_modules/mongoose/node_modules/bson/browser_build/bson.js');
 
 // Database
 var configDB = require('./config/database.js');
