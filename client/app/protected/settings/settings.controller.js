@@ -7,21 +7,23 @@
 
         function SettingsCtrl($http){
             var vm = this;
+            vm.user = [];
+            
+            userDetails();
 
-            settings();
-
-            function settings (user) {
-                console.log("Finding Email of user...");
+            function userDetails() {
+                console.log("in userDetails");
+            }
                 return $http({
-                    method: "GET",
-                    url: "/settings"
-                })
-                .then(function(user){
-                    console.log(user);
-                })
-                .catch(function(err){
-                    console.log(err);
-                });
-            };       
+                    method: "GET"
+                    , url: "/settings"
+            })
+            .then(function(results){
+                vm.user = results.data;
+                console.log("data:  " + results.data);
+            })
+            .catch(function(err){
+                console.log("error " + err);
+            });  
         }
 })();
