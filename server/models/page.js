@@ -11,6 +11,7 @@ var pageSchema = mongoose.Schema({
     og_title: String,
     og_desc: String,
     user_id: String, // foreign key
+    
 });
 
 // create model for pages

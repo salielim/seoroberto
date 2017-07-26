@@ -62,7 +62,7 @@ app.get("/api/data", function (req, res) {
             if (err) 
                 return err;
             if (data) 
-                console.log(data);
+                //console.log(data);
                 res.send(data);
         });
     }

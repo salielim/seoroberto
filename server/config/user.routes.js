@@ -8,7 +8,7 @@ module.exports = function(app, passport) {
     // Return success or failed
     app.use("/returnSuccess", function(req, res){
         console.log("in returnSuccess");
-        res.send("successful");
+        res.send("successful"); // in lieu of using res.status(200)
     });
 
     app.use("/returnFailed", function(req, res){
@@ -18,18 +18,18 @@ module.exports = function(app, passport) {
 
     // Login
     app.get("/login", function(req, res) {
-        res.render("/app/login/login.html");
+        res.status(200);
     });
 
     // Process login form
     app.post("/login", passport.authenticate("local-login", {
-        successRedirect : "/returnSuccess",
+        successRedirect : "/returnSuccess", 
         failureRedirect : "/returnFailed",
     }));
 
     // Register
     app.get("/register", function(req, res) {
-        res.render("/app/register/register.html");
+        res.status(200);
     });
 
     // Process register form
@@ -40,10 +40,8 @@ module.exports = function(app, passport) {
 
     // Profile & Settings
     app.get("/settings", function(req, res) {
-        //res.render("/app/protected/settings/settings.html", {
-            user : req.user // get the user out of session and pass to template
+            var user = req.user; // get the user out of session and pass to template
             console.log(req.user);
-        //});
     });
 
     // Logout
