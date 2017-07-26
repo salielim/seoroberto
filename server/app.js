@@ -13,7 +13,8 @@ var session = require('express-session');
 
 // Database
 var configDB = require('./config/database.js');
-mongoose.connect(configDB.url);
+mongoose.connect(process.env.MONGOLAB_URI || configDB.url);
+// mongoose.connect(configDB.url);
 
 // Models
 var Page = require('./models/page');
