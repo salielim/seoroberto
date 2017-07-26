@@ -5,7 +5,8 @@ var userSchema = mongoose.Schema({
     // auto-incrementing ID is added by mongoDB automatically
     email: String,
     password: String,
-    created_at: { type: Date, default: Date.now }
+    created_at: { type: Date, default: Date.now },
+    updated_at: Date
 });
 
 // generating hash
