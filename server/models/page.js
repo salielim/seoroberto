@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var pageSchema = mongoose.Schema({
     // auto-incrementing ID is added by mongoDB automatically
     date: { type: Date, default: Date.now }, // mongoose inbuilt timestamp doesn't work, neither does the plugin
-    // updated date not needed as user should not be able to modify scanned page details
+    // updated date not needed as user should not be able to modify scanned page details, but will add button for user to delete collections later
     url: String,
     meta_robots: String,
     title: String,

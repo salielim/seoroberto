@@ -13,6 +13,7 @@ module.exports = function (passport) {
         User.findById(id, function (err, user) {
             // user1 = {email: user.email, id: user._id} ;
             // done(err, user1);
+            var user = {email: user.email, id: user._id};
             done(err, user);
         });
     });

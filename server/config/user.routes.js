@@ -1,18 +1,18 @@
-var Page = require('../models/page');
-var User = require('../models/user');
+var Page = require("../models/page");
+var User = require("../models/user");
 
 module.exports = function(app, passport) {
 
     // For complete list of API Endpoints, refer to image in readme.md 
 
     // Return success or failed
-    app.use('/returnSuccess', function(req, res){
-        console.log('in returnSuccess');
+    app.use("/returnSuccess", function(req, res){
+        console.log("in returnSuccess");
         res.send("successful");
     });
 
-    app.use('/returnFailed', function(req, res){
-        console.log('in returnFailed');
+    app.use("/returnFailed", function(req, res){
+        console.log("in returnFailed");
         res.send(null);
     });
 
@@ -39,10 +39,11 @@ module.exports = function(app, passport) {
     }));
 
     // Profile & Settings
-    app.get('/settings', function(req, res) {
-        res.render('/app/protected/settings/settings.html', {
+    app.get("/settings", function(req, res) {
+        //res.render("/app/protected/settings/settings.html", {
             user : req.user // get the user out of session and pass to template
-        });
+            console.log(req.user);
+        //});
     });
 
     // Logout
@@ -54,7 +55,7 @@ module.exports = function(app, passport) {
 
     // Loggedin
     app.get("/loggedin", function(req, res) {
-      res.send(req.isAuthenticated() ? req.user : '0');
+      res.send(req.isAuthenticated() ? req.user : "0");
     });
 
     // Protected
