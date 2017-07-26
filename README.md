@@ -1,6 +1,9 @@
 ## API Endpoints (assessment 3)
 ![Image of API Endpoints](http://i.imgur.com/WGdqJ0B.png)
 
+## Deployed
+[https://seoroberto.herokuapp.com](https://seoroberto.herokuapp.com)
+
 ## How to get it up and running
 * `bower install`
 * `npm install`
