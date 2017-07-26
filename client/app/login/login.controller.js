@@ -1,6 +1,6 @@
 (function () {
     angular
-        .module("DMS")
+        .module("SEO")
         .controller("LoginCtrl", ["$http", "$state", "$rootScope", LoginCtrl]);
     
     LoginCtrl.$inject = ["$http", "$state", "$rootScope"];

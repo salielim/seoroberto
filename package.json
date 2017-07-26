@@ -1,6 +1,9 @@
 {
-  "name": "dms",
+  "name": "seo",
   "version": "1.0.0",
+  "engines": {
+    "node": "6.11.1"
+  },
   "description": "Department Management System",
   "main": "server/app.js",
   "scripts": {

@@ -1,6 +1,6 @@
 (function () {
     angular
-        .module("DMS")
+        .module("SEO")
         .config(uiRouteConfig);
 
     uiRouteConfig.$inject = ["$stateProvider", "$urlRouterProvider"];

@@ -1,6 +1,6 @@
 (function () {
     angular
-        .module("DMS")
+        .module("SEO")
         .controller("RegisterCtrl", ["$http", "$state", "$rootScope", RegisterCtrl]);
     
     RegisterCtrl.$inject = ["$http", "$state", "$rootScope"];

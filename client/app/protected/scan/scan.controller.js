@@ -1,6 +1,6 @@
 (function () {
     angular
-        .module("DMS")
+        .module("SEO")
         .controller("ScanCtrl", ScanCtrl);
 
     // Dependency injection. An empty [] means RegCtrl does not have dependencies. Here we inject DeptService so

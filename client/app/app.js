@@ -1,6 +1,6 @@
 (function () {
     angular
-        .module("DMS", [
+        .module("SEO", [
             "ngMessages",
             "ngAnimate",
             "ui.router"

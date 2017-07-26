@@ -1,6 +1,6 @@
 (function () {
     angular
-        .module("DMS")
+        .module("SEO")
         .controller("IndexCtrl", IndexCtrl);
 
     IndexCtrl.$inject = ["$http", "$q", "$rootScope", "$location", "AuthService"];

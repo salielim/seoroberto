@@ -1,6 +1,6 @@
 (function () {
     angular
-        .module("DMS")
+        .module("SEO")
         .service("DataService", DataService);
 
     DataService.$inject = ["$http","$q"];

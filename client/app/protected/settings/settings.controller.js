@@ -1,6 +1,6 @@
 (function () {
     angular
-        .module("DMS")
+        .module("SEO")
         .controller("SettingsCtrl", SettingsCtrl);
 
         SettingsCtrl.$inject = ["$http"];

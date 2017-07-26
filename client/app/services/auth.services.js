@@ -1,6 +1,6 @@
 (function () {
     angular
-        .module("DMS")
+        .module("SEO")
         .factory("AuthService", ["$http", "$q", "$rootScope", "$location", function ($http, $q, $rootScope, $location) {
 
         var user = null;
