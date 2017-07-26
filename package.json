@@ -2,7 +2,8 @@
   "name": "seo",
   "version": "1.0.0",
   "engines": {
-    "node": "6.11.1"
+    "node": "6.11.1",
+    "npm": "2.14.4"
   },
   "description": "Department Management System",
   "main": "server/app.js",
