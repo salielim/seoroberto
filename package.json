@@ -7,7 +7,7 @@
   "description": "Department Management System",
   "main": "server/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm install -g bower; bower install;node server/app.js"
   },
   "author": "NUS ISS StackUp",
   "license": "ISC",

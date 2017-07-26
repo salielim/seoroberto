@@ -23,7 +23,7 @@ var User = require('./models/user');
 var scanner = require("./config/scanner.js");
 
 // Constants
-const NODE_PORT = process.env.NODE_PORT || 8080;
+var NODE_PORT = process.env.PORT || 8080;
 
 // Paths
 const CLIENT_FOLDER = path.join(__dirname + '/../client');
