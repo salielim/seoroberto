@@ -55,12 +55,12 @@ require('./config/user.routes.js')(app, passport);
 // Scan
 app.post("/api/scan", function (req, res) {
     console.log("hi api scan");
-    scanner.scan(req.body.domain);
+    scanner.scan(req.body.domain, req.user);
 });
 
 // Retrieve All
 app.get("/api/data", function (req, res) {
-    Page.find({}, function (err, data) {
+    Page.find({user_id: req.user.id }, function (err, data) {
             if (err) 
                 return err;
             if (data) 

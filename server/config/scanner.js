@@ -1,6 +1,8 @@
 var Page = require('../models/page');
 var Scanner = require("crawler");
 
+var scanUser = null;
+
 var c = new Scanner({
     maxConnections: 10,
     callback: function (error, res, done) {
@@ -26,6 +28,7 @@ var c = new Scanner({
             newPage.meta_desc = metaDesc;
             newPage.og_title = ogTitle;
             newPage.og_desc = ogDesc;
+            newPage.user_id = scanUser.id;
 
             newPage.save(function (err) {
                 if (err)
@@ -69,10 +72,12 @@ var c = new Scanner({
 });
 
 var domainName = "";
-exports.scan = function (domain, app, user) {
+
+exports.scan = function (domain, user) {
     //domainName = "https://en.wikipedia.org";
     console.log("im in export scan");
     console.log("User: ", user);
+    scanUser = user;
     urlArr = [domain];
     domainName = domain;
     c.queue(urlArr);
