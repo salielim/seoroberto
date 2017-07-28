@@ -40,8 +40,8 @@ module.exports = function(app, passport) {
 
     // Profile & Settings
     app.get("/settings", function(req, res) {
-            var user = req.user; // get the user out of session and pass to template
-            console.log(req.user);
+        var user = req.user; // get the user out of session and pass to template
+        console.log(req.user);
     });
 
     // Logout

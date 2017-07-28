@@ -5,10 +5,7 @@ var userSchema = mongoose.Schema({
     // auto-incrementing ID is added by mongoDB automatically
     email: String,
     password: String,
-    created_at: { type: Date, default: Date.now }, 
-    updated_at: Date
-    // mongoose inbuilt timestamp doesn't work, neither does the plugin
-});
+}, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } });
 
 // generating hash
 userSchema.methods.generateHash = function (password) {

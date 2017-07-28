@@ -11,8 +11,7 @@ var pageSchema = mongoose.Schema({
     og_title: String,
     og_desc: String,
     user_id: String, // foreign key
-    
-});
+}, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } });
 
 // create model for pages
 module.exports = mongoose.model('Page', pageSchema);
