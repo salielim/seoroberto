@@ -1,5 +1,4 @@
 var Page = require('../models/page');
-var User = require("../models/user");
 var Scanner = require("crawler");
 
 var c = new Scanner({
@@ -18,14 +17,6 @@ var c = new Scanner({
             ogDesc = $("meta[property='og:description']").attr('content');
 
             console.log("Crawling URL: " + url);
-            // console.log("Meta Robots: " + metaRobots);
-            // console.log("Title: " + title);
-            // console.log("Meta Description: " + metaDesc);
-            // console.log("OG Title: " + ogTitle);
-            // console.log("OG Description: " + ogDesc);
-            // console.log("H1: " + h1);
-            // console.log("H2: " + h2);
-            // console.log("---------");
 
             // Insert page data into DB
             var newPage = new Page();
@@ -39,7 +30,6 @@ var c = new Scanner({
             newPage.save(function (err) {
                 if (err)
                     throw err;
-                // console.log("error");
                 return done(null, newPage);
             });
         }

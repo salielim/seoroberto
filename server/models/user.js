@@ -2,7 +2,6 @@ var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
 
 var userSchema = mongoose.Schema({
-    // auto-incrementing ID is added by mongoDB automatically
     email: String,
     password: String,
 }, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } });
