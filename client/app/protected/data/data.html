@@ -29,8 +29,13 @@
 
 <!-- Scanned Data Table -->
 <div>
-    <table class="table table-hover">
-        <thead>
+    <table ng-table="dataCtrl.tableParams" class="table table-condensed table-bordered table-striped">
+        <tr ng-repeat="x in dataCtrl.result">
+            <td data-title="'URL'" filter="{url: 'text'}" sortable="'url'">{{ x.url }}</td>
+            <td data-title="'Meta Robots'" filter="{meta_robots: 'text'}" sortable="'meta_robots'">{{ x.meta_robots }}</td>
+            <td data-title="'Title'" filter="{title: 'text'}" sortable="'title'">{{ x.title }}</td>
+        </tr>
+        <!-- <thead>
             <tr>
                 <th>URL <span class="glyphicon glyphicon-filter" aria-hidden="true"></span></th>
                 <th>Meta Robots <span class="glyphicon glyphicon-filter" aria-hidden="true"></span></th>
@@ -49,9 +54,9 @@
                     <td>{{ x.og_title }}</td>
                     <td>{{ x.og_desc }}</td>
                 </tr>
-            </tbody>
-        </table>
-        <button class="btn btn-warning" type="submit">Export as CSV</button>
-        <button class="btn btn-warning" type="submit" a ui-sref="report">Generate Report</button>
-    </div>
+            </tbody> -->
+    </table>
+    <button class="btn btn-warning" type="submit">Export as CSV</button>
+    <button class="btn btn-warning" type="submit" a ui-sref="report">Generate Report</button>
+</div>
 </div>

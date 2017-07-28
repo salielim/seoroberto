@@ -41,12 +41,6 @@ app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secre
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
-app.use(function(req, res, next) {
-    res.locals.user = req.user;
-    console.log("User Info: ",req.user);
-    next();
-});
-
 // Routes
 require('./config/user.routes.js')(app, passport);
 

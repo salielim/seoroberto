@@ -13,6 +13,7 @@
   "author": "NUS ISS StackUp",
   "license": "ISC",
   "dependencies": {
+    "angular": "^1.6.5",
     "bcrypt-nodejs": "latest",
     "body-parser": "^1.15.2",
     "cookie-parser": "~1.0.0",
@@ -23,6 +24,7 @@
     "mongoose": "~4.0.0",
     "mongoose-request-context": "0.0.5",
     "morgan": "~1.0.0",
+    "ng-table": "^3.0.1",
     "passport": "~0.1.17",
     "passport-local": "~0.1.6"
   }

@@ -3,6 +3,7 @@
         .module("SEO", [
             "ngMessages",
             "ngAnimate",
-            "ui.router"
+            "ui.router",
+            "ngTable"
         ]);
 })();
