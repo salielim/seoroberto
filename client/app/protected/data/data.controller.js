@@ -26,6 +26,9 @@
 
                     // Sorting
                     vm.data = params.sorting() ? $filter('orderBy')(vm.result, params.orderBy()) : vm.result;
+
+                    // Filtering
+                    vm.data = params.filter() ? $filter('filter')(vm.data, params.filter()) : vm.data;
                     
                     // Pagination
                     vm.data = vm.data.slice((params.page() - 1) * params.count(), params.page() * params.count());
