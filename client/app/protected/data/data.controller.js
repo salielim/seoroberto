@@ -4,11 +4,11 @@
         .controller("DataCtrl", DataCtrl);
 
     // Dependency injection. An empty [] means RegCtrl does not have dependencies. Here we inject DeptService so
-    DataCtrl.$inject = ["$http", "DataService", "NgTableParams"];
+    DataCtrl.$inject = ["$http", "DataService", "NgTableParams", "$filter"];
 
     // Scan function declaration
-    function DataCtrl($http, DataService, NgTableParams) {
-        
+    function DataCtrl($http, DataService, NgTableParams, $filter) {
+
         var vm = this;
 
         vm.domainURL = "";
@@ -17,10 +17,16 @@
         vm.result = [];
 
         vm.tableParams = new NgTableParams({
-                page: 1,
-                count: 5
-            }, { dataset: vm.result});
-
+            page: 1,
+            count: 5
+        }, {
+                total: vm.result.length,
+                getData: function (params) {
+                    vm.data = params.sorting() ? $filter('orderBy')(vm.result, params.orderBy()) : vm.result;
+                    vm.data = vm.data.slice((params.page() - 1) * params.count(), params.page() * params.count());
+                    // $defer.resolve(vm.data);
+                }
+            });
 
         function retrieveAll() {
             console.log("* DataCtrl: retrieveAll");
