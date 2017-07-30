@@ -20,10 +20,6 @@
 
 
 <div>
-    <a class="btn" title="Export Table" ng-click='csv.generate()' ng-href="{{ csv.link() }}"
-         download="myTable.csv">
-        <i class="glyphicon glyphicon-new-window"></i> &#160;Export
-      </a>
     <!-- Hide/Show Columns -->
     <div style="margin-bottom: 20px">
         <label class="checkbox-inline" ng-repeat="col in dataCtrl.cols">
@@ -39,13 +35,18 @@
             <td data-title="'URL'" filter="{url: 'text'}" sortable="'url'" ng-if="true">{{ row.url }}</td>
             <td data-title="'Meta Robots'" filter="{meta_robots: 'text'}" sortable="'meta_robots'" ng-if="true">{{ row.meta_robots }}</td>
             <td data-title="'Title'" filter="{title: 'text'}" sortable="'title'" ng-if="true">{{ row.title }}</td>
-            <td data-title="'Meta Description'" filter="{meta_desc: 'text'}" sortable="'meta_desc'" ng-if="true">{{ row.meta_desc }}</td>
+            <td data-title="'Meta Description'" filter="{meta_desc: 'text'}" sortable="'meta_desc'" ng-if="true" ng-class="{ 'highlight-cell': row.meta_desc.length > 149 }">{{ row.meta_desc }}</td>
             <td data-title="'OG Title'" filter="{og_title: 'text'}" sortable="'og_title'" ng-if="true">{{ row.og_title }}</td>
             <td data-title="'OG Description'" filter="{og_desc: 'text'}" sortable="'og_desc'" ng-if="true">{{ row.og_desc }}</td>
             <!-- <td data-title="'Image Alt'" filter="{img_alt: 'text'}" sortable="'img_alt'">{{ x.img_alt }}</td> -->
         </tr>
     </table>
 
-    <!-- <button class="btn btn-warning" type="submit">Export as CSV</button>
-    <button class="btn btn-warning" type="submit" a ui-sref="report">Generate Report</button> -->
+    <!-- Export to CSV -->
+    <a button class="btn btn-warning" title="Export Table" ng-click='csv.generate()' ng-href="{{ csv.link() }}"
+         download="myTable.csv">
+        <i class="glyphicon glyphicon-new-window"></i> &#160;Export to CSV
+    </a>
+
+    <!-- <button class="btn btn-warning" type="submit" a ui-sref="report">Generate Report</button> -->
 </div>

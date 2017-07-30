@@ -27,6 +27,17 @@
             { field: "og_desc", title: "OG Description", show: true }
         ];
 
+        vm.ageFilterDef = {
+            date1: {
+                id: 'text',
+                placeholder: 'Date 1'
+            },
+            date2: {
+                id: 'text',
+                placeholder: 'Date 2'
+            }
+        };
+
         vm.domains = [{ id: "", title: "" }, { id: 'Domain1', title: 'Domain1' }, { id: 'Domain2', title: 'Domain2' }, { id: 'Domain3', title: 'Domain3' }];
 
         // vm.result.forEach(function (item) {
@@ -45,7 +56,7 @@
 
         vm.tableParams = new NgTableParams({
             page: 1,
-            count: 5
+            count: 10
         }, {
                 total: vm.result.length,
                 getData: function (params) {
