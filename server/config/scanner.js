@@ -36,6 +36,7 @@ var c = new Scanner({
             newPage.og_desc = ogDesc;
             newPage.img_alt = imgArr;
             newPage.user_id = scanUser.id;
+            newPage.domain_name = domainName;
 
             newPage.save(function (err) {
                 if (err)

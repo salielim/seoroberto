@@ -9,6 +9,7 @@ var pageSchema = mongoose.Schema({
     og_desc: String,
     img_alt: Array,
     user_id: String, // linked to User
+    domain_name: String, // linked to domain
 }, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } });
 
 // create model for pages
