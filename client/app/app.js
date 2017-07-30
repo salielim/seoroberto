@@ -4,6 +4,7 @@
             "ngMessages",
             "ngAnimate",
             "ui.router",
-            "ngTable"
+            "ngTable",
+            "ngTableToCsv"
         ]);
 })();

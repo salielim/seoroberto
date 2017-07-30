@@ -18,15 +18,21 @@
 
 <!-- <h3>{{ dataCtrl.result[0].date.toString().slice(0, 10) }}</h3> -->
 
-<!-- Scanned Data Table -->
+
 <div>
+    <a class="btn" title="Export Table" ng-click='csv.generate()' ng-href="{{ csv.link() }}"
+         download="myTable.csv">
+        <i class="glyphicon glyphicon-new-window"></i> &#160;Export
+      </a>
+    <!-- Hide/Show Columns -->
     <div style="margin-bottom: 20px">
         <label class="checkbox-inline" ng-repeat="col in dataCtrl.cols">
           <input type="checkbox" ng-model-options="{ getterSetter: true }" ng-model="col.show"/> {{col.title()}}
         </label>
       </div>
 
-    <table ng-table="dataCtrl.tableParams" class="table table-condensed table-bordered table-striped" ng-table-columns-binding="dataCtrl.cols">
+    <!-- Data Table -->
+    <table ng-table="dataCtrl.tableParams" class="table table-condensed table-bordered table-striped" ng-table-columns-binding="dataCtrl.cols" export-csv="csv" separator=",">
         <tr ng-repeat="row in dataCtrl.data">
             <td data-title="'Date'" filter="{created_at: 'text'}" sortable="'created_at'" ng-if="true">{{ row.created_at.toString().slice(0, 10) }}</td>
             <td data-title="'Domain'" filter="{domain_name: 'select'}"  filter-data="dataCtrl.domains" sortable="'domain_name'" ng-if="true">{{ row.domain_name }}</td>
