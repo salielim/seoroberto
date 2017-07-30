@@ -22,7 +22,12 @@
         }, {
                 total: vm.result.length,
                 getData: function (params) {
+                    retrieveAll();
+
+                    // Sorting
                     vm.data = params.sorting() ? $filter('orderBy')(vm.result, params.orderBy()) : vm.result;
+                    
+                    // Pagination
                     vm.data = vm.data.slice((params.page() - 1) * params.count(), params.page() * params.count());
                     // $defer.resolve(vm.data);
                 }

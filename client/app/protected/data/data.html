@@ -14,49 +14,23 @@
     click to view scanned data
 </button>
 </br>
+</br>
 
-<h3>{{ dataCtrl.result[0].date.toString().slice(0, 10) }}</h3>
-
-<!-- <select>
-        <option>20 June 2017</option>
-        <option>6 June 2017</option>
-        <option>29 June 2017</option>
-    </select> -->
-
-<!-- Search 
-    <input class="form-control" type="text" size="10" placeholder="Search URL or keyword">
-    -->
+<!-- <h3>{{ dataCtrl.result[0].date.toString().slice(0, 10) }}</h3> -->
 
 <!-- Scanned Data Table -->
 <div>
     <table ng-table="dataCtrl.tableParams" class="table table-condensed table-bordered table-striped">
         <tr ng-repeat="x in dataCtrl.data">
-            <td data-title="'URL'" filter="{url: 'text'}" sortable="'dataCtrl.url'">{{ x.url }}</td>
+            <td data-title="'URL'" filter="{url: 'text'}" sortable="'url'">{{ x.url }}</td>
             <td data-title="'Meta Robots'" filter="{meta_robots: 'text'}" sortable="'meta_robots'">{{ x.meta_robots }}</td>
             <td data-title="'Title'" filter="{title: 'text'}" sortable="'title'">{{ x.title }}</td>
+            <td data-title="'Meta Description'" filter="{meta_desc: 'text'}" sortable="'meta_desc'">{{ x.meta_desc }}</td>
+            <td data-title="'OG Title'" filter="{og_title: 'text'}" sortable="'og_title'">{{ x.og_title }}</td>
+            <td data-title="'OG Description'" filter="{og_desc: 'text'}" sortable="'og_desc'">{{ x.og_desc }}</td>
         </tr>
-        <!-- <thead>
-            <tr>
-                <th>URL <span class="glyphicon glyphicon-filter" aria-hidden="true"></span></th>
-                <th>Meta Robots <span class="glyphicon glyphicon-filter" aria-hidden="true"></span></th>
-                <th>Title <span class="glyphicon glyphicon-filter" aria-hidden="true"></th>
-                    <th>Meta Description <span class="glyphicon glyphicon-filter" aria-hidden="true"></th>
-                    <th>OG Title <span class="glyphicon glyphicon-filter" aria-hidden="true"></th>
-                    <th>OG Description <span class="glyphicon glyphicon-filter" aria-hidden="true"></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="x in dataCtrl.result">
-                    <th>{{ x.url }}</th>
-                    <td>{{ x.meta_robots }}</td>
-                    <td>{{ x.title }}</td>
-                    <td>{{ x.meta_desc }}</td>
-                    <td>{{ x.og_title }}</td>
-                    <td>{{ x.og_desc }}</td>
-                </tr>
-            </tbody> -->
     </table>
-    <button class="btn btn-warning" type="submit">Export as CSV</button>
-    <button class="btn btn-warning" type="submit" a ui-sref="report">Generate Report</button>
-</div>
+
+    <!-- <button class="btn btn-warning" type="submit">Export as CSV</button>
+    <button class="btn btn-warning" type="submit" a ui-sref="report">Generate Report</button> -->
 </div>
