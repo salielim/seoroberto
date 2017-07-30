@@ -17,6 +17,12 @@ var c = new Scanner({
             metaDesc = $("meta[name='description']").attr('content');
             ogTitle = $("meta[property='og:title']").attr('content');
             ogDesc = $("meta[property='og:description']").attr('content');
+            
+            imgArr = [];
+            $("img").each(function(index,img) {
+                imgAlt = $(img).attr("alt");
+                imgArr.push(imgAlt);
+            });
 
             console.log("Crawling URL: " + url);
 
@@ -28,6 +34,7 @@ var c = new Scanner({
             newPage.meta_desc = metaDesc;
             newPage.og_title = ogTitle;
             newPage.og_desc = ogDesc;
+            newPage.img_alt = imgArr;
             newPage.user_id = scanUser.id;
 
             newPage.save(function (err) {

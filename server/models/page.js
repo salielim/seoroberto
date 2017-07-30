@@ -7,6 +7,7 @@ var pageSchema = mongoose.Schema({
     meta_desc: String,
     og_title: String,
     og_desc: String,
+    img_alt: Array,
     user_id: String, // linked to User
 }, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } });
 
