@@ -2,10 +2,10 @@
     <h1>Scanned Data</h1>
 </div>
 
-<button class="btn">
+<!-- <button class="btn">
     <span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span>
         <b>In progress</b>
-    </button> -------->
+    </button>
 
 <button class="btn btn-warning" ui-sref="data" ng-click="dataCtrl.retrieveAll()">
     <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
@@ -14,7 +14,7 @@
     click to view scanned data
 </button>
 </br>
-</br>
+</br> -->
 
 <!-- <h3>{{ dataCtrl.result[0].date.toString().slice(0, 10) }}</h3> -->
 
@@ -37,7 +37,9 @@
 
             <td data-title="'URL'" filter="{url: 'text'}" sortable="'url'" ng-if="true">{{ row.url }}</td>
 
-            <td data-title="'Meta Robots'" filter="{meta_robots: 'text'}" sortable="'meta_robots'" ng-if="true" ng-class="{ 'highlight-cell': row.meta_robots == null }">{{ row.meta_robots }}</td>
+            <!-- <td data-title="'Meta Robots'" filter="{meta_robots: 'text'}" sortable="'meta_robots'" ng-if="true" ng-class="{ 'highlight-cell': row.meta_robots == null }">{{ row.meta_robots }}</td> -->
+
+            <td data-title="'Meta Robots'" filter="{meta_robots: 'select-multiple'}" filter-data="dataCtrl.metaRobotsList" ng-if="true" ng-class="{ 'highlight-cell': row.meta_robots == null }">{{ row.meta_robots }}</td>
 
             <td data-title="'Title'" filter="{title: 'text'}" sortable="'title'" ng-if="true" ng-class="{ 'highlight-cell': row.title.length > 70 }">{{ row.title }}</td>
 

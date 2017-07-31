@@ -17,26 +17,15 @@
         vm.result = [];
 
         vm.cols = [
-            { field: "created_at", title: "Date", show: true },
-            { field: "domain_name", title: "Age", show: true },
-            { field: "url", title: "URL", show: true },
-            { field: "meta_robots", title: "Meta Robots", show: true },
-            { field: "title", title: "Title", show: true },
-            { field: "meta_desc", title: "Meta Description", show: true },
-            { field: "og_title", title: "OG Title", show: true },
-            { field: "og_desc", title: "OG Description", show: true }
+            { field: "created_at", show: true },
+            { field: "domain_name", show: true },
+            { field: "url", show: true },
+            { field: "meta_robots", show: true },
+            { field: "title", show: true },
+            { field: "meta_desc", show: true },
+            { field: "og_title", show: true },
+            { field: "og_desc", show: true }
         ];
-
-        vm.ageFilterDef = {
-            date1: {
-                id: 'text',
-                placeholder: 'Date 1'
-            },
-            date2: {
-                id: 'text',
-                placeholder: 'Date 2'
-            }
-        };
 
         vm.domains = [{ id: "", title: "" }, { id: 'Domain1', title: 'Domain1' }, { id: 'Domain2', title: 'Domain2' }, { id: 'Domain3', title: 'Domain3' }];
 
@@ -51,8 +40,9 @@
         // });
         // }
 
-
         //[{id: "", title: ""}, {id: 'Moroni', title: 'Moroni'}, {id: 'Enos', title: 'Enos'}, {id: 'Nephi', title: 'Nephi'}];
+
+        vm.metaRobotsList = [{id: "", title: ""}, {id: 'Moroni', title: 'Moroni'}, {id: 'Enos', title: 'Enos'}, {id: 'Nephi', title: 'Nephi'}];
 
         vm.tableParams = new NgTableParams({
             page: 1,
