@@ -8,6 +8,7 @@ var c = new Scanner({
     callback: function (error, res, done) {
         if (error) {
             console.log(error);
+            console.log("im in error");
         } else {
             var $ = res.$; // $ is Cheerio by default
 
@@ -86,7 +87,7 @@ exports.scan = function (domain, user) {
     console.log("im in export scan");
     console.log("User: ", user);
     scanUser = user;
-    urlArr = [domain];
-    domainName = domain;
+    urlArr = ["http://" + domain];
+    domainName = "http://" + domain;
     c.queue(urlArr);
 }

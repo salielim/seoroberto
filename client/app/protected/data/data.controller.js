@@ -10,9 +10,7 @@
     function DataCtrl($http, DataService, NgTableParams, $filter) {
 
         var vm = this;
-
         vm.domainURL = "";
-
         vm.retrieveAll = retrieveAll;
         vm.result = [];
 
@@ -27,22 +25,20 @@
             { field: "og_desc", show: true }
         ];
 
-        vm.domains = [{ id: "", title: "" }, { id: 'Domain1', title: 'Domain1' }, { id: 'Domain2', title: 'Domain2' }, { id: 'Domain3', title: 'Domain3' }];
+        vm.metaRobotsList = [];
+        
+        // [{id: "", title: ""}, {id: 'Moroni', title: 'Moroni'}, {id: 'Enos', title: 'Enos'}, {id: 'Nephi', title: 'Nephi'}];
 
-        // vm.result.forEach(function (item) {
-        //     if (inArray(item.domain_name, arr) === -1) {
-        //         arr.push(item.domain_name);
-        //         domains.push({
-        //             'id': item.domain_name,
-        //             'title': item.domain_name
-        //         });
-        //     }
-        // });
-        // }
-
-        //[{id: "", title: ""}, {id: 'Moroni', title: 'Moroni'}, {id: 'Enos', title: 'Enos'}, {id: 'Nephi', title: 'Nephi'}];
-
-        vm.metaRobotsList = [{id: "", title: ""}, {id: 'Moroni', title: 'Moroni'}, {id: 'Enos', title: 'Enos'}, {id: 'Nephi', title: 'Nephi'}];
+        vm.result.forEach(function (item) {
+            if (inArray(item.meta_robots, arr) === -1) {
+                arr.push(item.meta_robots);
+                metaRobotsList.push({
+                    'id': item.meta_robots,
+                    'title': item.meta_robots
+                });
+                console.log(vm.metaRobotsList);
+            }
+        });
 
         vm.tableParams = new NgTableParams({
             page: 1,
