@@ -23,7 +23,7 @@
                     </span>
                     <input ng-model="scanCtrl.domainURL" type="text" class="form-control" placeholder="Enter domain URL" ng-pattern="/^((?!http).)*$/" value="http://" required>
                     <span class="input-group-btn">
-                        <button ng-click="scanCtrl.startScan()" class="btn btn-default go" type="button" a ui-sref="data" ng-disabled="scanForm.$invalid">
+                        <button ng-click="scanCtrl.startScan()" class="btn btn-default go" type="button" a ui-sref="scan" ng-disabled="scanForm.$invalid">
                                 Go!
                             <span class="glyphicon glyphicon-scale" aria-hidden="true"></span>
                         </button>

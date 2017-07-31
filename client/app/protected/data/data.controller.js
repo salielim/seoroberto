@@ -40,25 +40,64 @@
             }
         });
 
-        vm.tableParams = new NgTableParams({
-            page: 1,
-            count: 10
-        }, {
-                total: vm.result.length,
-                getData: function (params) {
-                    retrieveAll();
+        DataService
+            .retrieveAll()
+            .then(function (data) {
+                vm.data = data;
+                console.log(vm.data);
+                vm.tableParams = new NgTableParams({
+                    page: 1,
+                    count: 10
+                }, {
+                    total: vm.data.length,
+                    getData: function (params) {
 
-                    // Sorting
-                    vm.data = params.sorting() ? $filter('orderBy')(vm.result, params.orderBy()) : vm.result;
+                        // Sorting
+                        vm.data = params.sorting() ? $filter('orderBy')(vm.data, params.orderBy()) : vm.data;
 
-                    // Filtering
-                    vm.data = params.filter() ? $filter('filter')(vm.data, params.filter()) : vm.data;
+                        // Filtering
+                        vm.data = params.filter() ? $filter('filter')(vm.data, params.filter()) : vm.data;
 
-                    // Pagination
-                    vm.data = vm.data.slice((params.page() - 1) * params.count(), params.page() * params.count());
-                    // $defer.resolve(vm.data);
-                }
+                        // Pagination
+                        vm.data = vm.data.slice((params.page() - 1) * params.count(), params.page() * params.count());
+                        // $defer.resolve(vm.data);                        
+                    }
+                });
+            })
+            .catch(function(err) {
+                console.log(err);
             });
+
+        // vm.tableParams = new NgTableParams({
+        //     page: 1,
+        //     count: 10
+        // }, {
+        //         total: vm.result.length,
+        //         getData: function (params) {
+        //             // retrieveAll();
+        //         DataService
+        //             .retrieveAll()
+        //             .then(function (data) {
+        //                 console.log("> Controller Result:", data);
+        //                 //vm.result = data;
+        //                 // Sorting
+        //                 vm.data = params.sorting() ? $filter('orderBy')(vm.result, params.orderBy()) : vm.result;
+
+        //                 // Filtering
+        //                 vm.data = params.filter() ? $filter('filter')(vm.data, params.filter()) : vm.data;
+
+        //                 // Pagination
+        //                 vm.data = vm.data.slice((params.page() - 1) * params.count(), params.page() * params.count());
+        //                 // $defer.resolve(vm.data);
+
+
+        //             })
+        //             .catch(function (err) {
+        //                 console.log("> Controller Error:", err);
+        //             });                    
+
+        //         }
+        //     });
 
         function retrieveAll() {
             console.log("* DataCtrl: retrieveAll");
