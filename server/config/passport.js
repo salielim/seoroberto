@@ -6,10 +6,10 @@ var domain = 'sandboxbf812b83405d4b6096eaf6293f0a2a96.mailgun.org';
 var mailgun = require('mailgun-js')({ apiKey: api_key, domain: domain });
 
 var data = {
-    from: 'Excited User <me@samples.mailgun.org>',
+    from: 'SEORoberto <roberto@seoroberto.com>',
     to: 'salie.lim@gmail.com',
-    subject: 'Hello',
-    text: 'Testing some Mailgun awesomness!'
+    subject: 'Welcome',
+    text: 'Welcome to SEO Roberto!'
 };
 
 module.exports = function (passport) {
