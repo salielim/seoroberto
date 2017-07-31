@@ -36,7 +36,7 @@ var c = new Scanner({
             newPage.og_desc = ogDesc;
             newPage.img_alt = imgArr;
             newPage.user_id = scanUser.id;
-            newPage.domain_name = domainName;
+            newPage.domain_name = domainName.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "").split('/')[0];
 
             newPage.save(function (err) {
                 if (err)
