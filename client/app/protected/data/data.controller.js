@@ -67,11 +67,9 @@
                 .then(function (data) {
                     console.log("> Controller Result:", data);
                     vm.result = data;
-                    // vm.result.sort(CommonService.sortCusine);
                 })
                 .catch(function (err) {
                     console.log("> Controller Error:", err);
-                    // console.log("Controller Error 2:", JSON.stringify(err));
                 });
         }
     }

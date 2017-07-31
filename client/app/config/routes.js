@@ -106,6 +106,22 @@
                     // }
                 },
             })
+            .state("scan", {
+                url: "/scan",
+                views: {
+                    'menu': {
+                        templateUrl: "app/menu/menu.html"
+                    },
+                    'content': {
+                        templateUrl: "app/protected/scan/scan.html",
+                        controller: "ScanCtrl",
+                        controllerAs: "scanCtrl"
+                    }
+                    // resolve: {
+                    //     authenticated: checkLoggedin
+                    // }
+                },
+            })
             .state("compare", {
                 url: "/compare",
                 views: {
