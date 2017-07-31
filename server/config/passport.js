@@ -1,6 +1,17 @@
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('../models/user');
 
+var api_key = process.env.MAILGUN_KEY;
+var domain = 'sandboxbf812b83405d4b6096eaf6293f0a2a96.mailgun.org';
+var mailgun = require('mailgun-js')({ apiKey: api_key, domain: domain });
+
+var data = {
+    from: 'Excited User <me@samples.mailgun.org>',
+    to: 'salie.lim@gmail.com',
+    subject: 'Hello',
+    text: 'Testing some Mailgun awesomness!'
+};
+
 module.exports = function (passport) {
 
     // passport serialize & unserialize users out of session, required for persistent login sessions
@@ -13,7 +24,7 @@ module.exports = function (passport) {
         User.findById(id, function (err, user) {
             // user1 = {email: user.email, id: user._id} ;
             // done(err, user1);
-            user = {email: user.email, id: user._id};
+            user = { email: user.email, id: user._id };
             done(err, user);
         });
     });
@@ -51,6 +62,10 @@ module.exports = function (passport) {
                             if (err)
                                 throw err;
                             return done(null, newUser);
+                        });
+
+                        mailgun.messages().send(data, function (error, body) {
+                            console.log(body);
                         });
                     }
                 });
