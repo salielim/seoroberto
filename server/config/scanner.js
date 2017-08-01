@@ -85,7 +85,7 @@ var domainName = "";
 exports.scan = function (domain, user) {
     //domainName = "https://en.wikipedia.org";
     scanUser = user;
-    urlArr = ["http://" + domain];
-    domainName = "http://" + domain;
+    urlArr = ["https://" + domain];
+    domainName = "https://" + domain;
     c.queue(urlArr);
 }
