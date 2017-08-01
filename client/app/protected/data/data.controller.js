@@ -45,10 +45,11 @@
                 console.log(vm.data);
                 vm.tableParams = new NgTableParams({
                     page: 1,
-                    count: 10
+                    count: 3
                 }, {
                     total: vm.data.length,
                     getData: function (params) {
+                        retrieveAll();
 
                         // Sorting
                         vm.data = params.sorting() ? $filter('orderBy')(vm.data, params.orderBy()) : vm.data;

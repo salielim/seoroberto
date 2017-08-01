@@ -45,7 +45,7 @@ app.use(passport.session()); // persistent login sessions
 require('./config/user.routes.js')(app, passport);
 
 // *** APIs - move & export this into API folder later
-// Scan
+// Scan 
 app.post("/api/scan", function (req, res) {
     console.log("hi api scan");
     scanner.scan(req.body.domain, req.user);
@@ -53,14 +53,28 @@ app.post("/api/scan", function (req, res) {
 
 // Retrieve All
 app.get("/api/data", function (req, res) {
-    Page.find({user_id: req.user.id }, function (err, data) {
-            if (err) 
-                return err;
-            if (data) 
-                //console.log(data);
-                res.send(data);
-        });
-    }
+    Page.find({ user_id: req.user.id }, function (err, data) {
+        if (err)
+            return err;
+        if (data)
+            //console.log(data);
+            res.send(data);
+    });
+}
+);
+
+// Retrieve scanned now
+app.get("/api/scanned", function (req, res) {
+    var now = new Date();
+    var startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    Page.find({ user_id: req.user.id, created_at: {$gte: startOfToday} } , function (err, data) {
+        if (err)
+            return err;
+        if (data)
+            //console.log(data);
+            res.send(data);
+    });
+}
 );
 
 // Error Handling

@@ -33,13 +33,11 @@
 
             <td data-title="'Date'" filter="{created_at: 'text'}" sortable="'created_at'" ng-if="true">{{ row.created_at.toString().slice(0, 10) }}</td>
 
-            <td data-title="'Domain'" filter="{domain_name: 'select'}"  filter-data="dataCtrl.domains" sortable="'domain_name'" ng-if="true">{{ row.domain_name }}</td>
+            <td data-title="'Domain'" filter="{domain_name: 'text'}" sortable="'domain_name'" ng-if="true">{{ row.domain_name }}</td>
 
             <td data-title="'URL'" filter="{url: 'text'}" sortable="'url'" ng-if="true">{{ row.url }}</td>
 
-            <!-- <td data-title="'Meta Robots'" filter="{meta_robots: 'text'}" sortable="'meta_robots'" ng-if="true" ng-class="{ 'highlight-cell': row.meta_robots == null }">{{ row.meta_robots }}</td> -->
-
-            <td data-title="'Meta Robots'" filter="{meta_robots: 'select-multiple'}" filter-data="dataCtrl.metaRobotsList" ng-if="true" ng-class="{ 'highlight-cell': row.meta_robots == null }">{{ row.meta_robots }}</td>
+            <td data-title="'Meta Robots'" filter="{meta_robots: 'text'}" sortable="'meta_robots'" ng-if="true" ng-class="{ 'highlight-cell': row.meta_robots == null }">{{ row.meta_robots }}</td>
 
             <td data-title="'Title'" filter="{title: 'text'}" sortable="'title'" ng-if="true" ng-class="{ 'highlight-cell': row.title.length > 70 }">{{ row.title }}</td>
 
