@@ -25,9 +25,7 @@
             { field: "og_desc", show: true }
         ];
 
-        vm.metaRobotsList = [];
-        
-        // [{id: "", title: ""}, {id: 'Moroni', title: 'Moroni'}, {id: 'Enos', title: 'Enos'}, {id: 'Nephi', title: 'Nephi'}];
+        vm.metaRobotsList = [{id: "index,follow", title: "index,follow"}, {id: 'noindex,follow', title: 'noindex,follow'}];
 
         vm.result.forEach(function (item) {
             if (inArray(item.meta_robots, arr) === -1) {
@@ -67,37 +65,6 @@
             .catch(function(err) {
                 console.log(err);
             });
-
-        // vm.tableParams = new NgTableParams({
-        //     page: 1,
-        //     count: 10
-        // }, {
-        //         total: vm.result.length,
-        //         getData: function (params) {
-        //             // retrieveAll();
-        //         DataService
-        //             .retrieveAll()
-        //             .then(function (data) {
-        //                 console.log("> Controller Result:", data);
-        //                 //vm.result = data;
-        //                 // Sorting
-        //                 vm.data = params.sorting() ? $filter('orderBy')(vm.result, params.orderBy()) : vm.result;
-
-        //                 // Filtering
-        //                 vm.data = params.filter() ? $filter('filter')(vm.data, params.filter()) : vm.data;
-
-        //                 // Pagination
-        //                 vm.data = vm.data.slice((params.page() - 1) * params.count(), params.page() * params.count());
-        //                 // $defer.resolve(vm.data);
-
-
-        //             })
-        //             .catch(function (err) {
-        //                 console.log("> Controller Error:", err);
-        //             });                    
-
-        //         }
-        //     });
 
         function retrieveAll() {
             console.log("* DataCtrl: retrieveAll");

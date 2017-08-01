@@ -45,7 +45,6 @@ app.use(passport.session()); // persistent login sessions
 require('./config/user.routes.js')(app, passport);
 
 // *** APIs - move & export this into API folder later
-// For complete list of API Endpoints, refer to image in readme.md 
 // Scan
 app.post("/api/scan", function (req, res) {
     console.log("hi api scan");
@@ -63,18 +62,6 @@ app.get("/api/data", function (req, res) {
         });
     }
 );
-
-// Find via URL
-// app.get("/api/data", function (req, res) {
-//     Page.find({ "scanned.url": "https://www.shopback.sg/health-beauty" }, function (err, data) {
-//             if (err) 
-//                 return err;
-//             if (data) 
-//                 console.log(data);
-//                 res.send(data);
-//         });
-//     }
-// );
 
 // Error Handling
 app.use(function (req, res) {

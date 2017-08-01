@@ -18,17 +18,6 @@
                         templateUrl: "app/static/product.html"
                     }
                 }
-                // resolve: {
-                //     user: function (PassportSvc) {
-                //         return PassportSvc.userAuth()
-                //             .then(function (result) {
-                //                 return result.data.user;
-                //             })
-                //             .catch(function (err) {
-                //                 return "";
-                //             });
-                //     }
-                // },
             })
             .state("product", {
                 url: "/product",
@@ -85,9 +74,6 @@
                     }
                 }
             })
-            // .state("logout", {
-            //     url: "/logout",
-            // })
 
             // Protected
             .state("data", {
@@ -100,10 +86,18 @@
                         templateUrl: "app/protected/data/data.html",
                         controller: "DataCtrl",
                         controllerAs: "dataCtrl"
+                    },
+                    resolve: {
+                        user: function (AuthService) {
+                            return AuthService.userAuth()
+                                .then(function (result) {
+                                    return result.data.user;
+                                })
+                                .catch(function (err) {
+                                    return '';
+                                });
+                        }
                     }
-                    // resolve: {
-                    //     authenticated: checkLoggedin
-                    // }
                 },
             })
             .state("scan", {
@@ -116,10 +110,18 @@
                         templateUrl: "app/protected/scan/scan.html",
                         controller: "ScanCtrl",
                         controllerAs: "scanCtrl"
-                    }
-                    // resolve: {
-                    //     authenticated: checkLoggedin
-                    // }
+                    },
+                    resolve: {
+                        user: function (AuthService) {
+                            return AuthService.userAuth()
+                                .then(function (result) {
+                                    return result.data.user;
+                                })
+                                .catch(function (err) {
+                                    return '';
+                                });
+                        }
+                    },
                 },
             })
             .state("compare", {
@@ -175,23 +177,5 @@
                 }
             });
         $urlRouterProvider.otherwise("/");
-    }
-
-    var checkLoggedin = function ($q, $timeout, $http, $location, $rootScope) {
-        var deferred = $q.defer();
-
-        $http.get("/loggedin").then(function (user) {
-            $rootScope.errorMessage = null;
-            //User is Authenticated
-            if (user !== "0") {
-                $rootScope.currentUser = user;
-                deferred.resolve();
-            } else { //User is not Authenticated
-                $rootScope.errorMessage = "You need to log in.";
-                deferred.reject();
-                $location.url("/login");
-            }
-        });
-        return deferred.promise;
     }
 })();
