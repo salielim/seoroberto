@@ -8,6 +8,10 @@
     </button></h1>
 </div>
 
+<h4>MVP</h4>
+<li>able to crawl only https URLs</li>
+<li>only 8 URLs from the domain are crawled</li>
+
 <div ng-hide="scanCtrl.data == null">
     <h3><b>{{ scanCtrl.data[0].domain_name }}</b> scanned on <b>{{ scanCtrl.data[0].created_at.toString().slice(0, 10) }}</b></h3>
     <div>
@@ -45,7 +49,13 @@
         <!-- Export to CSV -->
         <a button class="btn btn-warning" title="Export Table" ng-click='csv.generate()' ng-href="{{ csv.link() }}"
             download="myTable.csv">
-            <i class="glyphicon glyphicon-new-window"></i> &#160;Export to CSV
+            <i class="glyphicon glyphicon-download-alt"></i> &#160;Export to CSV
+        </a>
+
+        <!-- Compare & Analyse -->
+        <a button class="btn btn-warning" title="Compare & Analyse" ui-sref="data"
+            download="myTable.csv">
+            <i class="glyphicon glyphicon-flash"></i> Compare & Analyse
         </a>
 
         <!-- <button class="btn btn-warning" type="submit" a ui-sref="report">Generate Report</button> -->
