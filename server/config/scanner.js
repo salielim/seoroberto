@@ -18,9 +18,9 @@ var c = new Scanner({
             metaDesc = $("meta[name='description']").attr('content');
             ogTitle = $("meta[property='og:title']").attr('content');
             ogDesc = $("meta[property='og:description']").attr('content');
-            
+
             imgArr = [];
-            $("img").each(function(index,img) {
+            $("img").each(function (index, img) {
                 imgAlt = $(img).attr("alt");
                 imgArr.push(imgAlt);
             });
@@ -60,7 +60,7 @@ var c = new Scanner({
                 // if ahref value is full url (contains http), pop into queue
                 //console.log("full url: " + hrefAttr);
                 var fullUrl = domainName;
-                if (!urlArr.includes(fullUrl)) { // if URL is not already in crawl queue
+                if (!urlArr.includes(fullUrl) && urlArr.length < 8) { // if URL is not already in crawl queue
                     urlArr.push(fullUrl);
                     c.queue(fullUrl);
                 }
@@ -87,5 +87,10 @@ exports.scan = function (domain, user) {
     scanUser = user;
     urlArr = ["https://" + domain];
     domainName = "https://" + domain;
+    
     c.queue(urlArr);
+
+    c.on('drain', function () {
+        console.log("done!!");
+    })
 }

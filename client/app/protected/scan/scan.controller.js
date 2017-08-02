@@ -4,10 +4,10 @@
         .controller("ScanCtrl", ScanCtrl);
 
     // Dependency injection. An empty [] means RegCtrl does not have dependencies. Here we inject DeptService so
-    ScanCtrl.$inject = ["$http", "DataService", "NgTableParams", "$filter"];
+    ScanCtrl.$inject = ["$http", "DataService", "$filter"];
 
     // Scan function declaration
-    function ScanCtrl($http, DataService, NgTableParams, $filter) {
+    function ScanCtrl($http, DataService, $filter) {
 
         var vm = this;
 
