@@ -5,10 +5,14 @@
 <div class="panel panel-default">
     <!-- Data Table -->
     <table st-table="dataCtrl.displayedCollection" st-sticky-header st-safe-src="dataCtrl.rowList" class="table table-hover">
-        <thead title="Click header to sort. Drag & drop headers to rearrange columns.">
+        <thead>
             <tr>
-                <!-- Hide Columns -->
                 <td colspan="8" class="text-right no-border">
+                    <span class="tip-text">
+                        <b>Move columns</b>: drag & drop headers.
+                        <b>Sort</b>: click headers
+                    </span>
+                    <!-- Hide Columns -->
                     <label ng-repeat="col in dataCtrl.columns">
                         <button ng-click="col.ngShow = !col.ngShow" class="btn btn-default btn-xs hide-col">
                             <span class="glyphicon glyphicon-ok" aria-hidden="true" ng-show="col.ngShow" ng-show"!col.ngShow"></span>

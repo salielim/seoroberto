@@ -54,6 +54,11 @@
     font-size: 12px;
 }
 
+.tip-text {
+    font-size: 12px;
+    margin-right: 180px;
+}
+
 /* Table */
 thead {
     background: #F8F8F8;
