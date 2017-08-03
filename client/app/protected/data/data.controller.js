@@ -13,35 +13,43 @@
         vm.retrieveAll = retrieveAll;
         vm.columns = [{
             item: "created_at",
-            name: "Date"
+            name: "Date",
+            ngShow: true
         }, 
         {
             item: "domain_name",
-            name: "Domain Name"
+            name: "Domain Name",
+            ngShow: true
         }, 
         {
             item: "url",
-            name: "URL"
+            name: "URL",
+            ngShow: true
         }, 
          {
             item: "meta_robots",
-            name: "Meta Robots"
+            name: "Meta Robots",
+            ngShow: true
         }, 
          {
             item: "title",
-            name: "Title"
+            name: "Title",
+            ngShow: true
         }, 
          {
             item: "meta_desc",
-            name: "Meta Description"
+            name: "Meta Description",
+            ngShow: true
         }, 
          {
             item: "og_title",
-            name: "OG Title"
+            name: "OG Title",
+            ngShow: true
         }, 
          {
             item: "og_desc",
-            name: "OG Desc"
+            name: "OG Desc",
+            ngShow: true
         }]
 
         retrieveAll()

@@ -46,6 +46,13 @@
     /* login register warning */
 }
 
+.hide-col {
+    margin-right: 18px;
+    cursor: pointer;
+    font-style: none;
+    font-size: 12px;
+}
+
 /* Table */
 .highlight-cell {
     background-color: #ffe2ba;
