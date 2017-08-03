@@ -6,7 +6,10 @@
     <!-- Data Table -->
     <table st-table="dataCtrl.displayedCollection" st-sticky-header st-safe-src="dataCtrl.rowList" class="table table-bordered table-hover">
         <thead>
-            <!-- Row headers -->
+            <tr>
+                <th lr-drag-src="headers" lr-drop-target="headers" ng-repeat="col in dataCtrl.columns" st-sort="{{col.item}}" class="sort">{{col.name}}</th>
+            </tr>
+            <!-- Row headers
             <tr>
                 <th st-sort="created_at" class="sort">Date</th>
                 <th st-sort="domain_name" class="sort">Domain</th>
@@ -16,7 +19,7 @@
                 <th st-sort="meta_desc" class="sort">Meta Description</th>
                 <th st-sort="og_title" class="sort">OG Title</th>
                 <th st-sort="og_desc" class="sort">OG Description</th>
-            </tr>
+            </tr> -->
 
             <!-- Filtering -->
             <tr>
@@ -51,14 +54,15 @@
         </thead>
             <!-- Rows -->
             <tr ng-repeat="row in dataCtrl.displayedCollection">
-                <td>{{ row.created_at.toString().slice(0, 10) }}</td>
+                <td ng-repeat="col in dataCtrl.columns">{{row[col.item]}}</td>
+                <!-- <td>{{ row.created_at.toString().slice(0, 10) }}</td>
                 <td>{{ row.domain_name }}</td>
                 <td>{{ row.url }}</td>
                 <td>{{ row.meta_robots }}</td>
                 <td>{{ row.title }}</td>
                 <td>{{ row.meta_desc }}</td>
                 <td>{{ row.og_title }}</td>
-                <td>{{ row.og_desc }}</td>
+                <td>{{ row.og_desc }}</td> -->
             </tr>
         </tbody>
         <tfoot>

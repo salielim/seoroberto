@@ -4,6 +4,7 @@
             "ngMessages",
             "ngAnimate",
             "ui.router",
-            "smart-table"
+            "smart-table",
+            "lrDragNDrop"
         ]);
 })();

@@ -10,9 +10,39 @@
     function DataCtrl($http, DataService, $filter) {
 
         var vm = this;
-        vm.domainURL = "";
-        // vm.data = [];
         vm.retrieveAll = retrieveAll;
+        vm.columns = [{
+            item: "created_at",
+            name: "Date"
+        }, 
+        {
+            item: "domain_name",
+            name: "Domain Name"
+        }, 
+        {
+            item: "url",
+            name: "URL"
+        }, 
+         {
+            item: "meta_robots",
+            name: "Meta Robots"
+        }, 
+         {
+            item: "title",
+            name: "Title"
+        }, 
+         {
+            item: "meta_desc",
+            name: "Meta Description"
+        }, 
+         {
+            item: "og_title",
+            name: "OG Title"
+        }, 
+         {
+            item: "og_desc",
+            name: "OG Desc"
+        }]
 
         retrieveAll()
         function retrieveAll() {

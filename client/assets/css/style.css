@@ -60,6 +60,7 @@ thead {
 /* Sorting */
 .sort:hover { 
     background: #eeeeee;
+    cursor: pointer;
 }
 
 .glyphicon.glyphicon-sort {
