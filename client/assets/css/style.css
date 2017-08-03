@@ -56,3 +56,18 @@
 .highlight-cell {
     background-color: #ffe2ba;
 }
+
+thead {
+    background: #F8F8F8;
+    font-size: 16px;
+    width: 80.5%;
+    cursor: pointer;
+}
+
+.no-border {
+    border-color: pink;
+}
+
+.glyphicon.glyphicon-sort {
+    font-size: 10px;
+}

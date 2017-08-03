@@ -22,6 +22,7 @@
     "angular-ui-router": "^1.0.5",
     "angular-http-auth": "^1.5.0",
     "ng-table-to-csv": "^0.3.3",
-    "angular-smart-table": "^2.1.8"
+    "angular-smart-table": "^2.1.8",
+    "smart-table-sticky-header": "st-sticky-header#^1.0.1"
   }
 }

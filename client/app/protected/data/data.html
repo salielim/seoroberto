@@ -2,44 +2,23 @@
     <h1>Scanned Data</h1>
 </div>
 
-<!-- <button class="btn">
-    <span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span>
-        <b>In progress</b>
-    </button>
-
-<button class="btn btn-warning" ui-sref="data" ng-click="dataCtrl.retrieveAll()">
-    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-    <b>Completed</b>
-    </br>
-    click to view scanned data
-</button>
-</br>
-</br> -->
-
-<!-- <h3>{{ dataCtrl.result[0].date.toString().slice(0, 10) }}</h3> -->
 <div>
-    <!-- Hide/Show Columns
-    <div style="margin-bottom: 20px">
-        <label class="checkbox-inline" ng-repeat="col in dataCtrl.cols">
-          <input type="checkbox" ng-model-options="{ getterSetter: true }" ng-model="col.show"/> {{col.title()}}
-        </label>
-      </div> -->
-
     <!-- Data Table -->
-    <table st-table="dataCtrl.displayedCollection" st-safe-src="dataCtrl.rowList" class="table table-striped">
+    <table st-table="dataCtrl.displayedCollection" st-sticky-header st-safe-src="dataCtrl.rowList" class="table table-bordered table-hover">
         <thead>
+            <!-- Row headers -->
             <tr>
-                <th st-sort="created_at">Date</th>
-                <th st-sort="domain_name">Domain</th>
-                <th st-sort="url">URL</th>
-                <th st-sort="meta_robots">Meta Robots</th>
-                <th st-sort="title">Title</th>
-                <th st-sort="meta_desc">Meta Desc</th>
-                <th st-sort="og_title">OG Title</th>
-                <th st-sort="og_desc">OG Desc</th>
+                <th st-sort="created_at">Date <span class="glyphicon glyphicon-sort" aria-hidden="true"></span></th>
+                <th st-sort="domain_name">Domain <span class="glyphicon glyphicon-sort" aria-hidden="true"></span></th>
+                <th st-sort="url">URL <span class="glyphicon glyphicon-sort" aria-hidden="true"></span></th>
+                <th st-sort="meta_robots">Meta Robots <span class="glyphicon glyphicon-sort" aria-hidden="true"></span></th>
+                <th st-sort="title">Title <span class="glyphicon glyphicon-sort" aria-hidden="true"></span></th>
+                <th st-sort="meta_desc">Meta Description <span class="glyphicon glyphicon-sort" aria-hidden="true"></span></th>
+                <th st-sort="og_title">OG Title <span class="glyphicon glyphicon-sort" aria-hidden="true"></span></th>
+                <th st-sort="og_desc">OG Description <span class="glyphicon glyphicon-sort" aria-hidden="true"></span></th>
             </tr>
-        </thead>
-        <tbody>
+
+            <!-- Filtering -->
             <tr>
                 <th>
                     <input st-search="created_at" placeholder="search for created_at" class="input-sm form-control" type="search" />
@@ -69,7 +48,8 @@
                     <input st-search="og_desc" placeholder="search for og_desc" class="input-sm form-control" type="search" />
                 </th>
             </tr>
-
+        </thead>
+            <!-- Rows -->
             <tr ng-repeat="row in dataCtrl.displayedCollection">
                 <td>{{ row.created_at.toString().slice(0, 10) }}</td>
                 <td>{{ row.domain_name }}</td>
@@ -82,9 +62,10 @@
             </tr>
         </tbody>
         <tfoot>
+            <!-- Pagination -->
             <tr>
-                <td colspan="5" class="text-center">
-                    <div st-pagination="" st-items-by-page="6" st-displayed-pages="7"></div>
+                <td colspan="8" class="text-right no-border">
+                    <div st-pagination="" st-items-by-page="6" st-displayed-pages="6"></div>
                 </td>
             </tr>
         </tfoot>
