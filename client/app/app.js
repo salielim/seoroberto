@@ -5,6 +5,8 @@
             "ngAnimate",
             "ui.router",
             "smart-table",
-            "lrDragNDrop"
+            "lrDragNDrop",
+            "ngSanitize",
+            "ngCsv"
         ]);
 })();
