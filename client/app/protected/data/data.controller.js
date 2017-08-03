@@ -13,9 +13,7 @@
         vm.columns = [{
             item: "created_at",
             name: "Date",
-            ngShow: true,
-            tipWarn: true,
-            tipMsg: "Hello"
+            ngShow: true
         }, 
         {
             item: "domain_name",
@@ -35,22 +33,26 @@
          {
             item: "title",
             name: "Title",
-            ngShow: true
+            ngShow: true,
+            length: "70"
         }, 
          {
             item: "meta_desc",
             name: "Meta Description",
-            ngShow: true
+            ngShow: true,
+            length: "156"
         }, 
          {
             item: "og_title",
             name: "OG Title",
-            ngShow: true
+            ngShow: true,
+            length: "40"
         }, 
          {
             item: "og_desc",
             name: "OG Desc",
-            ngShow: true
+            ngShow: true,
+            length: "300"
         }]
 
         retrieveAll()

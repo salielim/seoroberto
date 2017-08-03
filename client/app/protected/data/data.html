@@ -1,5 +1,5 @@
 <div class="page-header">
-    <h1>Scanned Data</h1>
+    <h1>Data Dashboard</h1>
 </div>
 
 <div class="panel panel-default">
@@ -37,7 +37,12 @@
             <tr ng-repeat="row in dataCtrl.displayedCollection">
                 <td ng-repeat="col in dataCtrl.columns" ng-show="col.ngShow">
                     {{row[col.item]}}
-                    <span class="label label-warning" ng-show="row[col.item]== null">Missing {{col.name}}</span>
+                    <!-- missing -->
+                    <span class="label label-warning" ng-show="row[col.item] == null">Missing</span>
+                    <!-- too long -->
+                    <span class="label label-info" ng-show="row[col.item].length > col.length">
+                        {{col.length - col.item.length}} chars too long </br> Chars limit: {{col.length}}
+                    </span>
                 </td>
             </tr>
         </tbody>
