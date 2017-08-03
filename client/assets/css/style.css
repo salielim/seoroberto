@@ -64,10 +64,6 @@ thead {
     cursor: pointer;
 }
 
-.no-border {
-    border-color: pink;
-}
-
 .glyphicon.glyphicon-sort {
     font-size: 10px;
 }
