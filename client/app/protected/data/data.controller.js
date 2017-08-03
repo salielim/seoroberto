@@ -3,18 +3,19 @@
         .module("SEO")
         .controller("DataCtrl", DataCtrl)
 
-    // Dependency injection. An empty [] means RegCtrl does not have dependencies. Here we inject DeptService so
     DataCtrl.$inject = ["$http", "DataService", "$filter"];
 
-    // Scan function declaration
     function DataCtrl($http, DataService, $filter) {
 
         var vm = this;
         vm.retrieveAll = retrieveAll;
+
         vm.columns = [{
             item: "created_at",
             name: "Date",
-            ngShow: true
+            ngShow: true,
+            tipWarn: true,
+            tipMsg: "Hello"
         }, 
         {
             item: "domain_name",
@@ -59,7 +60,6 @@
                 .retrieveAll()
                 .then(function (data) {
                     console.log("> Controller Result:", data);
-                    // vm.result = data;
                     vm.rowList = data;
                     vm.displayedCollection = [].concat(vm.rowList);
                 })

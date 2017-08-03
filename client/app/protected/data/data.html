@@ -7,13 +7,20 @@
     <table st-table="dataCtrl.displayedCollection" st-sticky-header st-safe-src="dataCtrl.rowList" class="table table-hover">
         <thead title="Click header to sort. Drag & drop headers to rearrange columns.">
             <tr>
-                <td colspan="8" class="text-right no-border"><label ng-repeat="col in dataCtrl.columns">
-                    <button ng-click="col.ngShow = !col.ngShow" class="btn btn-default btn-xs hide-col">
-                        <span class="glyphicon glyphicon-ok" aria-hidden="true" ng-show="col.ngShow" ng-show"!col.ngShow"></span>
-                        {{col.name}}
-                    </button>
-                </label></td>
+                <!-- Hide Columns -->
+                <td colspan="8" class="text-right no-border">
+                    <label ng-repeat="col in dataCtrl.columns">
+                        <button ng-click="col.ngShow = !col.ngShow" class="btn btn-default btn-xs hide-col">
+                            <span class="glyphicon glyphicon-ok" aria-hidden="true" ng-show="col.ngShow" ng-show"!col.ngShow"></span>
+                            {{col.name}}
+                        </button>
+                    </label>
+                    <!-- Export CSV -->
+                    <button class="btn btn-default btn-warning btn-xs hide-col">Export CSV</button>
+                </td>
             </tr>
+
+            <!-- Headers -->
             <tr>
                 <th lr-drag-src="headers" lr-drop-target="headers" ng-repeat="col in dataCtrl.columns" st-sort="{{col.item}}" class="sort"
                     ng-show="col.ngShow">{{col.name}}</th>
@@ -23,15 +30,20 @@
             <tr>
                 <th ng-repeat="col in dataCtrl.columns" ng-show="col.ngShow"><input st-search="created_at" placeholder="Search {{col.name}}" class="input-sm form-control" type="search"></th>
             </tr>
-
         </thead>
-        <!-- Rows -->
-        <tr ng-repeat="row in dataCtrl.displayedCollection">
-            <td ng-repeat="col in dataCtrl.columns" ng-show="col.ngShow">{{row[col.item]}}</td>
-        </tr>
+
+        <!-- Data Rows -->
+        <tbody>
+            <tr ng-repeat="row in dataCtrl.displayedCollection">
+                <td ng-repeat="col in dataCtrl.columns" ng-show="col.ngShow">
+                    {{row[col.item]}}
+                    <span class="label label-warning" ng-show="row[col.item]== null">Missing {{col.name}}</span>
+                </td>
+            </tr>
         </tbody>
+
+        <!-- Pagination -->
         <tfoot>
-            <!-- Pagination -->
             <tr>
                 <td colspan="8" class="text-right no-border">
                     <div st-pagination="" st-items-by-page="20" st-displayed-pages="6"></div>
