@@ -4,8 +4,7 @@
 
 <div class="panel panel-default">
     <!-- Data Table -->
-    <st-export></st-export>
-    <table st-table="dataCtrl.displayedCollection" st-sticky-header st-safe-src="dataCtrl.rowList" class="table table-hover"  st-pagination-scroll>
+    <table st-table="dataCtrl.displayedCollection" st-sticky-header st-safe-src="dataCtrl.rowList" class="table table-hover">
         <thead>
             <tr>
                 <td colspan="8" class="text-right no-border">
@@ -33,7 +32,7 @@
 
             <!-- Filtering -->
             <tr>
-                <th ng-repeat="col in dataCtrl.columns" ng-show="col.ngShow"><input st-search="created_at" placeholder="Search {{col.name}}" class="input-sm form-control" type="search"></th>
+                <th ng-repeat="col in dataCtrl.columns" ng-show="col.ngShow"><input st-search="col.item" placeholder="Search {{col.name}}" class="input-sm form-control" type="search"></th>
             </tr>
         </thead>
 
