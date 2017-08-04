@@ -53,15 +53,14 @@ app.post("/api/scan", function (req, res) {
 
 // Retrieve All
 app.get("/api/data", function (req, res) {
-    Page.find({ user_id: req.user.id }, function (err, data) {
+    Page.find({ user_id: req.user.id }, "created_at domain_name url meta_robots title meta_desc og_title og_desc", function (err, data) {
         if (err)
             return err;
         if (data)
             //console.log(data);
             res.send(data);
     });
-}
-);
+});
 
 // Retrieve scanned now
 app.get("/api/scanned", function (req, res) {

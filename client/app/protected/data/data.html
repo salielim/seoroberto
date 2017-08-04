@@ -4,7 +4,8 @@
 
 <div class="panel panel-default">
     <!-- Data Table -->
-    <table st-table="dataCtrl.displayedCollection" st-sticky-header st-safe-src="dataCtrl.rowList" class="table table-hover">
+    <st-export></st-export>
+    <table st-table="dataCtrl.displayedCollection" st-sticky-header st-safe-src="dataCtrl.rowList" class="table table-hover"  st-pagination-scroll>
         <thead>
             <tr>
                 <td colspan="8" class="text-right no-border">
@@ -20,7 +21,7 @@
                         </button>
                     </label>
                     <!-- Export CSV -->
-                    <button class="btn btn-default btn-warning btn-xs hide-col" ng-csv="dataCtrl.displayedCollection" filename="test.csv">Export CSV</button>
+                    <button class="btn btn-default btn-warning btn-xs hide-col" export export-data="dataCtrl.displayedCollection" export-headers="['Date', 'Domain Name', 'URL', 'Meta Robots', 'Title', 'Meta Description', 'OG Title', 'OG Description']" export-keys="['created_at', 'domain_name', 'url', 'meta_robots', 'title', 'meta_desc', 'og_title', 'og_desc']">Export CSV</a>
                 </td>
             </tr>
 
@@ -51,11 +52,13 @@
             </tr>
         </tbody>
 
-        <!-- Pagination -->
+        <!-- Pagination
+            itemsByPage
+            <input class="input-sm form-control ng-valid ng-dirty ng-valid-number ng-touched ng-not-empty" name="items" id="items" type="number" ng-model="dataCtrl.itemsByPage"> -->
         <tfoot>
             <tr>
                 <td colspan="8" class="text-right no-border">
-                    <div st-pagination="" st-items-by-page="20" st-displayed-pages="6"></div>
+                    <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
                 </td>
             </tr>
         </tfoot>

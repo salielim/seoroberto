@@ -19,6 +19,9 @@
     <ui-view name='content'></ui-view>
 
     <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="https://cdn.rawgit.com/eligrey/FileSaver.js/e9d941381475b5df8b7d7691013401e171014e89/FileSaver.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/TableExport/3.3.5/js/tableexport.min.js"></script>
+
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-messages/angular-messages.js"></script>
@@ -28,7 +31,6 @@
     <script src="bower_components/angular-smart-table/dist/smart-table.js"></script>
     <script src="bower_components/smart-table-sticky-header/stStickyHeader.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/ng-csv/build/ng-csv.js"></script>
     
     <script src="app/app.js"></script>
     <script src="app/config/routes.js"></script>
@@ -44,7 +46,8 @@
     <script src="app/services/data.services.js"></script>
     <script src="app/services/lrDragNDrop.js"></script>
 
-    <script src="app/protected/data/data.directive.js"></script>
+    <script src="app/directives/data.directive.js"></script>
+    <script src="app/directives/angular-export.js"></script>
 
 </body>
 

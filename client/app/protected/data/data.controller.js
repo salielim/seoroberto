@@ -2,16 +2,6 @@
     angular
         .module("SEO")
         .controller("DataCtrl", DataCtrl)
-        .directive('stFilteredCollection', function () {
-            return {
-                require: '^stTable',
-                link: function (scope, element, attr, ctrl) {
-                    scope.$watch(ctrl.getFilteredCollection, function (val) {
-                        scope.filteredCollection = val;
-                    })
-                }
-            }
-        });
 
     DataCtrl.$inject = ["$http", "DataService", "$filter"];
 
@@ -64,7 +54,6 @@
             ngShow: true,
             length: "300"
         }]
-
 
         retrieveAll()
         function retrieveAll() {

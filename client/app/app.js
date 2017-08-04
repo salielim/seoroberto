@@ -6,7 +6,6 @@
             "ui.router",
             "smart-table",
             "lrDragNDrop",
-            "ngSanitize",
-            "ngCsv"
+            "export.csv"
         ]);
 })();
