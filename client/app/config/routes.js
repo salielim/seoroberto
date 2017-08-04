@@ -86,19 +86,24 @@
                         templateUrl: "app/protected/data/data.html",
                         controller: "DataCtrl",
                         controllerAs: "dataCtrl"
-                    },
-                    resolve: {
-                        user: function (AuthService) {
-                            return AuthService.userAuth()
-                                .then(function (result) {
-                                    return result.data.user;
-                                })
-                                .catch(function (err) {
-                                    return '';
-                                });
-                        }
                     }
                 },
+                resolve: {
+                    user: function (AuthService) {
+                        return AuthService.userAuth()
+                            .then(function (result) {
+                                console.log('data');
+                                console.log(result.data);
+                                return result.data.user;
+                            })
+                            .catch(function (err) {
+                                console.log('data');
+                                console.log(err);
+                                return '';
+                            });
+                    }
+                },
+
             })
             .state("scan", {
                 url: "/scan",
