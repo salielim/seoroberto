@@ -22,7 +22,7 @@
         },
         {
             item: "domain_name",
-            name: "Domain Name",
+            name: "Domain",
             ngShow: true
         },
         {
