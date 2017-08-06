@@ -1,16 +1,16 @@
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('../models/user');
 
-var api_key = process.env.MAILGUN_KEY;
-var domain = 'sandboxbf812b83405d4b6096eaf6293f0a2a96.mailgun.org';
-var mailgun = require('mailgun-js')({ apiKey: api_key, domain: domain });
+// var api_key = process.env.MAILGUN_KEY;
+// var domain = 'sandboxbf812b83405d4b6096eaf6293f0a2a96.mailgun.org';
+// var mailgun = require('mailgun-js')({ apiKey: api_key, domain: domain });
 
-var data = {
-    from: 'SEORoberto <roberto@seoroberto.com>',
-    to: 'salie.lim@gmail.com',
-    subject: 'Welcome',
-    text: 'Welcome to SEO Roberto!'
-};
+// var data = {
+//     from: 'SEORoberto <roberto@seoroberto.com>',
+//     to: 'salie.lim@gmail.com',
+//     subject: 'Welcome',
+//     text: 'Welcome to SEO Roberto!'
+// };
 
 module.exports = function (passport) {
 
@@ -64,9 +64,9 @@ module.exports = function (passport) {
                             return done(null, newUser);
                         });
 
-                        mailgun.messages().send(data, function (error, body) {
-                            console.log(body);
-                        });
+                        // mailgun.messages().send(data, function (error, body) {
+                        //     console.log(body);
+                        // });
                     }
                 });
             });
