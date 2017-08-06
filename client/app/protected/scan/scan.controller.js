@@ -3,13 +3,18 @@
         .module("SEO")
         .controller("ScanCtrl", ScanCtrl);
 
-    // Dependency injection. An empty [] means RegCtrl does not have dependencies. Here we inject DeptService so
-    ScanCtrl.$inject = ["$http", "DataService", "$filter"];
+    ScanCtrl.$inject = ["$http", "$filter", "$state", "DataService"];
+    // ["$http", "$filter", "$state", "DataService"]
 
-    // Scan function declaration
-    function ScanCtrl($http, DataService, $filter) {
+    function ScanCtrl($http, $filter, $state, DataService) 
+    //$http, $filter, $state, DataService, user
+    {
 
         var vm = this;
+
+        // if(!user){
+        //     $state.go("login");
+        // }
 
         vm.domainURL = "";
 

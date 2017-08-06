@@ -3,18 +3,17 @@
         .module("SEO")
         .controller("DataCtrl", DataCtrl)
 
-    DataCtrl.$inject = ["$http", "DataService", "$filter", "user", "$state"];
+    DataCtrl.$inject = ["$http", "$filter", "$state", "DataService", "user"];
 
-    function DataCtrl($http, DataService, $filter, user, $state) {
+    function DataCtrl($http, $filter, $state, DataService, user) {
 
         var vm = this;
         vm.retrieveAll = retrieveAll;
-        console.log('user');
-        console.log(user);
+
         if(!user){
-            console.log('not user');
-            $state.go('login');
-}
+            $state.go("login");
+        }
+
         vm.columns = [{
             item: "created_at",
             name: "Date",

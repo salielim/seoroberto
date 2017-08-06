@@ -92,18 +92,14 @@
                     user: function (AuthService) {
                         return AuthService.userAuth()
                             .then(function (result) {
-                                console.log('data');
-                                console.log(result.data);
                                 return result.data.user;
                             })
                             .catch(function (err) {
-                                console.log('data');
                                 console.log(err);
                                 return '';
                             });
                     }
-                },
-
+                }
             })
             .state("scan", {
                 url: "/scan",
@@ -115,19 +111,20 @@
                         templateUrl: "app/protected/scan/scan.html",
                         controller: "ScanCtrl",
                         controllerAs: "scanCtrl"
-                    },
-                    resolve: {
-                        user: function (AuthService) {
-                            return AuthService.userAuth()
-                                .then(function (result) {
-                                    return result.data.user;
-                                })
-                                .catch(function (err) {
-                                    return '';
-                                });
-                        }
-                    },
+                    }
                 },
+                resolve: {
+                    user: function (AuthService) {
+                        return AuthService.userAuth()
+                            .then(function (result) {
+                                return result.data.user;
+                            })
+                            .catch(function (err) {
+                                console.log(err);
+                                return '';
+                            });
+                    }
+                }
             })
             .state("compare", {
                 url: "/compare",
@@ -140,6 +137,18 @@
                         // controller: "CompareCtrl",
                         // controllerAs: "compareCtrl"
                     }
+                },
+                resolve: {
+                    user: function (AuthService) {
+                        return AuthService.userAuth()
+                            .then(function (result) {
+                                return result.data.user;
+                            })
+                            .catch(function (err) {
+                                console.log(err);
+                                return '';
+                            });
+                    }
                 }
             })
             .state("report", {
@@ -150,8 +159,20 @@
                     },
                     'content': {
                         templateUrl: "app/protected/report/report.html",
-                        // controller: "ReportCtrl",
-                        // controllerAs: "reportCtrl"
+                        controller: "ReportCtrl",
+                        controllerAs: "reportCtrl"
+                    }
+                },
+                resolve: {
+                    user: function (AuthService) {
+                        return AuthService.userAuth()
+                            .then(function (result) {
+                                return result.data.user;
+                            })
+                            .catch(function (err) {
+                                console.log(err);
+                                return '';
+                            });
                     }
                 }
             })
@@ -163,8 +184,20 @@
                     },
                     'content': {
                         templateUrl: "app/protected/schedule/schedule.html",
-                        // controller: "ScheduleCtrl",
-                        // controllerAs: "scheduleCtrl"
+                        controller: "ScheduleCtrl",
+                        controllerAs: "scheduleCtrl"
+                    }
+                },
+                resolve: {
+                    user: function (AuthService) {
+                        return AuthService.userAuth()
+                            .then(function (result) {
+                                return result.data.user;
+                            })
+                            .catch(function (err) {
+                                console.log(err);
+                                return '';
+                            });
                     }
                 }
             })
@@ -178,6 +211,18 @@
                         templateUrl: "app/protected/settings/settings.html",
                         controller: "SettingsCtrl",
                         controllerAs: "settingCtrl"
+                    }
+                },
+                resolve: {
+                    user: function (AuthService) {
+                        return AuthService.userAuth()
+                            .then(function (result) {
+                                return result.data.user;
+                            })
+                            .catch(function (err) {
+                                console.log(err);
+                                return '';
+                            });
                     }
                 }
             });
