@@ -6,6 +6,8 @@
             "ui.router",
             "smart-table",
             "lrDragNDrop",
-            "export.csv"
+            "export.csv",
+            "ui.bootstrap"
+            //, "table-filter"
         ]);
 })();
