@@ -9,7 +9,8 @@
 
         var vm = this;
 
-        vm.schedule = "";
+        vm.frequency = "";
+        vm.domain = "";
         vm.msg = "";
 
         if(!user){
@@ -22,15 +23,15 @@
                 method: "POST",
                 url: "/api/schedule",
                 data: {
-                        schedule: vm.schedule
+                        frequency: vm.frequency,
+                        domain: vm.domain
                       }
             })
             .then(function(data){
-                console.log("Success!")
-                if (vm.schedule=="none") {
+                if (vm.frequency=="none") {
                     vm.msg = "Success, scheduled scan has been disabled."
                 } else {
-                    vm.msg = "Success, your scan will be performed " + vm.schedule + ".";
+                    vm.msg = "Success, scheduled scan for " + vm.domain + " will be performed " + vm.frequency + ".";
                 }
             })
             .catch(function(err){

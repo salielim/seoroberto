@@ -8,18 +8,26 @@
         {{scheduleCtrl.msg}}
     </span>
 
-    <!-- Schedule Form -->
     <form name="scheduleForm" ng-submit="scheduleCtrl.automate()" novalidate autocomplete="off">
 
-        <h4>Perform scan every</h4>
+        <!-- Scan Domain -->
+        <h4>Domain URL</h4>
+        <div class="form-group input-field col s6" ng-class="{ 'has-error': scheduleForm.domain.$touched && scheduleForm.domain.$invalid }">
+            <input type="text" class="form-control" ng-model="scheduleCtrl.domain" name="domain" placeholder="Enter domain URL" required>
+            <div class="help-block" ng-messages="scheduleForm.domain.$error" ng-if="scheduleForm.domain.$touched">
+                <span class="help-inline" ng-message="required">Domain URL is mandatory</span>
+            </div>
+        </div>
 
-        <div class="form-group input-field col s6" ng-class="{ 'has-error': scheduleForm.schedule.$touched && scheduleForm.schedule.$invalid }">
-            <select class="form-control schedule-dropdown" ng-model="scheduleCtrl.schedule" name="schedule" placeholder="Perform scan every" required>
+        <!-- Scan Frequency -->
+        <h4>Perform scan every</h4>
+        <div class="form-group input-field col s6" ng-class="{ 'has-error': scheduleForm.frequency.$touched && scheduleForm.frequency.$invalid }">
+            <select class="form-control" ng-model="scheduleCtrl.frequency" name="frequency" placeholder="Perform scan every" required>
                 <option value="weekly">1 week</option>
                 <option value="fornightly">2 weeks</option>
                 <option value="none">Disable scheduled scan</option>
             </select>
-            <div class="help-block" ng-messages="scheduleForm.schedule.$error" ng-if="scheduleForm.schedule.$touched">
+            <div class="help-block" ng-messages="scheduleForm.frequency.$error" ng-if="scheduleForm.frequency.$touched">
                 <span class="help-inline" ng-message="required">Please pick scan frequency.</span>
             </div>
         </div>

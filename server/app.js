@@ -53,12 +53,13 @@ app.post("/api/scan", function (req, res) {
 // Schedule 
 app.post("/api/schedule", function (req, res) {
     console.log("in api/schedule");
-    User.findOneAndUpdate({ '_id': req.user.id }, { $set: { schedule_freq: req.body.schedule } }, { new: true }, function (err, doc) {
+    User.findOneAndUpdate({ '_id': req.user.id }, { $set: { schedule_domain: req.body.domain, schedule_freq: req.body.frequency } }, { new: true }, function (err, doc) {
         if (err) {
             console.log(err);
+        } else {
+            console.log(doc);
+            res.send(doc);
         }
-        console.log(doc);
-        res.send(doc);
     });
 });
 

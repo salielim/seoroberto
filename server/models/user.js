@@ -4,6 +4,7 @@ var bcrypt = require('bcrypt-nodejs');
 var userSchema = mongoose.Schema({
     email: String,
     password: String,
+    schedule_domain: String,
     schedule_freq: {
         type: String,
         enum : ['weekly','fornightly'],

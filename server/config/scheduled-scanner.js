@@ -1,7 +1,9 @@
 var Page = require('../models/page');
+var User = require('../models/user');
+
 var Scanner = require("crawler");
 
-var scanUser = null;
+// var scanUser = null;
 
 var c = new Scanner({
     maxConnections: 10,
@@ -81,8 +83,7 @@ var c = new Scanner({
 
 var domainName = "";
 
-exports.scan = function (domain, user) {
-    //domainName = "https://en.wikipedia.org";
+exports.scheduledScan = function (domain, user) {
     scanUser = user;
     urlArr = ["https://" + domain];
     domainName = "https://" + domain;
