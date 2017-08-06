@@ -3,74 +3,78 @@
         .module("SEO")
         .controller("ScanCtrl", ScanCtrl);
 
-    ScanCtrl.$inject = ["$http", "$filter", "$state", "DataService"];
-    // ["$http", "$filter", "$state", "DataService"]
+    ScanCtrl.$inject = ["$http", "$filter", "$state", "DataService", "user"];
 
-    function ScanCtrl($http, $filter, $state, DataService) 
-    //$http, $filter, $state, DataService, user
-    {
+    function ScanCtrl($http, $filter, $state, DataService, user) {
 
         var vm = this;
 
-        // if(!user){
-        //     $state.go("login");
-        // }
+        if (!user) {
+            $state.go("login");
+        }
 
         vm.domainURL = "";
 
-        vm.startScan = startScan;
         vm.retrieveScanned = retrieveScanned;
-        vm.showTable = showTable;
         vm.result = [];
 
-        function startScan() {
-            console.log("scanctrl");
-            return $http({
-                method: 'POST',
-                url: 'api/scan/',
-                data: { domain: vm.domainURL }
-            })
-        }
+        vm.todaysDate = new Date().toISOString().slice(0, 10);
 
-    function showTable() {
-        console.log("in showTable")
-        DataService
-            .retrieveScanned()
-            .then(function (data) {
-                vm.data = data;
-                console.log(vm.data);
-                vm.tableParams = new NgTableParams({
-                    page: 1,
-                    count: 3
-                }, {
-                        total: vm.data.length,
-                        getData: function (params) {
-                            retrieveScanned();
+        vm.columns = [
+            // {
+            //     item: "created_at",
+            //     name: "Date",
+            //     ngShow: true
+            // },
+            {
+                item: "domain_name",
+                name: "Domain Name",
+                ngShow: true
+            },
+            {
+                item: "url",
+                name: "URL",
+                ngShow: true
+            },
+            {
+                item: "meta_robots",
+                name: "Meta Robots",
+                ngShow: true
+            },
+            {
+                item: "title",
+                name: "Title",
+                ngShow: true,
+                length: "70"
+            },
+            {
+                item: "meta_desc",
+                name: "Meta Description",
+                ngShow: true,
+                length: "156"
+            },
+            {
+                item: "og_title",
+                name: "OG Title",
+                ngShow: true,
+                length: "40"
+            },
+            {
+                item: "og_desc",
+                name: "OG Desc",
+                ngShow: true,
+                length: "300"
+            }]
 
-                            // Sorting
-                            vm.data = params.sorting() ? $filter('orderBy')(vm.data, params.orderBy()) : vm.data;
-
-                            // Filtering
-                            vm.data = params.filter() ? $filter('filter')(vm.data, params.filter()) : vm.data;
-
-                            // Pagination
-                            vm.data = vm.data.slice((params.page() - 1) * params.count(), params.page() * params.count());
-                            // $defer.resolve(vm.data);                        
-                        }
-                    });
-            })
-            .catch(function (err) {
-                console.log(err);
-            });
-    }
-
+        // retrieveScanned();
         function retrieveScanned() {
-            console.log("scanned data");
+            console.log("* DataCtrl: retrieveScanned");
             DataService
                 .retrieveScanned()
                 .then(function (data) {
                     console.log("> Controller Result:", data);
-                    vm.result = data;
+                    vm.rowList = data;
+                    vm.displayedCollection = [].concat(vm.rowList);
                 })
                 .catch(function (err) {
                     console.log("> Controller Error:", err);

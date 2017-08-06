@@ -14,7 +14,8 @@
             $state.go("login");
         }
 
-        vm.columns = [{
+        vm.columns = [
+        {
             item: "created_at",
             name: "Date",
             ngShow: true
@@ -59,7 +60,7 @@
             length: "300"
         }]
 
-        retrieveAll()
+        retrieveAll();
         function retrieveAll() {
             console.log("* DataCtrl: retrieveAll");
             DataService

@@ -15,15 +15,15 @@
         </div>
 
         <!-- Scan  -->
-        <div class="col-xs-6 col-md-6 search" ng-show="currentUser" ng-controller="ScanCtrl as scanCtrl">
+        <div class="col-xs-6 col-md-6 search" ng-show="currentUser" ng-controller="MenuCtrl as menuCtrl">
             <form name="scanForm" novalidate autocomplete="off">
                 <div class="input-group">
                     <span class="input-group-btn">
                         <button class="btn btn-default go" type="button">https://</button>
                     </span>
-                    <input ng-model="scanCtrl.domainURL" type="text" class="form-control" placeholder="Enter domain URL" ng-pattern="/^((?!http).)*$/" value="http://" required>
+                    <input ng-model="menuCtrl.domainURL" type="text" class="form-control" placeholder="Enter domain URL" ng-pattern="/^((?!http).)*$/" value="http://" required>
                     <span class="input-group-btn">
-                        <button ng-click="scanCtrl.startScan()" class="btn btn-default go" type="button" a ui-sref="scan" ng-disabled="scanForm.$invalid">
+                        <button ng-click="menuCtrl.startScan()" class="btn btn-default go" type="button" a ui-sref="scan" ng-disabled="scanForm.$invalid">
                                 Go!
                             <span class="glyphicon glyphicon-scale" aria-hidden="true"></span>
                         </button>
