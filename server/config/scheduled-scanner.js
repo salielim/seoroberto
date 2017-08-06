@@ -3,7 +3,7 @@ var User = require('../models/user');
 
 var Scanner = require("crawler");
 
-// var scanUser = null;
+var scanUser = null;
 
 var c = new Scanner({
     maxConnections: 10,
@@ -84,13 +84,19 @@ var c = new Scanner({
 var domainName = "";
 
 exports.scheduledScan = function (domain, user) {
-    scanUser = user;
-    urlArr = ["https://" + domain];
-    domainName = "https://" + domain;
-    
-    c.queue(urlArr);
 
-    c.on('drain', function () {
-        console.log("done!!");
-    })
+    User.find({ schedule_freq: { $gte: "weekly" } }, function (err, data) {
+        if (err)
+            return err;
+        if (data)
+            // res.send(data);
+            console.log(data);
+
+            for (i = 0; i < data.length; i++) {
+                scanUser = data[i]._id;
+                urlArr = [data[i].schedule_domain];
+                domainName = data[i].schedule_domain;
+                c.queue(urlArr);
+            }
+    });
 }

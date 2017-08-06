@@ -20,6 +20,7 @@ var Page = require('./models/page');
 var User = require('./models/user');
 
 var scanner = require("./config/scanner.js");
+var scanner = require("./config/scheduled-scanner.js");
 
 // Constants
 var NODE_PORT = process.env.PORT || 8080;
@@ -50,7 +51,12 @@ app.post("/api/scan", function (req, res) {
     scanner.scan(req.body.domain, req.user);
 });
 
-// Schedule 
+// Scheduled Scan 
+app.post("/api/scheduled-scan", function (req, res) {
+    scanner.scheduledScan();
+});
+
+// Schedule Form
 app.post("/api/schedule", function (req, res) {
     console.log("in api/schedule");
     User.findOneAndUpdate({ '_id': req.user.id }, { $set: { schedule_domain: req.body.domain, schedule_freq: req.body.frequency } }, { new: true }, function (err, doc) {
@@ -63,7 +69,7 @@ app.post("/api/schedule", function (req, res) {
     });
 });
 
-// Retrieve All
+// Retrieve All Data
 app.get("/api/data", function (req, res) {
     Page.find({ user_id: req.user.id }, function (err, data) {
         if (err)
@@ -73,7 +79,7 @@ app.get("/api/data", function (req, res) {
     });
 });
 
-// Retrieve Scanned Today
+// Retrieve Scanned Today Data
 app.get("/api/scanned", function (req, res) {
     var now = new Date();
     var startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
