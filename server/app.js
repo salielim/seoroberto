@@ -69,6 +69,16 @@ app.post("/api/schedule", function (req, res) {
     });
 });
 
+// Retrieve User Schedule
+app.get("/api/schedule", function (req, res) {
+    User.find({ _id: req.user.id }, function (err, data) {
+        if (err)
+            return err;
+        if (data)
+            res.send(data);
+    });
+});
+
 // Retrieve All Data
 app.get("/api/data", function (req, res) {
     Page.find({ user_id: req.user.id }, function (err, data) {

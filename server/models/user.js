@@ -7,7 +7,7 @@ var userSchema = mongoose.Schema({
     schedule_domain: String,
     schedule_freq: {
         type: String,
-        enum : ['weekly','fornightly'],
+        enum : ['weekly','fornightly', 'none'],
         default: 'none'
     }
 }, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } });

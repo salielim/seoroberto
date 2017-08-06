@@ -93,10 +93,13 @@ exports.scheduledScan = function (domain, user) {
             console.log(data);
 
             for (i = 0; i < data.length; i++) {
+                // make this synchronous & secure
+                console.log("Start " + i);
                 scanUser = data[i]._id;
                 urlArr = [data[i].schedule_domain];
                 domainName = data[i].schedule_domain;
-                c.queue(urlArr);
+                c.queue(urlArr); // this is executing last
+                console.log("End " + i);
             }
     });
 }

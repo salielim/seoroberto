@@ -4,6 +4,17 @@
             <small>Pick your scan schedule and let us do the work for you.</small></h1>
     </div>
 
+    <div class="alert alert-warning" ng-show="scheduleCtrl.scheduleFreq == 'weekly' || scheduleCtrl.scheduleFreq == 'fornightly'">
+        Your domain <strong>{{scheduleCtrl.scheduleDomain}}</strong> 
+        is scheduled for <strong>{{scheduleCtrl.scheduleFreq}}</strong> scan, 
+        you may change the domain and/or frequency of scan below.
+    </div>
+
+    <div class="alert alert-warning" ng-show="scheduleCtrl.scheduleFreq == 'none'">
+        Currently <strong>no scans</strong> are scheduled,
+        you may add the domain and frequency of scan below.
+    </div>
+
     <span class="msg-text">
         {{scheduleCtrl.msg}}
     </span>

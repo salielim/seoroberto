@@ -3,41 +3,64 @@
         .module("SEO")
         .controller("ScheduleCtrl", ScheduleCtrl)
 
-    ScheduleCtrl.$inject = ["$state", "$http", "user"];
+    ScheduleCtrl.$inject = ["$state", "$http", "$q", "user"];
 
-    function ScheduleCtrl($state, $http, user) {
+    function ScheduleCtrl($state, $http, $q, user) {
 
         var vm = this;
 
         vm.frequency = "";
         vm.domain = "";
-        vm.msg = "";
 
-        if(!user){
+        vm.msg = "";
+        vm.scheduleDomain = "";
+        vm.scheduleFreq = "";
+
+        if (!user) {
             $state.go("login");
         }
 
+        // Retrieve User Schedule
+        retrieveSchedule();
+        function retrieveSchedule() {
+            console.log("retrieveSchedule");
+            var defer = $q.defer();
+
+            $http.get("/api/schedule", {
+            }).then(function (results) {
+                console.log("> schedule Result:", results);
+                vm.scheduleDomain = results.data[0].schedule_domain;
+                vm.scheduleFreq = results.data[0].schedule_freq;
+                return defer.resolve(results.data);
+            }).catch(function (err) {
+                console.log("> schedule Error:", err);
+                return defer.reject(err);
+            });
+            return defer.promise;
+        };
+
+        // Schedule Form
         vm.automate = function (data) {
             console.log("Schedule: " + vm.schedule);
             return $http({
                 method: "POST",
                 url: "/api/schedule",
                 data: {
-                        frequency: vm.frequency,
-                        domain: vm.domain
-                      }
-            })
-            .then(function(data){
-                if (vm.frequency=="none") {
-                    vm.msg = "Success, scheduled scan has been disabled."
-                } else {
-                    vm.msg = "Success, scheduled scan for " + vm.domain + " will be performed " + vm.frequency + ".";
+                    frequency: vm.frequency,
+                    domain: vm.domain
                 }
             })
-            .catch(function(err){
-                console.log(err);
-                vm.msg = "Failed, please try again.";
-            });
+                .then(function (data) {
+                    if (vm.frequency == "none") {
+                        vm.msg = "Success, scheduled scan has been disabled."
+                    } else {
+                        vm.msg = "Success, scheduled scan for " + vm.domain + " will be performed " + vm.frequency + ".";
+                    }
+                })
+                .catch(function (err) {
+                    console.log(err);
+                    vm.msg = "Failed, please try again.";
+                });
         };
     }
 })();
