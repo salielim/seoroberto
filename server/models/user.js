@@ -4,6 +4,11 @@ var bcrypt = require('bcrypt-nodejs');
 var userSchema = mongoose.Schema({
     email: String,
     password: String,
+    schedule_freq: {
+        type: String,
+        enum : ['weekly','fornightly'],
+        default: 'none'
+    }
 }, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } });
 
 // generating hash

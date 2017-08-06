@@ -44,11 +44,22 @@ app.use(passport.session()); // persistent login sessions
 // Routes
 require('./config/user.routes.js')(app, passport);
 
-// *** APIs - move & export this into API folder later
+// *** APIs
 // Scan 
 app.post("/api/scan", function (req, res) {
-    console.log("hi api scan");
     scanner.scan(req.body.domain, req.user);
+});
+
+// Schedule 
+app.post("/api/schedule", function (req, res) {
+    console.log("in api/schedule");
+    User.findOneAndUpdate({ '_id': req.user.id }, { $set: { schedule_freq: req.body.schedule } }, { new: true }, function (err, doc) {
+        if (err) {
+            console.log(err);
+        }
+        console.log(doc);
+        res.send(doc);
+    });
 });
 
 // Retrieve All
@@ -61,15 +72,14 @@ app.get("/api/data", function (req, res) {
     });
 });
 
-// Retrieve scanned now
+// Retrieve Scanned Today
 app.get("/api/scanned", function (req, res) {
     var now = new Date();
     var startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-    Page.find({ user_id: req.user.id, created_at: {$gte: startOfToday} } , function (err, data) {
+    Page.find({ user_id: req.user.id, created_at: { $gte: startOfToday } }, function (err, data) {
         if (err)
             return err;
         if (data)
-            //console.log(data);
             res.send(data);
     });
 }
