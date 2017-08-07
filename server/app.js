@@ -20,7 +20,7 @@ var Page = require('./models/page');
 var User = require('./models/user');
 
 var scanner = require("./config/scanner.js");
-var scanner = require("./config/scheduled-scanner.js");
+var scheduledScanner = require("./config/scheduled-scanner.js");
 
 // Constants
 var NODE_PORT = process.env.PORT || 8080;
@@ -48,12 +48,13 @@ require('./config/user.routes.js')(app, passport);
 // *** APIs
 // Scan 
 app.post("/api/scan", function (req, res) {
+    console.log("in /api/scan");
     scanner.scan(req.body.domain, req.user);
 });
 
 // Scheduled Scan 
 app.post("/api/scheduled-scan", function (req, res) {
-    scanner.scheduledScan();
+    scheduledScanner.scheduledScan();
 });
 
 // Schedule Form

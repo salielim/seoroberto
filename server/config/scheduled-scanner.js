@@ -1,6 +1,5 @@
 var Page = require('../models/page');
 var User = require('../models/user');
-
 var Scanner = require("crawler");
 
 var scanUser = null;

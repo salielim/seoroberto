@@ -8,6 +8,7 @@ var c = new Scanner({
     callback: function (error, res, done) {
         if (error) {
             console.log(error);
+            console.log("im in error");
         } else {
             var $ = res.$; // $ is Cheerio by default
 
