@@ -7,9 +7,10 @@
 ## How to get it up and running
 * `bower install`
 * `npm install`
-* requirements: mongoDB
-* modify the url in database.js to connect to mongoDB 
-* start server with `node server/app.js`
+* Requirements: mongoDB
+* Modify the url in database.js to connect to mongoDB 
+* Start server with `node server/app.js`
+* Visit `http://localhost:8080`
 
 ## SEORoberto
 This tool automates the monitoring of each and every webpage on a website. 

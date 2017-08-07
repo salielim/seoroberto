@@ -7,7 +7,7 @@
             "smart-table",
             "lrDragNDrop",
             "export.csv",
-            "ui.bootstrap"
-            //, "table-filter"
+            "ui.bootstrap",
+            "highcharts-ng"
         ]);
 })();
