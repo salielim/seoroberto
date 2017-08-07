@@ -1,5 +1,7 @@
 var Page = require('../models/page');
+
 var Scanner = require("crawler");
+var uniqid = require('uniqid');
 
 var scanUser = null;
 
@@ -38,6 +40,8 @@ var c = new Scanner({
             newPage.img_alt = imgArr;
             newPage.user_id = scanUser.id;
             newPage.domain_name = domainName.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "").split('/')[0];
+
+            newPage.scan_group_id = scanGroupId;
 
             newPage.save(function (err) {
                 if (err)
@@ -87,6 +91,7 @@ exports.scan = function (domain, user) {
     scanUser = user;
     urlArr = ["https://" + domain];
     domainName = "https://" + domain;
+    scanGroupId = uniqid();
     
     c.queue(urlArr);
 
