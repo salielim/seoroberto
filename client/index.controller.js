@@ -7,7 +7,6 @@
     var vm = this;
 
     vm.logout = function(user) {
-      // send a get request to the server
       return $http
         .post("/logout")
         .then(function(user) {

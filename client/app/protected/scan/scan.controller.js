@@ -83,7 +83,6 @@
       }
     ];
 
-    // retrieveScanned();
     function retrieveScanned() {
       DataService.retrieveScanned()
         .then(function(data) {

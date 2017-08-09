@@ -16,5 +16,4 @@ var pageSchema = mongoose.Schema(
   { timestamps: { createdAt: "created_at", updatedAt: "updated_at" } }
 );
 
-// create model for pages
 module.exports = mongoose.model("Page", pageSchema);

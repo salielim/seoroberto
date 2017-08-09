@@ -2,7 +2,6 @@ var Page = require("../models/page");
 var User = require("../models/user");
 
 module.exports = function(app, passport) {
-  // For complete list of API Endpoints, refer to image in readme.md
 
   // User Auth
   app.get("/user/auth", function(req, res) {
@@ -59,18 +58,10 @@ module.exports = function(app, passport) {
   app.post("/logout", function(req, res) {
     req.logout();
     res.send(200);
-    // res.redirect("/#!/login");
   });
 
   // Loggedin
   app.get("/loggedin", function(req, res) {
     res.send(req.isAuthenticated() ? req.user : "0");
   });
-
-  // Protected
-  // app.get("/protected/", checkLoggedin, function(req, res){
-  //     if(req.user == null){
-  //         res.redirect("/#!/login");
-  //     }
-  // })
 };

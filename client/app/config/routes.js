@@ -123,31 +123,6 @@
           }
         }
       })
-      .state("compare", {
-        url: "/compare",
-        views: {
-          menu: {
-            templateUrl: "app/menu/menu.html"
-          },
-          content: {
-            templateUrl: "app/protected/compare/compare.html"
-            // controller: "CompareCtrl",
-            // controllerAs: "compareCtrl"
-          }
-        },
-        resolve: {
-          user: function(AuthService) {
-            return AuthService.userAuth()
-              .then(function(result) {
-                return result.data.user;
-              })
-              .catch(function(err) {
-                console.log(err);
-                return "";
-              });
-          }
-        }
-      })
       .state("report", {
         url: "/report",
         views: {
@@ -198,31 +173,6 @@
           }
         }
       })
-      .state("settings", {
-        url: "/settings",
-        views: {
-          menu: {
-            templateUrl: "app/menu/menu.html"
-          },
-          content: {
-            templateUrl: "app/protected/settings/settings.html",
-            controller: "SettingsCtrl",
-            controllerAs: "settingCtrl"
-          }
-        },
-        resolve: {
-          user: function(AuthService) {
-            return AuthService.userAuth()
-              .then(function(result) {
-                return result.data.user;
-              })
-              .catch(function(err) {
-                console.log(err);
-                return "";
-              });
-          }
-        }
-      });
     $urlRouterProvider.otherwise("/");
   }
 })();

@@ -21,8 +21,6 @@ module.exports = function(passport) {
 
   passport.deserializeUser(function(id, done) {
     User.findById(id, function(err, user) {
-      // user1 = {email: user.email, id: user._id} ;
-      // done(err, user1);
       user = { email: user.email, id: user._id };
       done(err, user);
     });
@@ -40,22 +38,17 @@ module.exports = function(passport) {
       function(req, email, password, done) {
         // asynchronous, User.findOne wont fire unless data is sent back
         process.nextTick(function() {
-          // find a user whose email is the same as the forms email
           User.findOne({ email: email }, function(err, user) {
             if (err) return done(err);
 
             if (user) {
               return done(null, false);
             } else {
-              // if no user with that email, create the user
               var newUser = new User();
 
-              // set user's local credentials
               newUser.email = email;
               newUser.password = newUser.generateHash(password);
-              // newUser.date = today;
 
-              // save the user
               newUser.save(function(err) {
                 if (err) throw err;
                 return done(null, newUser);
