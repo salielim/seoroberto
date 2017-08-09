@@ -1,5 +1,5 @@
 ## API Endpoints (assessment 3)
-![Image of API Endpoints](http://i.imgur.com/WGdqJ0B.png)
+![Image of API Endpoints](http://i.imgur.com/uHi3tIo.png)
 
 ## Deployed
 [https://seoroberto.herokuapp.com](https://seoroberto.herokuapp.com)
@@ -20,6 +20,6 @@ With a click of the button, the tool crawls every webpage and saves the title, h
 This can also be done with as a weekly cron job. With this tool, businesses can view and monitor HTML elements of the webpage that affects their site’s ranking at a glance.
 
 ## More Information
-**Product/Service:** Search Engine Optimisation (SEO) Website Crawler Tool 
+**Product/Service:** Search Engine Optimisation (SEO) Website Crawler Tool.
 
-**Type:** Software as a service (SaaS), monthly subscription
+**Type:** Software as a service (SaaS) MVP.
