@@ -20,7 +20,6 @@
         }
       })
         .then(function(user) {
-          ßÍ;
           if (user.data) {
             $state.go("data");
             $rootScope.currentUser = user;

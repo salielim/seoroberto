@@ -91,7 +91,7 @@ app.get("/api/data", function(req, res) {
   Page.find({ user_id: req.user.id }, function(err, data) {
     if (err) return err;
     if (data) res.send(data);
-  });
+  }).sort({created_at: 'desc'});
 });
 
 // Retrieve Scanned Today Data
@@ -104,7 +104,7 @@ app.get("/api/scanned", function(req, res) {
       if (err) return err;
       if (data) res.send(data);
     }
-  );
+  ).sort({created_at: 'desc'});
 });
 
 // Error Handling

@@ -31,7 +31,6 @@
             $state.go("data");
             $rootScope.currentUser = user;
           } else {
-            ß;
             vm.msg =
               "Failed registration, please check if you already have an account with us.";
           }

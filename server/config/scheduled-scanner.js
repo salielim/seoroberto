@@ -85,7 +85,7 @@ var c = new Scanner({
 var domainName = "";
 
 exports.scheduledScan = function(domain, user) {
-  User.find({ schedule_freq: { $gte: "weekly" } }, function(err, data) {
+  User.find({ schedule_freq: "weekly" }, function(err, data) {
     if (err) return err;
     if (data)
       // res.send(data);

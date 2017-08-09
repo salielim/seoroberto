@@ -25,7 +25,7 @@ This can also be done with as a weekly cron job. With this tool, businesses can 
 * Requirements: mongoDB
 * Modify the url in database.js to connect to mongoDB 
 * Start server with `node server/app.js`
-* Visit `http://localhost:8080`Ï
+* Visit `http://localhost:8080`
 
 ## API Endpoints
 ![Image of API Endpoints](http://i.imgur.com/uHi3tIo.png)
