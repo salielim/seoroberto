@@ -1,17 +1,3 @@
-## API Endpoints (assessment 3)
-![Image of API Endpoints](http://i.imgur.com/uHi3tIo.png)
-
-## Deployed
-[https://seoroberto.herokuapp.com](https://seoroberto.herokuapp.com)
-
-## How to get it up and running
-* `bower install`
-* `npm install`
-* Requirements: mongoDB
-* Modify the url in database.js to connect to mongoDB 
-* Start server with `node server/app.js`
-* Visit `http://localhost:8080`
-
 ## SEORoberto
 This tool automates the monitoring of each and every webpage on a website. 
 
@@ -23,3 +9,23 @@ This can also be done with as a weekly cron job. With this tool, businesses can 
 **Product/Service:** Search Engine Optimisation (SEO) Website Crawler Tool.
 
 **Type:** Software as a service (SaaS) MVP.
+
+## Deployed
+[https://seoroberto.herokuapp.com](https://seoroberto.herokuapp.com)
+
+## Stack
+* MongoDB
+* Express
+* AngularJS
+* Node.js
+
+## How to get it up and running
+* `bower install`
+* `npm install`
+* Requirements: mongoDB
+* Modify the url in database.js to connect to mongoDB 
+* Start server with `node server/app.js`
+* Visit `http://localhost:8080`
+
+## API Endpoints
+![Image of API Endpoints](http://i.imgur.com/uHi3tIo.png)
