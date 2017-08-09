@@ -95,3 +95,26 @@ thead {
 .lr-drop-target-after{
   border-right: 2px solid orange;
 }
+
+/* Progress Bar */
+#scan-progress {
+    width: 95%;
+    background-color: grey;
+}
+
+#scan-bar {
+    width: 1%;
+    height: 31px;
+    background-color: #F0AD4E;
+}
+
+.scanned-data-button {
+    margin-top: -53px;
+    margin-left: 89%;
+    border: none;
+    border-radius: 0;
+}
+
+.scanned-data-table {
+    margin-top: -19px;
+}

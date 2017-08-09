@@ -3,9 +3,9 @@
         .module("SEO")
         .controller("ScanCtrl", ScanCtrl);
 
-    ScanCtrl.$inject = ["$http", "$filter", "$state", "DataService", "user"];
+    ScanCtrl.$inject = ["$http", "$filter", "$state", "$timeout", "DataService", "user"];
 
-    function ScanCtrl($http, $filter, $state, DataService, user) {
+    function ScanCtrl($http, $filter, $state, $timeout, DataService, user) {
 
         var vm = this;
 
@@ -20,12 +20,24 @@
 
         vm.todaysDate = new Date().toISOString().slice(0, 10);
 
+        // Scan Animation
+        scanProgress();
+        function scanProgress() {
+            var elem = document.getElementById("scan-bar");
+            var width = 1;
+            var id = setInterval(frame, 60);
+            function frame() {
+                if (width >= 100) {
+                    clearInterval(id);
+                } else {
+                    width++;
+                    elem.style.width = width + '%';
+                }
+            }
+        }
+
+        // Table
         vm.columns = [
-            // {
-            //     item: "created_at",
-            //     name: "Date",
-            //     ngShow: true
-            // },
             {
                 item: "domain_name",
                 name: "Domain Name",

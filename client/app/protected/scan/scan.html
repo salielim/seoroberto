@@ -1,79 +1,81 @@
-<div align="center">
-    <h1>Scanned Dashboard</h1>
-    
-    <h2>{{ scanCtrl.todaysDate }}</h2>
+<div>    
+    <h1 align="center">Scan Dashboard ·
+        {{ scanCtrl.todaysDate }}
+    </h1>
 
-    <h3>
-        <span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span> 
-        Scanning ... 
-    </h3>
-        
-    <button class="btn btn-warning" ng-click="scanCtrl.retrieveScanned()">
+    <!-- Scan Progress Bar -->
+    <div id="scan-progress">
+        <div id="scan-bar"></div>
+    </div>
+
+    <!-- Click to view table button -->
+    <button class="btn btn-warning scanned-data-button" ng-click="scanCtrl.retrieveScanned()">
         <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-        <b>Completed</b>
-        </br>
-        click to view scanned data
+        click to view scan
     </button>
 </div>
 
-<div class="panel panel-default">
-    <!-- Data Table -->
-    <table st-table="scanCtrl.displayedCollection" st-sticky-header st-safe-src="scanCtrl.rowList" class="table table-hover">
-        <thead>
-            <tr>
-                <td colspan="8" class="text-right no-border">
-                    <span class="tip-text">
-                        <b>Move columns</b>: drag & drop headers.
-                        <b>Sort</b>: click headers
-                    </span>
-                    <!-- Hide Columns -->
-                    <label ng-repeat="col in scanCtrl.columns">
-                        <button ng-click="col.ngShow = !col.ngShow" class="btn btn-default btn-xs hide-col">
-                            <span class="glyphicon glyphicon-ok" aria-hidden="true" ng-show="col.ngShow" ng-show"!col.ngShow"></span>
-                            {{col.name}}
-                        </button>
-                    </label>
-                    <!-- Export CSV -->
-                    <button class="btn btn-default btn-warning btn-xs hide-col" export export-data="scanCtrl.displayedCollection" export-headers="['Date', 'Domain Name', 'URL', 'Meta Robots', 'Title', 'Meta Description', 'OG Title', 'OG Description']" export-keys="['created_at', 'domain_name', 'url', 'meta_robots', 'title', 'meta_desc', 'og_title', 'og_desc']">Export CSV</a>
-                </td>
-            </tr>
+<div class ="scanned-data-table">
+    <div class="panel panel-default">
+        <!-- Data Table -->
+        <table st-table="scanCtrl.displayedCollection" st-sticky-header st-safe-src="scanCtrl.rowList" class="table table-hover">
+            <thead>
+                <tr>
+                    <td colspan="8" class="text-right no-border">
+                        <span class="tip-text">
+                            <b>Move columns</b>: drag & drop headers.
+                            <b>Sort</b>: click headers
+                        </span>
+                        <!-- Hide Columns -->
+                        <label ng-repeat="col in scanCtrl.columns">
+                            <button ng-click="col.ngShow = !col.ngShow" class="btn btn-default btn-xs hide-col">
+                                <span class="glyphicon glyphicon-ok" aria-hidden="true" ng-show="col.ngShow" ng-show"!col.ngShow"></span>
+                                {{col.name}}
+                            </button>
+                        </label>
+                        <!-- Export CSV -->
+                        <button class="btn btn-default btn-warning btn-xs hide-col" export export-data="scanCtrl.displayedCollection" export-headers="['Date', 'Domain Name', 'URL', 'Meta Robots', 'Title', 'Meta Description', 'OG Title', 'OG Description']"
+                            export-keys="['created_at', 'domain_name', 'url', 'meta_robots', 'title', 'meta_desc', 'og_title', 'og_desc']">Export CSV</a>
+                    </td>
+                </tr>
 
-            <!-- Headers -->
-            <tr>
-                <th lr-drag-src="headers" lr-drop-target="headers" ng-repeat="col in scanCtrl.columns" st-sort="{{col.item}}" class="sort"
-                    ng-show="col.ngShow">{{col.name}}</th>
-            </tr>
+                <!-- Headers -->
+                <tr>
+                    <th lr-drag-src="headers" lr-drop-target="headers" ng-repeat="col in scanCtrl.columns" st-sort="{{col.item}}" class="sort"
+                        ng-show="col.ngShow">{{col.name}}</th>
+                </tr>
 
-            <!-- Filtering -->
-            <tr>
-                <th ng-repeat="col in scanCtrl.columns" ng-show="col.ngShow"><input st-search="col.item" placeholder="Search {{col.name}}" class="input-sm form-control" type="search"></th>
-            </tr>
-        </thead>
+                <!-- Filtering -->
+                <tr>
+                    <th ng-repeat="col in scanCtrl.columns" ng-show="col.ngShow"><input st-search="col.item" placeholder="Search {{col.name}}" class="input-sm form-control" type="search"></th>
+                </tr>
+            </thead>
 
-        <!-- Data Rows -->
-        <tbody>
-            <tr ng-repeat="row in scanCtrl.displayedCollection">
-                <td ng-repeat="col in scanCtrl.columns" ng-show="col.ngShow">
-                    {{row[col.item]}}
-                    <!-- missing -->
-                    <span class="label label-warning" ng-show="row[col.item] == null">Missing</span>
-                    <!-- too long -->
-                    <span class="label label-info" ng-show="row[col.item].length > col.length">
-                        {{col.length - col.item.length}} chars too long </br> Chars limit: {{col.length}}
-                    </span>
-                </td>
-            </tr>
-        </tbody>
+            <!-- Data Rows -->
+            <tbody>
+                <tr ng-repeat="row in scanCtrl.displayedCollection">
+                    <td ng-repeat="col in scanCtrl.columns" ng-show="col.ngShow">
+                        {{row[col.item]}}
+                        <!-- missing -->
+                        <span class="label label-warning" ng-show="row[col.item] == null">Missing</span>
+                        <!-- too long -->
+                        <span class="label label-info" ng-show="row[col.item].length > col.length">
+                            {{col.length - col.item.length}} chars too long </br> Chars limit: {{col.length}}
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
 
-        <!-- Pagination
-            itemsByPage
-            <input class="input-sm form-control ng-valid ng-dirty ng-valid-number ng-touched ng-not-empty" name="items" id="items" type="number" ng-model="scanCtrl.itemsByPage"> -->
-        <tfoot>
-            <tr>
-                <td colspan="8" class="text-right no-border">
-                    <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
-                </td>
-            </tr>
-        </tfoot>
-    </table>
-</div>
+            <!-- Pagination
+                itemsByPage
+                <input class="input-sm form-control ng-valid ng-dirty ng-valid-number ng-touched ng-not-empty" name="items" id="items" type="number" ng-model="scanCtrl.itemsByPage"> -->
+            <tfoot>
+                <tr>
+                    <td colspan="8" class="text-right no-border">
+                        <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div> 
