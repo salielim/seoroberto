@@ -2,18 +2,10 @@
   "name": "seo",
   "description": "",
   "main": "client/app.js",
-  "authors": [
-    "NUS ISS StackUp"
-  ],
+  "authors": ["NUS ISS StackUp"],
   "license": "ISC",
   "homepage": "",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
+  "ignore": ["**/.*", "node_modules", "bower_components", "test", "tests"],
   "dependencies": {
     "bootstrap": "^3.3.7",
     "angular": "angularjs#^1.6.1",

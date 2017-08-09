@@ -1,39 +1,39 @@
 <div class="container" ng-controller="RegisterCtrl as ctrl">
 
-    <div class="page-header">
-        <h1>Start your 30-day unlimited free trial </br>
-            <small>No obligation, no credit card required.</small>
-        </h1>
-    </div>
+  <div class="page-header">
+    <h1>Start your 30-day unlimited free trial </br>
+      <small>No obligation, no credit card required.</small>
+    </h1>
+  </div>
 
-    <span class="msg-text">
+  <span class="msg-text">
         {{ctrl.msg}}
     </span>
 
-    <!-- Register form -->
-    <form name="registerForm" ng-submit="ctrl.register()" novalidate autocomplete="off">
+  <!-- Register form -->
+  <form name="registerForm" ng-submit="ctrl.register()" novalidate autocomplete="off">
 
-        <!-- Email -->
-        <div class="form-group input-field col s6" ng-class="{ 'has-error': registerForm.email.$touched && registerForm.email.$invalid }">
-            <input type="email" class="form-control" ng-model="ctrl.email" name="email" placeholder="Email address" required>
-            <div class="help-block" ng-messages="registerForm.email.$error" ng-if="registerForm.email.$touched">
-                <span class="help-inline" ng-message="required">Email Address is mandatory</span>
-                <span class="help-inline" ng-message="email">Email Address is invalid</span>
-            </div>
-        </div>
+    <!-- Email -->
+    <div class="form-group input-field col s6" ng-class="{ 'has-error': registerForm.email.$touched && registerForm.email.$invalid }">
+      <input type="email" class="form-control" ng-model="ctrl.email" name="email" placeholder="Email address" required>
+      <div class="help-block" ng-messages="registerForm.email.$error" ng-if="registerForm.email.$touched">
+        <span class="help-inline" ng-message="required">Email Address is mandatory</span>
+        <span class="help-inline" ng-message="email">Email Address is invalid</span>
+      </div>
+    </div>
 
-        <!-- Password -->
-        <div class="form-group input-field col s6" ng-class="{ 'has-error': registerForm.password.$touched && registerForm.password.$invalid }">
-            <input type="password" class="form-control" ng-model="ctrl.password" name="password" placeholder="Password" minlength="8"
-                ng-pattern="/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/" required>
-            <div class="help-block" ng-messages="registerForm.password.$error" ng-if="registerForm.password.$touched">
-                <span class="help-inline" ng-message="required">Password is mandatory.</span>
-                <span class="help-inline" ng-message="minlength">Password must be at least 8 characters long.</span>
-                <span class="help-inline" ng-message="pattern">Password must include a number, a special character (@, #, $), and both upper and lower cases.</span>
-            </div>
-        </div>
+    <!-- Password -->
+    <div class="form-group input-field col s6" ng-class="{ 'has-error': registerForm.password.$touched && registerForm.password.$invalid }">
+      <input type="password" class="form-control" ng-model="ctrl.password" name="password" placeholder="Password" minlength="8"
+        ng-pattern="/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/" required>
+      <div class="help-block" ng-messages="registerForm.password.$error" ng-if="registerForm.password.$touched">
+        <span class="help-inline" ng-message="required">Password is mandatory.</span>
+        <span class="help-inline" ng-message="minlength">Password must be at least 8 characters long.</span>
+        <span class="help-inline" ng-message="pattern">Password must include a number, a special character (@, #, $), and both upper and lower cases.</span>
+      </div>
+    </div>
 
-        <!-- Register Button -->
-        <button type="submit" ng-disabled="registerForm.$invalid" class="btn btn-lg btn-warning">Register</button>
-    </form>
+    <!-- Register Button -->
+    <button type="submit" ng-disabled="registerForm.$invalid" class="btn btn-lg btn-warning">Register</button>
+  </form>
 </div>

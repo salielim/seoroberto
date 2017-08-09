@@ -1,39 +1,39 @@
 <div class="container" ng-controller="LoginCtrl as ctrl">
-    
-    <div class="page-header">
-        <h1>Login </br>
-            <small>Welcome back to SEORoberto.</small>
-        </h1>
-    </div>
 
-    <!-- Login form -->
-    <span class="msg-text">
+  <div class="page-header">
+    <h1>Login </br>
+      <small>Welcome back to SEORoberto.</small>
+    </h1>
+  </div>
+  
+  <!-- Login form -->
+  <span class="msg-text">
         {{ctrl.msg}}
     </span>
 
-    <form name="loginForm" ng-submit="ctrl.login()" novalidate autocomplete="off">
+  <form name="loginForm" ng-submit="ctrl.login()" novalidate autocomplete="off">
 
-        <!-- Email -->
-        <div class="form-group input-field col s6" ng-class="{ 'has-error': loginForm.email.$touched && loginForm.email.$invalid }">
-            <input type="email" class="form-control" ng-model="ctrl.email" name="email" placeholder="Email address" required>
-            <div class="help-block" ng-messages="loginForm.email.$error" ng-if="loginForm.email.$touched">
-                <span class="help-inline" ng-message="required">Email Address is mandatory</span>
-                <span class="help-inline" ng-message="email">Email Address is invalid</span>
-            </div>
-        </div>
+    <!-- Email -->
+    <div class="form-group input-field col s6" ng-class="{ 'has-error': loginForm.email.$touched && loginForm.email.$invalid }">
+      <input type="email" class="form-control" ng-model="ctrl.email" name="email" placeholder="Email address" required>
+      <div class="help-block" ng-messages="loginForm.email.$error" ng-if="loginForm.email.$touched">
+        <span class="help-inline" ng-message="required">Email Address is mandatory</span>
+        <span class="help-inline" ng-message="email">Email Address is invalid</span>
+      </div>
+    </div>
 
-        <!-- Password -->
-        <div class="form-group input-field col s6" ng-class="{ 'has-error': loginForm.password.$touched && loginForm.password.$invalid }">
-            <input type="password" class="form-control" ng-model="ctrl.password" name="password" placeholder="Password" minlength="8"
-                ng-pattern="/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/" required>
-            <div class="help-block" ng-messages="loginForm.password.$error" ng-if="loginForm.password.$touched">
-                <span class="help-inline" ng-message="required">Password is mandatory.</span>
-                <span class="help-inline" ng-message="minlength">Password must be at least 8 characters long.</span>
-                <span class="help-inline" ng-message="pattern">Password must include a number, a special character (@, #, $), and both upper and lower cases.</span>
-            </div>
-        </div>
+    <!-- Password -->
+    <div class="form-group input-field col s6" ng-class="{ 'has-error': loginForm.password.$touched && loginForm.password.$invalid }">
+      <input type="password" class="form-control" ng-model="ctrl.password" name="password" placeholder="Password" minlength="8"
+        ng-pattern="/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/" required>
+      <div class="help-block" ng-messages="loginForm.password.$error" ng-if="loginForm.password.$touched">
+        <span class="help-inline" ng-message="required">Password is mandatory.</span>
+        <span class="help-inline" ng-message="minlength">Password must be at least 8 characters long.</span>
+        <span class="help-inline" ng-message="pattern">Password must include a number, a special character (@, #, $), and both upper and lower cases.</span>
+      </div>
+    </div>
 
-        <!-- Confirm Password
+    <!-- Confirm Password
         <div class="form-group input-field col s6" ng-class="{ 'has-error': loginForm.confirmPassword.$touched && loginForm.confirmPassword.$invalid }">
             <input type="password" class="form-control" ng-model="ctrl.confirmPassword" name="confirmPassword" placeholder="Confirm Password"
                 compare-to="ctrl.password" minlength="8" ng-pattern="/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/" required>
@@ -45,7 +45,7 @@
             </div>
         </div> -->
 
-        <!-- Login Button -->
-        <button type="submit" ng-disabled="loginForm.$invalid" class="btn btn-lg btn-warning">Login</button>
-    </form>
+    <!-- Login Button -->
+    <button type="submit" ng-disabled="loginForm.$invalid" class="btn btn-lg btn-warning">Login</button>
+  </form>
 </div>

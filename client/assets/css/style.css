@@ -1,120 +1,120 @@
 /* Menu */
 
 .logo-img {
-    margin-top: -18px;
-    margin-left: 8px;
-    width: 50px;
-    float:left;
+  margin-top: -18px;
+  margin-left: 8px;
+  width: 50px;
+  float: left;
 }
 
 .brand-text {
-    font-size: 30px;
+  font-size: 30px;
 }
 
 .search {
-    margin-top: 8px;
-    margin-left: 34px;
+  margin-top: 8px;
+  margin-left: 34px;
 }
 
 .go {
-    height: 34px;
+  height: 34px;
 }
 
 .drop-menu {
-    cursor: pointer;
-    font-size: 16px;
-    margin: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 10px;
 }
 
 .pointer {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 /* Content */
 .contact-img {
-    width: 200px;
-    margin-top: 20px;
-    margin-left: 50px;
+  width: 200px;
+  margin-top: 20px;
+  margin-left: 50px;
 }
 
 .schedule-dropdown {
-    width: 250px;
+  width: 250px;
 }
 
 .msg-text {
-    color: #F0AD4E;
-    font-size: 16px;
-    /* login register warning */
+  color: #f0ad4e;
+  font-size: 16px;
+  /* login register warning */
 }
 
 .hide-col {
-    margin-right: 18px;
-    cursor: pointer;
-    font-style: none;
-    font-size: 12px;
+  margin-right: 18px;
+  cursor: pointer;
+  font-style: none;
+  font-size: 12px;
 }
 
 .tip-text {
-    font-size: 12px;
-    margin-right: 180px;
+  font-size: 12px;
+  margin-right: 180px;
 }
 
 /* Table */
 thead {
-    background: #F8F8F8;
-    font-size: 16px;
+  background: #f8f8f8;
+  font-size: 16px;
 }
 
 .lr-sticky-header {
-    width: 100%;
-    padding-left: 20px;
+  width: 100%;
+  padding-left: 20px;
 }
 
 /* Sorting */
-.sort:hover { 
-    background: #eeeeee;
-    cursor: pointer;
+.sort:hover {
+  background: #eeeeee;
+  cursor: pointer;
 }
 
 .glyphicon.glyphicon-sort {
-    font-size: 10px;
+  font-size: 10px;
 }
 
 .st-sort-ascent:before {
-    content: '\25B2';
+  content: '\25B2';
 }
 
 .st-sort-descent:before {
-    content: '\25BC';
+  content: '\25BC';
 }
 
-.lr-drop-target-before{
+.lr-drop-target-before {
   border-left: 2px solid orange;
 }
 
-.lr-drop-target-after{
+.lr-drop-target-after {
   border-right: 2px solid orange;
 }
 
 /* Progress Bar */
 #scan-progress {
-    width: 95%;
-    background-color: grey;
+  width: 95%;
+  background-color: grey;
 }
 
 #scan-bar {
-    width: 1%;
-    height: 31px;
-    background-color: #F0AD4E;
+  width: 1%;
+  height: 31px;
+  background-color: #f0ad4e;
 }
 
 .scanned-data-button {
-    margin-top: -53px;
-    margin-left: 89%;
-    border: none;
-    border-radius: 0;
+  margin-top: -53px;
+  margin-left: 89%;
+  border: none;
+  border-radius: 0;
 }
 
 .scanned-data-table {
-    margin-top: -19px;
+  margin-top: -19px;
 }

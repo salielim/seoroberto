@@ -1,24 +1,20 @@
-(function () {
-    angular
-        .module("SEO")
-        .controller("MenuCtrl", MenuCtrl);
+(function() {
+  angular.module("SEO").controller("MenuCtrl", MenuCtrl);
 
-    MenuCtrl.$inject = ["$http", "$filter", "$state", "DataService"];
+  MenuCtrl.$inject = ["$http", "$filter", "$state", "DataService"];
 
-    function MenuCtrl($http, $filter, $state, DataService, user)
-    {
+  function MenuCtrl($http, $filter, $state, DataService, user) {
+    var vm = this;
 
-        var vm = this;
+    vm.domainURL = "";
+    vm.startScan = startScan;
 
-        vm.domainURL = "";
-        vm.startScan = startScan;
-
-        function startScan() {
-            return $http({
-                method: 'POST',
-                url: 'api/scan/',
-                data: { domain: vm.domainURL }
-            })
-        }
+    function startScan() {
+      return $http({
+        method: "POST",
+        url: "api/scan/",
+        data: { domain: vm.domainURL }
+      });
     }
+  }
 })();

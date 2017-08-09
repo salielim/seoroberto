@@ -1,6 +1,7 @@
-var mongoose = require('mongoose');
+var mongoose = require("mongoose");
 
-var pageSchema = mongoose.Schema({
+var pageSchema = mongoose.Schema(
+  {
     url: String,
     meta_robots: String,
     title: String,
@@ -11,7 +12,9 @@ var pageSchema = mongoose.Schema({
     user_id: String, // linked to User
     domain_name: String, // linked to domain
     scan_group_id: String
-}, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } });
+  },
+  { timestamps: { createdAt: "created_at", updatedAt: "updated_at" } }
+);
 
 // create model for pages
-module.exports = mongoose.model('Page', pageSchema);
+module.exports = mongoose.model("Page", pageSchema);
