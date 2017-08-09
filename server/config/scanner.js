@@ -10,7 +10,6 @@ var c = new Scanner({
     callback: function (error, res, done) {
         if (error) {
             console.log(error);
-            console.log("im in error");
         } else {
             var $ = res.$; // $ is Cheerio by default
 
@@ -95,7 +94,7 @@ exports.scan = function (domain, user) {
     
     c.queue(urlArr);
 
-    c.on('drain', function () {
-        console.log("done!!");
-    })
+    // c.on('drain', function () {
+    //     console.log("done!!");
+    // })
 }

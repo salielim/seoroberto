@@ -79,25 +79,16 @@ module.exports = function (passport) {
         passReqToCallback: true
     },
         function (req, email, password, done) {
-            // console.log('hello from local');
-            // find a user whose email is the same as the forms email
             User.findOne({ 'email': email }, function (err, user) {
                 if (err)
                     return done(err);
 
-                // if no user found, return message
                 if (!user)
                     return done(null, false);
 
-                // if user found but password is wrong
-
                 if (!user.validPassword(password)) {
-                    // console.log('invalid password');
-                    // console.log(user);
                     return done(null, false);
                 }
-                // return successful user
-                // console.log('hello from local hey');
                 return done(null, user);
             });
 

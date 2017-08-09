@@ -14,7 +14,6 @@
         vm.startScan = startScan;
 
         function startScan() {
-            console.log("scanctrl");
             return $http({
                 method: 'POST',
                 url: 'api/scan/',

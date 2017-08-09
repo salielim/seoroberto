@@ -13,7 +13,6 @@
         vm.msg = "";
 
         vm.register = function (data) {
-            console.log("Email: " + vm.email);
             return $http({
                 method: "POST",
                 url: "/register",
@@ -23,13 +22,10 @@
                       }
             })
             .then(function(user){
-                console.log(user);
                 if(user.data) {
                     $state.go("data");
                     $rootScope.currentUser = user;
                 } else {
-                    // console.log("failed registration");
-                    // $state.go("register");
                     vm.msg = "Failed registration, please check if you already have an account with us.";
                 }
             })

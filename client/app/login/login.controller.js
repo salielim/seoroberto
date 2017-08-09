@@ -11,7 +11,6 @@
         vm.password = "";
 
         vm.login = function (user) {
-            console.log("Email: " + vm.email);
             return $http({
                 method: "POST",
                 url: "/login",
@@ -21,13 +20,10 @@
                       }
             })
             .then(function(user){
-                console.log(user);
                 if(user.data) {
                     $state.go("data");
                     $rootScope.currentUser = user;
                 } else {
-                    // console.log("failed block entry")
-                    // $state.go("login");
                     vm.msg = "Failed login, please check your email or password.";
                 }
             })

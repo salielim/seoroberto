@@ -62,16 +62,14 @@
 
         retrieveAll();
         function retrieveAll() {
-            console.log("* DataCtrl: retrieveAll");
             DataService
                 .retrieveAll()
                 .then(function (data) {
-                    console.log("> Controller Result:", data);
                     vm.rowList = data;
                     vm.displayedCollection = [].concat(vm.rowList);
                 })
                 .catch(function (err) {
-                    console.log("> Controller Error:", err);
+                    console.log(err);
                 });
         }
     }

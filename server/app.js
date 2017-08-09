@@ -48,7 +48,6 @@ require('./config/user.routes.js')(app, passport);
 // *** APIs
 // Scan 
 app.post("/api/scan", function (req, res) {
-    console.log("in /api/scan");
     scanner.scan(req.body.domain, req.user);
 });
 
@@ -59,7 +58,6 @@ app.post("/api/scheduled-scan", function (req, res) {
 
 // Schedule Form
 app.post("/api/schedule", function (req, res) {
-    console.log("in api/schedule");
     User.findOneAndUpdate({ '_id': req.user.id }, { $set: { schedule_domain: req.body.domain, schedule_freq: req.body.frequency } }, { new: true }, function (err, doc) {
         if (err) {
             console.log(err);

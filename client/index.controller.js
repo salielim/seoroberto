@@ -16,7 +16,7 @@
                     $location.url("/");
                 })
                 .catch(function () {
-                    console.log("Logout error");
+                    console.log(err);
                 });
         }
     }

@@ -23,17 +23,15 @@
         // Retrieve User Schedule
         retrieveSchedule();
         function retrieveSchedule() {
-            console.log("retrieveSchedule");
             var defer = $q.defer();
 
             $http.get("/api/schedule", {
             }).then(function (results) {
-                console.log("> schedule Result:", results);
                 vm.scheduleDomain = results.data[0].schedule_domain;
                 vm.scheduleFreq = results.data[0].schedule_freq;
                 return defer.resolve(results.data);
             }).catch(function (err) {
-                console.log("> schedule Error:", err);
+                console.log(err);
                 return defer.reject(err);
             });
             return defer.promise;
@@ -41,7 +39,6 @@
 
         // Schedule Form
         vm.automate = function (data) {
-            console.log("Schedule: " + vm.schedule);
             return $http({
                 method: "POST",
                 url: "/api/schedule",
