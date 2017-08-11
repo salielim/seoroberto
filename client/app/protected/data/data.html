@@ -7,7 +7,7 @@
   <table st-table="dataCtrl.displayedCollection" st-sticky-header st-safe-src="dataCtrl.rowList" class="table table-hover">
     <thead>
       <tr>
-        <td colspan="8" class="text-right no-border">
+        <td colspan="8" class="no-border">
           <span class="tip-text">
             <b>Move columns</b>: drag & drop headers
           </span>
@@ -29,15 +29,15 @@
 
             <!-- Headers -->
             <tr>
-                <th lr-drag-src="headers" lr-drop-target="headers" ng-repeat="col in dataCtrl.columns" st-sort="{{col.item}}" class="sort"
-                    ng-show="col.ngShow" style="text-align: center">{{col.name}}</th>
+              <th lr-drag-src="headers" lr-drop-target="headers" ng-repeat="col in dataCtrl.columns" st-sort="{{col.item}}" class="sort"
+                  ng-show="col.ngShow" style="text-align: center">{{col.name}}</th>
             </tr>
 
             <!-- Filtering via Text -->
             <tr>
-                <th ng-repeat="col in dataCtrl.columns" ng-show="col.ngShow">
-                     <input st-search="col.item" placeholder="Search {{col.name}}" class="input-sm form-control" type="search">
-                </th>
+              <th ng-repeat="col in dataCtrl.columns" ng-show="col.ngShow">
+                    <input st-search="col.item" placeholder="Search {{col.name}}" class="input-sm form-control" type="search">
+              </th>
             </tr>
 
             <!-- Filtering via Multiple Select
@@ -51,24 +51,24 @@
 
         <!-- Data Rows -->
         <tbody>
-            <tr ng-repeat="row in dataCtrl.displayedCollection">
-                <td ng-repeat="col in dataCtrl.columns" ng-show="col.ngShow">
-                    {{row[col.item]}}
-                    <!-- missing -->
-                    <span class="label label-warning" ng-show="row[col.item] == null">Missing</span>
-                    <!-- too long -->
-                    <span class="label label-info" ng-show="row[col.item].length > col.length">
-                        {{col.length - col.item.length}} chars too long </br> Chars limit: {{col.length}}
-                    </span>
-                </td>
-            </tr>
+          <tr ng-repeat="row in dataCtrl.displayedCollection">
+              <td ng-repeat="col in dataCtrl.columns" ng-show="col.ngShow">
+                  {{row[col.item]}}
+                  <!-- missing -->
+                  <span class="label label-warning" ng-show="row[col.item] == null">Missing</span>
+                  <!-- too long -->
+                  <span class="label label-info" ng-show="row[col.item].length > col.length">
+                    Too long ({{col.length}} / {{col.length - col.item.length}} chars)
+                  </span>
+              </td>
+          </tr>
         </tbody>
         <tfoot>
-            <tr>
-                <td colspan="8" class="text-right no-border">
-                    <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
-                </td>
-            </tr>
+          <tr>
+              <td colspan="8" class="text-right no-border">
+                  <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
+              </td>
+          </tr>
         </tfoot>
     </table>
 </div>

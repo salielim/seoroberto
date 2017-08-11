@@ -9,9 +9,9 @@
 
   <!-- Click to view table button -->
   <button class="btn scanned-data-button" ng-click="scanCtrl.retrieveScanned()">
-        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-        click to view scan
-    </button>
+    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+    click to view scan
+  </button>
 </div>
 
 <div class="scanned-data-table">
@@ -24,13 +24,13 @@
             <span class="tip-text">
                     <b>Move columns</b>: drag & drop headers
                     </span>
-                    <span class="tip-text">
+            <span class="tip-text">
                     <b>Sort</b>: click headers
                     </span>
             <!-- Hide Columns -->
             <label ng-repeat="col in scanCtrl.columns">
                             <button ng-click="col.ngShow = !col.ngShow" class="btn btn-default btn-xs hide-col">
-                                <span class="glyphicon glyphicon-ok" aria-hidden="true" ng-show="col.ngShow" ng-show"!col.ngShow"></span>
+                                <span class="glyphicon glyphicon-ok" aria-hidden="true" ng-show="cƒol.ngShow" ng-show"!col.ngShow"></span>
                                 {{col.name}}
                             </button>
                         </label>
@@ -42,40 +42,40 @@
 
                 <!-- Headers -->
                 <tr>
-                    <th lr-drag-src="headers" lr-drop-target="headers" ng-repeat="col in scanCtrl.columns" st-sort="{{col.item}}" class="sort"
-                        ng-show="col.ngShow">{{col.name}}</th>
+                  <th lr-drag-src="headers" lr-drop-target="headers" ng-repeat="col in scanCtrl.columns" st-sort="{{col.item}}" class="sort"
+                      ng-show="col.ngShow">{{col.name}}</th>
                 </tr>
 
                 <!-- Filtering -->
                 <tr>
-                    <th ng-repeat="col in scanCtrl.columns" ng-show="col.ngShow"><input st-search="col.item" placeholder="Search {{col.name}}" class="input-sm form-control" type="search"></th>
+                  <th ng-repeat="col in scanCtrl.columns" ng-show="col.ngShow"><input st-search="col.item" placeholder="Search {{col.name}}" class="input-sm form-control" type="search"></th>
                 </tr>
             </thead>
 
             <!-- Data Rows -->
             <tbody>
-                <tr ng-repeat="row in scanCtrl.displayedCollection">
-                    <td ng-repeat="col in scanCtrl.columns" ng-show="col.ngShow">
-                        {{row[col.item]}}
-                        <!-- missing -->
-                        <span class="label label-warning" ng-show="row[col.item] == null">Missing</span>
-                        <!-- too long -->
-                        <span class="label label-info" ng-show="row[col.item].length > col.length">
-                            {{col.length - col.item.length}} chars too long </br> Chars limit: {{col.length}}
-                        </span>
-                    </td>
-                </tr>
+              <tr ng-repeat="row in scanCtrl.displayedCollection">
+                  <td ng-repeat="col in scanCtrl.columns" ng-show="col.ngShow">
+                      {{row[col.item]}}
+                      <!-- missing -->
+                      <span class="label label-warning" ng-show="row[col.item] == null">Missing</span>
+                      <!-- too long -->
+                      <span class="label label-info" ng-show="row[col.item].length > col.length">
+                        Too long ({{col.length}} / {{col.length - col.item.length}} chars)
+                      </span>
+                  </td>
+              </tr>
             </tbody>
 
             <!-- Pagination
                 itemsByPage
                 <input class="input-sm form-control ng-valid ng-dirty ng-valid-number ng-touched ng-not-empty" name="items" id="items" type="number" ng-model="scanCtrl.itemsByPage"> -->
             <tfoot>
-                <tr>
-                    <td colspan="8" class="text-right no-border">
-                        <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
-                    </td>
-                </tr>
+              <tr>
+                  <td colspan="8" class="text-right no-border">
+                      <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
+                  </td>
+              </tr>
             </tfoot>
         </table>
     </div>

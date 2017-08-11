@@ -57,18 +57,22 @@
 }
 
 /* Table */
+table {
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+
 thead {
   background: #f8f8f8;
   font-size: 16px;
 }
 
-.lr-sticky-header {
+/* .lr-sticky-header {
   width: 100%;
-  padding-left: 20px;
-}
+} */
 
 .export-button {
-  margin-left: 80px;
+  margin-left: 60px;
 }
 
 .hide-col {
@@ -80,7 +84,7 @@ thead {
 
 .tip-text {
   font-size: 12px;
-  margin-right: 80px;
+  margin-right: 60px;
 }
 
 /* Sorting */
