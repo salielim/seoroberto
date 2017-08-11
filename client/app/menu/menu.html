@@ -18,7 +18,7 @@
     <div class="col-xs-6 col-md-6 search" ng-show="currentUser" ng-controller="MenuCtrl as menuCtrl">
       <form name="scanForm" novalidate autocomplete="off">
         <div class="input-group">
-          <input ng-model="menuCtrl.domainURL" type="text" class="form-control" placeholder="Enter domain URL" required>
+          <input ng-model="menuCtrl.domainURL" type="text" class="form-control" placeholder="Enter full URL including http:// or https://" required>
           <span class="input-group-btn">
                         <button ng-click="menuCtrl.startScan()" class="btn btn-default go" type="button" a ui-sref="scan" ng-disabled="scanForm.$invalid">
                                 Go!
@@ -37,7 +37,7 @@
                         SEO Scan Tools 
                         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li a ui-sref="data" class="drop-menu">Scanned Data<span class="sr-only">(scanned scan)</span></li>
+          <li a ui-sref="data" class="drop-menu">Historical Data<span class="sr-only">(historicalß data)</span></li>
           <li a ui-sref="report" class="drop-menu">Generate Report<span class="sr-only">(generate report)</span></a>
           </li>
           <li a ui-sref="schedule" class="drop-menu">Schedule Scan<span class="sr-only">(schedule scan)</span></a>
@@ -64,7 +64,8 @@
         <a ui-sref="login">Login<span class="sr-only">(login)</span></a>
       </li>
       <li class="nav-item">
-        <a ui-sref="register"><b>Try Now</b><span class="sr-only">(register)</span></a>
+        <a ui-sref="register">
+          <button class="btn btn-warning try-button">Try Now</button><span class="sr-only">(register)</span></a>
       </li>
     </ul>
   </div>

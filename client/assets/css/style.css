@@ -11,6 +11,10 @@
   font-size: 30px;
 }
 
+.try-button {
+  margin-top: -6px;
+}
+
 .search {
   margin-top: 8px;
   margin-left: 34px;
@@ -34,7 +38,12 @@
 .contact-img {
   width: 200px;
   margin-top: 20px;
-  margin-left: 50px;
+  margin-left: 50pxo;
+}
+
+.demo-img {
+  width: 800px;
+  margin-bottom: 25px;
 }
 
 .schedule-dropdown {
