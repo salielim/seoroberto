@@ -42,12 +42,18 @@
 
                 <!-- Headers -->
                 <tr>
+                  <th st-sort="created_at" class="sort"
+                  style="text-align: center">
+                    Date
+                  </th>
                   <th lr-drag-src="headers" lr-drop-target="headers" ng-repeat="col in scanCtrl.columns" st-sort="{{col.item}}" class="sort"
-                      ng-show="col.ngShow">{{col.name}}</th>
+                      ng-show="col.ngShow">{{col.name}}
+                  </th>
                 </tr>
 
                 <!-- Filtering -->
                 <tr>
+                  <th>Search date</th>
                   <th ng-repeat="col in scanCtrl.columns" ng-show="col.ngShow"><input st-search="col.item" placeholder="Search {{col.name}}" class="input-sm form-control" type="search"></th>
                 </tr>
             </thead>
@@ -55,6 +61,9 @@
             <!-- Data Rows -->
             <tbody>
               <tr ng-repeat="row in scanCtrl.displayedCollection">
+                  <td>
+                      {{row.created_at | amCalendar:referenceTime:formats}}
+                  </td>
                   <td ng-repeat="col in scanCtrl.columns" ng-show="col.ngShow">
                       {{row[col.item]}}
                       <!-- missing -->

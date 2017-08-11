@@ -7,6 +7,7 @@
     "lrDragNDrop",
     "export.csv",
     "ui.bootstrap",
-    "highcharts-ng"
+    "highcharts-ng",
+    "angularMoment"
   ]);
 })();

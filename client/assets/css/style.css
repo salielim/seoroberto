@@ -67,9 +67,9 @@ thead {
   font-size: 16px;
 }
 
-/* .lr-sticky-header {
+.lr-sticky-header {
   width: 100%;
-} */
+}
 
 .export-button {
   margin-left: 32px;

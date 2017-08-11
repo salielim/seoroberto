@@ -1,9 +1,9 @@
 (function() {
   angular.module("SEO").controller("DataCtrl", DataCtrl);
 
-  DataCtrl.$inject = ["$http", "$filter", "$state", "DataService", "user"];
+  DataCtrl.$inject = ["$http", "$filter", "$state", "DataService", "user", "moment"];
 
-  function DataCtrl($http, $filter, $state, DataService, user) {
+  function DataCtrl($http, $filter, $state, DataService, user, moment) {
     var vm = this;
     vm.retrieveAll = retrieveAll;
 
@@ -12,11 +12,6 @@
     }
 
     vm.columns = [
-      {
-        item: "created_at",
-        name: "Date",
-        ngShow: true
-      },
       {
         item: "domain_name",
         name: "Domain",

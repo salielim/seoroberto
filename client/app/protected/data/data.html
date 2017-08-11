@@ -29,12 +29,18 @@
 
             <!-- Headers -->
             <tr>
+              <th st-sort="created_at" class="sort"
+              style="text-align: center">
+                Date
+              </th>
               <th lr-drag-src="headers" lr-drop-target="headers" ng-repeat="col in dataCtrl.columns" st-sort="{{col.item}}" class="sort"
-                  ng-show="col.ngShow" style="text-align: center">{{col.name}}</th>
+                  ng-show="col.ngShow" style="text-align: center">{{col.name}}
+              </th>
             </tr>
 
             <!-- Filtering via Text -->
             <tr>
+              <th>Search date</th>
               <th ng-repeat="col in dataCtrl.columns" ng-show="col.ngShow">
                     <input st-search="col.item" placeholder="Search {{col.name}}" class="input-sm form-control" type="search">
               </th>
@@ -52,6 +58,9 @@
         <!-- Data Rows -->
         <tbody>
           <tr ng-repeat="row in dataCtrl.displayedCollection">
+              <td>
+                {{row.created_at | amCalendar:referenceTime:formats}}
+              </td>
               <td ng-repeat="col in dataCtrl.columns" ng-show="col.ngShow">
                   {{row[col.item]}}
                   <!-- missing -->
