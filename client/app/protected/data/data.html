@@ -9,9 +9,11 @@
       <tr>
         <td colspan="8" class="text-right no-border">
           <span class="tip-text">
-                        <b>Move columns</b>: drag & drop headers.
-                        <b>Sort</b>: click headers
-                    </span>
+            <b>Move columns</b>: drag & drop headers
+          </span>
+          <span class="tip-text">
+            <b>Sort</b>: click headers
+          </span>
           <!-- Hide Columns -->
           <label ng-repeat="col in dataCtrl.columns">
                         <button ng-click="col.ngShow = !col.ngShow" class="btn btn-default btn-xs hide-col">
@@ -20,7 +22,7 @@
                         </button>
                     </label>
           <!-- Export CSV -->
-          <button class="btn btn-default btn-warning btn-xs hide-col" export export-data="dataCtrl.displayedCollection" export-headers="['Date', 'Domain Name', 'URL', 'Meta Robots', 'Title', 'Meta Description', 'OG Title', 'OG Description']"
+          <button class="btn btn-default btn-warning btn-xs export-button" export export-data="dataCtrl.displayedCollection" export-headers="['Date', 'Domain Name', 'URL', 'Meta Robots', 'Title', 'Meta Description', 'OG Title', 'OG Description']"
             export-keys="['created_at', 'domain_name', 'url', 'meta_robots', 'title', 'meta_desc', 'og_title', 'og_desc']">Export CSV</a>
                 </td>
             </tr>

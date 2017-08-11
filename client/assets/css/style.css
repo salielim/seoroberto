@@ -56,18 +56,6 @@
   /* login register warning */
 }
 
-.hide-col {
-  margin-right: 18px;
-  cursor: pointer;
-  font-style: none;
-  font-size: 12px;
-}
-
-.tip-text {
-  font-size: 12px;
-  margin-right: 180px;
-}
-
 /* Table */
 thead {
   background: #f8f8f8;
@@ -77,6 +65,22 @@ thead {
 .lr-sticky-header {
   width: 100%;
   padding-left: 20px;
+}
+
+.export-button {
+  margin-left: 80px;
+}
+
+.hide-col {
+  margin-right: 18px;
+  cursor: pointer;
+  font-style: none;
+  font-size: 12px;
+}
+
+.tip-text {
+  font-size: 12px;
+  margin-right: 80px;
 }
 
 /* Sorting */

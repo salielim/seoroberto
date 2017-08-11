@@ -71,13 +71,13 @@
       },
       {
         item: "og_title",
-        name: "OG Title",
+        name: "Open Graph Title",
         ngShow: true,
         length: "40"
       },
       {
         item: "og_desc",
-        name: "OG Desc",
+        name: "Open Graph Desc",
         ngShow: true,
         length: "300"
       }
