@@ -14,6 +14,7 @@ var passport = require("passport");
 var session = require("express-session");
 
 module.exports = function (app) {
+
   // Middleware
   app.use(session({ secret: "ilovescotchscotchyscotchscotch" }));
   app.use(passport.initialize());

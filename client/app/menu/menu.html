@@ -3,27 +3,27 @@
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
       <a ui-sref="product" class="navbar-brand brand-text">    
-                    <img src="assets/images/roberto.png" class="logo-img">
-                    SEORoberto
-                </a>
+        <img src="assets/images/roberto.png" class="logo-img">
+      SEORoberto
+    </a>
     </div>
 
     <!-- Scan  -->
     <div class="col-xs-6 col-md-6 search" ng-show="currentUser" ng-controller="MenuCtrl as menuCtrl">
       <form name="scanForm" novalidate autocomplete="off">
         <div class="input-group">
-          <input ng-model="menuCtrl.domainURL" type="text" class="form-control" placeholder="Enter full URL including http:// or https://" required>
+          <input ng-model="menuCtrl.domainURL" type="text" class="form-control" placeholder="Enter full URL including http:// or https://" ng-pattern="/(http(s?))\:\/\//" required>
           <span class="input-group-btn">
-                        <button ng-click="menuCtrl.startScan()" class="btn btn-default go" type="button" a ui-sref="scan" ng-disabled="scanForm.$invalid">
-                                Go!
-                            <span class="glyphicon glyphicon-scale" aria-hidden="true"></span>
-          </button>
+            <button ng-click="menuCtrl.startScan()" class="btn btn-default go" type="button" a ui-sref="scan" ng-disabled="scanForm.$invalid">
+              Go!
+              <span class="glyphicon glyphicon-scale" aria-hidden="true"></span>
+            </button>
           </span>
         </div>
       </form>

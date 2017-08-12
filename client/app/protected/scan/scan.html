@@ -1,5 +1,6 @@
 <div>
-  <h1 align="center">Scan Dashboard · {{ scanCtrl.todaysDate }}
+  <h1 align="center">
+    Scan Dashboard · {{ scanCtrl.todaysDate }}
   </h1>
 
   <!-- Scan Progress Bar -->
@@ -12,6 +13,13 @@
     <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
     click to view scan
   </button>
+
+  <!-- Info Box -->
+  <div class="alert alert-warning" align="right">
+    <strong>Warning!</strong> 
+    If latest scan doesn't appear after clicking on the button, 
+    please check the URL as scan has failed.
+  </div>
 </div>
 
 <div class="scanned-data-table">
@@ -30,7 +38,7 @@
             <!-- Hide Columns -->
             <label ng-repeat="col in scanCtrl.columns">
                             <button ng-click="col.ngShow = !col.ngShow" class="btn btn-default btn-xs hide-col">
-                                <span class="glyphicon glyphicon-ok" aria-hidden="true" ng-show="cƒol.ngShow" ng-show"!col.ngShow"></span>
+                                <span class="glyphicon glyphicon-ok" aria-hidden="true" ng-show="col.ngShow" ng-show"!col.ngShow"></span>
                                 {{col.name}}
                             </button>
                         </label>

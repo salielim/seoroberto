@@ -83,6 +83,7 @@
       }
     ];
 
+    // Retrieve Today's Scanned Data
     function retrieveScanned() {
       DataService.retrieveScanned()
         .then(function(data) {

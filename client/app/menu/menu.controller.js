@@ -1,9 +1,9 @@
-(function() {
+(function () {
   angular.module("SEO").controller("MenuCtrl", MenuCtrl);
 
-  MenuCtrl.$inject = ["$http", "$filter", "$state", "DataService"];
+  MenuCtrl.$inject = ["$http", "DataService"];
 
-  function MenuCtrl($http, $filter, $state, DataService, user) {
+  function MenuCtrl($http, DataService) {
     var vm = this;
 
     vm.domainURL = "";
@@ -14,7 +14,10 @@
         method: "POST",
         url: "api/scan/",
         data: { domain: vm.domainURL }
-      });
+      })
+        .catch(function (err) {
+          console.log(err);
+        });
     }
   }
 })();

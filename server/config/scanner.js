@@ -7,9 +7,11 @@ var scanUser = null;
 
 var c = new Scanner({
   maxConnections: 10,
+  //retries: 0,
   callback: function(error, res, done) {
     if (error) {
       console.log(error);
+      
     } else {
       var $ = res.$; // $ is Cheerio by default
 
