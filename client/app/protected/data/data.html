@@ -16,68 +16,67 @@
           </span>
           <!-- Hide Columns -->
           <label ng-repeat="col in dataCtrl.columns">
-                        <button ng-click="col.ngShow = !col.ngShow" class="btn btn-default btn-xs hide-col">
-                            <span class="glyphicon glyphicon-ok" aria-hidden="true" ng-show="col.ngShow" ng-show"!col.ngShow"></span>
-                            {{col.name}}
-                        </button>
-                    </label>
+            <button ng-click="col.ngShow = !col.ngShow" class="btn btn-default btn-xs hide-col">
+                <span class="glyphicon glyphicon-ok" aria-hidden="true" ng-show="col.ngShow" ng-show"!col.ngShow"></span>
+                {{col.name}}
+            </button>
+          </label>
           <!-- Export CSV -->
           <button class="btn btn-default btn-warning btn-xs export-button" export export-data="dataCtrl.displayedCollection" export-headers="['Date', 'Domain Name', 'URL', 'Meta Robots', 'Title', 'Meta Description', 'OG Title', 'OG Description']"
             export-keys="['created_at', 'domain_name', 'url', 'meta_robots', 'title', 'meta_desc', 'og_title', 'og_desc']">Export CSV</a>
-                </td>
-            </tr>
+        </td>
+      </tr>
 
-            <!-- Headers -->
-            <tr>
-              <th st-sort="created_at" class="sort"
-              style="text-align: center">
-                Date
-              </th>
-              <th lr-drag-src="headers" lr-drop-target="headers" ng-repeat="col in dataCtrl.columns" st-sort="{{col.item}}" class="sort"
-                  ng-show="col.ngShow" style="text-align: center">{{col.name}}
-              </th>
-            </tr>
+      <!-- Headers -->
+      <tr>
+        <th st-sort="created_at" class="sort"
+        style="text-align: center">
+          Date
+        </th>
+        <th lr-drag-src="headers" lr-drop-target="headers" ng-repeat="col in dataCtrl.columns" st-sort="{{col.item}}" class="sort"
+            ng-show="col.ngShow" style="text-align: center">{{col.name}}
+        </th>
+      </tr>
 
-            <!-- Filtering via Text -->
-            <tr>
-              <th>Search date</th>
-              <th ng-repeat="col in dataCtrl.columns" ng-show="col.ngShow">
-                    <input st-search="col.item" placeholder="Search {{col.name}}" class="input-sm form-control" type="search">
-              </th>
-            </tr>
+      <!-- Filtering via Text -->
+      <tr>
+        <th>Search date</th>
+        <th ng-repeat="col in dataCtrl.columns" ng-show="col.ngShow">
+              <input st-search="col.item" placeholder="Search {{col.name}}" class="input-sm form-control" type="search">
+        </th>
+      </tr>
 
-            <!-- Filtering via Multiple Select
-            <tr>
-                <th ng-repeat="col in dataCtrl.columns" ng-show="col.ngShow">
-                    <st-select-multiple collection="dataCtrl.rowList" predicate="col.item"></st-select-multiple>
-                </th>
-            </tr> -->
+      <!-- Filtering via Multiple Select
+      <tr>
+          <th ng-repeat="col in dataCtrl.columns" ng-show="col.ngShow">
+              <st-select-multiple collection="dataCtrl.rowList" predicate="col.item"></st-select-multiple>
+          </th>
+      </tr> -->
+    </thead>
 
-        </thead>
-
-        <!-- Data Rows -->
-        <tbody>
-          <tr ng-repeat="row in dataCtrl.displayedCollection">
-              <td>
-                {{row.created_at | amCalendar:referenceTime:formats}}
-              </td>
-              <td ng-repeat="col in dataCtrl.columns" ng-show="col.ngShow">
-                  {{row[col.item]}}
-                  <!-- missing -->
-                  <span class="label label-warning" ng-show="row[col.item] == null">Missing</span>
-                  <!-- too long -->
-                  <span class="label label-info" ng-show="row[col.item].length > col.length">
-                    Too long ({{col.length}} / {{col.length - col.item.length}} chars)
-                  </span>
-              </td>
-          </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-              <td colspan="8" class="text-right no-border">
-                  <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
-              </td>
-          </tr>
-        </tfoot>
-    </table>
+    <!-- Data Rows -->
+    <tbody>
+      <tr ng-repeat="row in dataCtrl.displayedCollection">
+        <td>
+          {{row.created_at | amCalendar:referenceTime:formats}}
+        </td>
+        <td ng-repeat="col in dataCtrl.columns" ng-show="col.ngShow">
+            {{row[col.item]}}
+            <!-- missing -->
+            <span class="label label-warning" ng-show="row[col.item] == null">Missing</span>
+            <!-- too long -->
+            <span class="label label-info" ng-show="row[col.item].length > col.length">
+              Too long ({{col.length}} / {{col.length - col.item.length}} chars)
+            </span>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="8" class="text-right no-border">
+            <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
 </div>

@@ -37,55 +37,55 @@
             <!-- Export CSV -->
             <button class="btn btn-default btn-warning btn-xs export-button" export export-data="scanCtrl.displayedCollection" export-headers="['Date', 'Domain Name', 'URL', 'Meta Robots', 'Title', 'Meta Description', 'OG Title', 'OG Description']"
               export-keys="['created_at', 'domain_name', 'url', 'meta_robots', 'title', 'meta_desc', 'og_title', 'og_desc']">Export CSV</a>
-                    </td>
-                </tr>
+          </td>
+        </tr>
 
-                <!-- Headers -->
-                <tr>
-                  <th st-sort="created_at" class="sort"
-                  style="text-align: center">
-                    Date
-                  </th>
-                  <th lr-drag-src="headers" lr-drop-target="headers" ng-repeat="col in scanCtrl.columns" st-sort="{{col.item}}" class="sort"
-                      ng-show="col.ngShow">{{col.name}}
-                  </th>
-                </tr>
+        <!-- Headers -->
+        <tr>
+          <th st-sort="created_at" class="sort"
+          style="text-align: center">
+            Date
+          </th>
+          <th lr-drag-src="headers" lr-drop-target="headers" ng-repeat="col in scanCtrl.columns" st-sort="{{col.item}}" class="sort"
+              ng-show="col.ngShow">{{col.name}}
+          </th>
+        </tr>
 
-                <!-- Filtering -->
-                <tr>
-                  <th>Search date</th>
-                  <th ng-repeat="col in scanCtrl.columns" ng-show="col.ngShow"><input st-search="col.item" placeholder="Search {{col.name}}" class="input-sm form-control" type="search"></th>
-                </tr>
-            </thead>
+        <!-- Filtering -->
+        <tr>
+          <th>Search date</th>
+          <th ng-repeat="col in scanCtrl.columns" ng-show="col.ngShow"><input st-search="col.item" placeholder="Search {{col.name}}" class="input-sm form-control" type="search"></th>
+        </tr>
+      </thead>
 
-            <!-- Data Rows -->
-            <tbody>
-              <tr ng-repeat="row in scanCtrl.displayedCollection">
-                  <td>
-                      {{row.created_at | amCalendar:referenceTime:formats}}
-                  </td>
-                  <td ng-repeat="col in scanCtrl.columns" ng-show="col.ngShow">
-                      {{row[col.item]}}
-                      <!-- missing -->
-                      <span class="label label-warning" ng-show="row[col.item] == null">Missing</span>
-                      <!-- too long -->
-                      <span class="label label-info" ng-show="row[col.item].length > col.length">
-                        Too long ({{col.length}} / {{col.length - col.item.length}} chars)
-                      </span>
-                  </td>
-              </tr>
-            </tbody>
+    <!-- Data Rows -->
+      <tbody>
+        <tr ng-repeat="row in scanCtrl.displayedCollection">
+          <td>
+            {{row.created_at | amCalendar:referenceTime:formats}}
+          </td>
+          <td ng-repeat="col in scanCtrl.columns" ng-show="col.ngShow">
+            {{row[col.item]}}
+            <!-- missing -->
+            <span class="label label-warning" ng-show="row[col.item] == null">Missing</span>
+            <!-- too long -->
+            <span class="label label-info" ng-show="row[col.item].length > col.length">
+              Too long ({{col.length}} / {{col.length - col.item.length}} chars)
+            </span>
+          </td>
+        </tr>
+      </tbody>
 
-            <!-- Pagination
-                itemsByPage
-                <input class="input-sm form-control ng-valid ng-dirty ng-valid-number ng-touched ng-not-empty" name="items" id="items" type="number" ng-model="scanCtrl.itemsByPage"> -->
-            <tfoot>
-              <tr>
-                  <td colspan="8" class="text-right no-border">
-                      <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
-                  </td>
-              </tr>
-            </tfoot>
-        </table>
-    </div>
+      <!-- Pagination
+          itemsByPage
+          <input class="input-sm form-control ng-valid ng-dirty ng-valid-number ng-touched ng-not-empty" name="items" id="items" type="number" ng-model="scanCtrl.itemsByPage"> -->
+      <tfoot>
+        <tr>
+          <td colspan="8" class="text-right no-border">
+            <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
 </div>
