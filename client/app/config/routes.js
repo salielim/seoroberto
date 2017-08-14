@@ -10,7 +10,9 @@
         url: "/",
         views: {
           menu: {
-            templateUrl: "app/menu/menu.html"
+            templateUrl: "app/menu/menu.html",
+            controller: "MenuCtrl",
+            controllerAs: "menuCtrl"
           },
           content: {
             templateUrl: "app/static/product.html"
@@ -21,7 +23,9 @@
         url: "/product",
         views: {
           menu: {
-            templateUrl: "app/menu/menu.html"
+            templateUrl: "app/menu/menu.html",
+            controller: "MenuCtrl",
+            controllerAs: "menuCtrl"
           },
           content: {
             templateUrl: "app/static/product.html"
@@ -32,7 +36,9 @@
         url: "/pricing",
         views: {
           menu: {
-            templateUrl: "app/menu/menu.html"
+            templateUrl: "app/menu/menu.html",
+            controller: "MenuCtrl",
+            controllerAs: "menuCtrl"
           },
           content: {
             templateUrl: "app/static/pricing.html"
@@ -43,7 +49,9 @@
         url: "/contact",
         views: {
           menu: {
-            templateUrl: "app/menu/menu.html"
+            templateUrl: "app/menu/menu.html",
+            controller: "MenuCtrl",
+            controllerAs: "menuCtrl"
           },
           content: {
             templateUrl: "app/static/contact.html"
@@ -54,7 +62,9 @@
         url: "/login",
         views: {
           menu: {
-            templateUrl: "app/menu/menu.html"
+            templateUrl: "app/menu/menu.html",
+            controller: "MenuCtrl",
+            controllerAs: "menuCtrl"
           },
           content: {
             templateUrl: "app/login/login.html"
@@ -65,7 +75,9 @@
         url: "/register",
         views: {
           menu: {
-            templateUrl: "app/menu/menu.html"
+            templateUrl: "app/menu/menu.html",
+            controller: "MenuCtrl",
+            controllerAs: "menuCtrl"
           },
           content: {
             templateUrl: "app/register/register.html"
@@ -77,7 +89,9 @@
         url: "/data",
         views: {
           menu: {
-            templateUrl: "app/menu/menu.html"
+            templateUrl: "app/menu/menu.html",
+            controller: "MenuCtrl",
+            controllerAs: "menuCtrl"
           },
           content: {
             templateUrl: "app/protected/data/data.html",
@@ -102,7 +116,9 @@
         url: "/scan",
         views: {
           menu: {
-            templateUrl: "app/menu/menu.html"
+            templateUrl: "app/menu/menu.html",
+            controller: "MenuCtrl",
+            controllerAs: "menuCtrl"
           },
           content: {
             templateUrl: "app/protected/scan/scan.html",
@@ -127,7 +143,9 @@
         url: "/report",
         views: {
           menu: {
-            templateUrl: "app/menu/menu.html"
+            templateUrl: "app/menu/menu.html",
+            controller: "MenuCtrl",
+            controllerAs: "menuCtrl"
           },
           content: {
             templateUrl: "app/protected/report/report.html",
@@ -152,7 +170,9 @@
         url: "/schedule",
         views: {
           menu: {
-            templateUrl: "app/menu/menu.html"
+            templateUrl: "app/menu/menu.html",
+            controller: "MenuCtrl",
+            controllerAs: "menuCtrl"
           },
           content: {
             templateUrl: "app/protected/schedule/schedule.html",

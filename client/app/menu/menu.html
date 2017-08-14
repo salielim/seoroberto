@@ -15,7 +15,7 @@
     </div>
 
     <!-- Scan  -->
-    <div class="col-xs-6 col-md-6 search" ng-show="currentUser" ng-controller="MenuCtrl as menuCtrl">
+    <div class="col-xs-6 col-md-6 search" ng-show="currentUser">
       <form name="scanForm" novalidate autocomplete="off">
         <div class="input-group">
           <input ng-model="menuCtrl.domainURL" type="text" class="form-control" placeholder="Enter full URL including http:// or https://" ng-pattern="/(http(s?))\:\/\//" required>
@@ -45,7 +45,7 @@
         </ul>
       </li>
       <li class="nav-item">
-        <a ng-controller="IndexCtrl as indexCtrl" ng-click="indexCtrl.logout()" class="pointer">Logout<span class="sr-only">(logout)</span></a>
+        <a ng-click="indexCtrl.logout()" class="pointer">Logout<span class="sr-only">(logout)</span></a>
       </li>
     </ul>
 
