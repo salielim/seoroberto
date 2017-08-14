@@ -56,8 +56,6 @@
               " will be performed " +
               vm.frequency +
               ".";
-            
-              setTimeout(function(){ location.reload(); }, 1500);
           }
         })
         .catch(function(err) {
