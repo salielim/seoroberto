@@ -15,7 +15,7 @@
         type: "bar"
       },
       title: {
-        text: "Scanned Pages"
+        text: "Proportion of indexed and non-indexed pages"
       },
       xAxis: {
         categories: [
@@ -43,17 +43,17 @@
       series: [
         {
           name: "index",
-          data: [5, 3, 4, 7, 2]
+          data: [50, 30, 40, 70, 20]
           // if (data[i].meta_robots == "index")
           // count & push into array
         },
         {
           name: "noindex",
-          data: [2, 2, 3, 2, 1]
+          data: [20, 20, 30, 20, 10]
         },
         {
-          name: "N.A.",
-          data: [3, 4, 4, 2, 5]
+          name: "Metarobots are not indicated",
+          data: [30, 40, 40, 20, 50]
         }
       ]
     });

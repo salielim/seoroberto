@@ -82,7 +82,6 @@ exports.scheduledScan = function(domain, user) {
     if (err) return err;
     if (data)
       // res.send(data);
-      console.log(data);
 
     for (i = 0; i < data.length; i++) {
       // make this synchronous & secure
