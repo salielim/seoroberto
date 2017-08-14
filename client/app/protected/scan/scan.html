@@ -16,7 +16,7 @@
 
   <!-- Info Box -->
   <div class="alert alert-warning" align="right">
-    <strong>Warning!</strong> 
+    <strong>Warning!</strong>
     If latest scan doesn't appear after clicking on the button, 
     please check the URL as scan has failed.
   </div>
@@ -52,7 +52,7 @@
         <tr>
           <th st-sort="created_at" class="sort"
           style="text-align: center">
-            Date
+            Time of Scan
           </th>
           <th lr-drag-src="headers" lr-drop-target="headers" ng-repeat="col in scanCtrl.columns" st-sort="{{col.item}}" class="sort"
               ng-show="col.ngShow">{{col.name}}
@@ -61,7 +61,7 @@
 
         <!-- Filtering -->
         <tr>
-          <th>Search date</th>
+          <th></th>
           <th ng-repeat="col in scanCtrl.columns" ng-show="col.ngShow"><input st-search="col.item" placeholder="Search {{col.name}}" class="input-sm form-control" type="search"></th>
         </tr>
       </thead>

@@ -12,6 +12,11 @@
     }
 
     vm.columns = [
+      // {
+      //   item: "created_at",
+      //   name: "Date",
+      //   ngShow: true
+      // },
       {
         item: "domain_name",
         name: "Domain",

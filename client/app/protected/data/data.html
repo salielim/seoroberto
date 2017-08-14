@@ -40,25 +40,20 @@
 
       <!-- Filtering via Text -->
       <tr>
-        <th>Search date</th>
+        <th>
+          <input st-search="created_at" placeholder="Search Date" class="input-sm form-control" type="search">
+        </th>
         <th ng-repeat="col in dataCtrl.columns" ng-show="col.ngShow">
               <input st-search="col.item" placeholder="Search {{col.name}}" class="input-sm form-control" type="search">
         </th>
       </tr>
-
-      <!-- Filtering via Multiple Select
-      <tr>
-          <th ng-repeat="col in dataCtrl.columns" ng-show="col.ngShow">
-              <st-select-multiple collection="dataCtrl.rowList" predicate="col.item"></st-select-multiple>
-          </th>
-      </tr> -->
     </thead>
 
     <!-- Data Rows -->
     <tbody>
       <tr ng-repeat="row in dataCtrl.displayedCollection">
         <td>
-          {{row.created_at | amCalendar:referenceTime:formats}}
+          {{row.created_at  | amUtc | amDateFormat:'YYYY-MM-DD'}}
         </td>
         <td ng-repeat="col in dataCtrl.columns" ng-show="col.ngShow">
             {{row[col.item]}}
