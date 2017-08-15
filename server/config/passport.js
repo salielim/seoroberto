@@ -1,9 +1,10 @@
 var LocalStrategy = require("passport-local").Strategy;
 var User = require("../models/user");
 
+// Mailgun
 var api_key = process.env.MY_MAILGUN_KEY;
 var domain = process.env.MY_MAILGUN_DOMAIN;
-var mailgun = require('mailgun-js')({ apiKey: api_key, domain: domain });
+var mailgun = require("mailgun-js")({ apiKey: api_key, domain: domain });
 
 module.exports = function (passport) {
   // passport serialize & unserialize users out of session, required for persistent login sessions
@@ -47,11 +48,12 @@ module.exports = function (passport) {
                 return done(null, newUser);
               });
 
+              // Send welcome email on successful registration
               var data = {
-                from: 'SEORoberto <roberto@seoroberto.com>',
+                from: "SEORoberto <roberto@seoroberto.com>",
                 to: email,
-                subject: 'Welcome to SEORoberto!',
-                text: 'Thank you for registering, visit SEO Roberto to start a scan.'
+                subject: "Welcome to SEORoberto!",
+                text: "Thank you for registering, visit SEO Roberto to start a scan."
               };
 
               mailgun.messages().send(data, function (error, body) {

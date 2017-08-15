@@ -2,6 +2,11 @@ var Page = require("../models/page");
 var User = require("../models/user");
 var Scanner = require("crawler");
 
+// Mailgun 
+var api_key = process.env.MY_MAILGUN_KEY;
+var domain = process.env.MY_MAILGUN_DOMAIN;
+var mailgun = require("mailgun-js")({ apiKey: api_key, domain: domain });
+
 var scanUser = null;
 
 var c = new Scanner({
@@ -91,6 +96,19 @@ exports.scheduledScan = function(domain, user) {
       domainName = data[i].schedule_domain;
       c.queue(urlArr); // this is executing last
       console.log("End " + i);
+
+      // Send scan success email
+      console.log("email to " + data[i].email + "for domain " + data[i].schedule_domain);
+      var data = {
+        from: "SEORoberto <roberto@seoroberto.com>",
+        to: data[i].email,
+        subject: data[i].schedule_freq.charAt(0).toUpperCase()  + data[i].schedule_freq.substring(1) + " scan for " + [data[i].schedule_domain] +  " completed!",
+        html: "Thank you for choosing SEORoberto, <a href='http://seoroberto.herokuapp.com/#!/login'> view scan results here.</a>"
+      };
+
+      mailgun.messages().send(data, function (error, body) {
+        console.log(body);
+      });
     }
   });
 };
