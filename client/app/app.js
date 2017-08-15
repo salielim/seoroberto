@@ -6,7 +6,6 @@
     "smart-table",
     "lrDragNDrop",
     "export.csv",
-    "ui.bootstrap",
     "highcharts-ng",
     "angularMoment"
   ]);
