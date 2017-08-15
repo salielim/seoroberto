@@ -41,10 +41,10 @@
       <!-- Filtering via Text -->
       <tr>
         <th>
-          <input st-search="created_at" placeholder="Search Date" class="input-sm form-control" type="search">
+          <input st-search="created_at" placeholder="Search Date" class="input-sm form-control">
         </th>
         <th ng-repeat="col in dataCtrl.columns" ng-show="col.ngShow">
-              <input st-search="col.item" placeholder="Search {{col.name}}" class="input-sm form-control" type="search">
+          <input st-search="col.item" placeholder="Search {{col.name}}" class="input-sm form-control ng-isolate-scope">
         </th>
       </tr>
     </thead>
