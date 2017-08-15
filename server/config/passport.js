@@ -1,26 +1,19 @@
 var LocalStrategy = require("passport-local").Strategy;
 var User = require("../models/user");
 
-var api_key = process.env.MAILGUN_KEY;
-var domain = 'diytravel.org';
+var api_key = process.env.MY_MAILGUN_KEY;
+var domain = process.env.MY_MAILGUN_DOMAIN;
 var mailgun = require('mailgun-js')({ apiKey: api_key, domain: domain });
 
-var data = {
-    from: 'SEORoberto <roberto@seoroberto.com>',
-    to: user.email,
-    subject: 'Welcome to SEORoberto!',
-    text: 'Thank you for registering, visit SEO Roberto to start a scan.'
-};
-
-module.exports = function(passport) {
+module.exports = function (passport) {
   // passport serialize & unserialize users out of session, required for persistent login sessions
 
-  passport.serializeUser(function(user, done) {
+  passport.serializeUser(function (user, done) {
     done(null, user.id);
   });
 
-  passport.deserializeUser(function(id, done) {
-    User.findById(id, function(err, user) {
+  passport.deserializeUser(function (id, done) {
+    User.findById(id, function (err, user) {
       user = { email: user.email, id: user._id };
       done(err, user);
     });
@@ -35,10 +28,10 @@ module.exports = function(passport) {
         passwordField: "password",
         passReqToCallback: true
       },
-      function(req, email, password, done) {
+      function (req, email, password, done) {
         // asynchronous, User.findOne wont fire unless data is sent back
-        process.nextTick(function() {
-          User.findOne({ email: email }, function(err, user) {
+        process.nextTick(function () {
+          User.findOne({ email: email }, function (err, user) {
             if (err) return done(err);
 
             if (user) {
@@ -49,13 +42,20 @@ module.exports = function(passport) {
               newUser.email = email;
               newUser.password = newUser.generateHash(password);
 
-              newUser.save(function(err) {
+              newUser.save(function (err) {
                 if (err) throw err;
                 return done(null, newUser);
               });
 
+              var data = {
+                from: 'SEORoberto <roberto@seoroberto.com>',
+                to: email,
+                subject: 'Welcome to SEORoberto!',
+                text: 'Thank you for registering, visit SEO Roberto to start a scan.'
+              };
+
               mailgun.messages().send(data, function (error, body) {
-                  console.log(body);
+                console.log(body);
               });
             }
           });
@@ -73,8 +73,8 @@ module.exports = function(passport) {
         passwordField: "password",
         passReqToCallback: true
       },
-      function(req, email, password, done) {
-        User.findOne({ email: email }, function(err, user) {
+      function (req, email, password, done) {
+        User.findOne({ email: email }, function (err, user) {
           if (err) return done(err);
 
           if (!user) return done(null, false);
