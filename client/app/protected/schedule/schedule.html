@@ -50,7 +50,7 @@
     <div class="form-group input-field col s6" ng-class="{ 'has-error': scheduleForm.domain.$touched && scheduleForm.domain.$invalid }">
       <input type="text" class="form-control" ng-model="scheduleCtrl.domain" name="domain" placeholder="Enter domain URL" required>
       <div class="help-block" ng-messages="scheduleForm.domain.$error" ng-if="scheduleForm.domain.$touched">
-        <span class="help-inline" ng-message="required">Domain URL is mandatory</span>
+        <span class="help-inline" ng-message="required">Domain URL is mandatory, input N.A. for disable scan.</span>
       </div>
     </div>
 
