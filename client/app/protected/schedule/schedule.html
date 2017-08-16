@@ -41,7 +41,8 @@
   </br>
 
   <!-- Form -->
-  <h4>Modify Scheduled Scan:</h4>
+  <h4>Modify Scheduled Scan</h4>
+</br>
   <form name="scheduleForm" ng-submit="scheduleCtrl.automate()" novalidate autocomplete="off">
 
     <!-- Scan Domain -->
@@ -67,6 +68,7 @@
     </div>
 
     <!-- Automate it Button -->
+    <p>Note: only one scheduled scan per trial account, previous schedule will be overwritten.</p>
     <button type="submit" ng-disabled="scheduleForm.$invalid" class="btn btn-lg btn-warning">Automate it!</button>
     <span class="msg-text">
         {{scheduleCtrl.msg}}
