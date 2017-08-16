@@ -41,11 +41,32 @@
       <!-- Filtering via Text -->
       <tr>
         <th>
-          <input st-search="created_at" placeholder="Search Date" class="input-sm form-control">
+          <input st-search="created_at" placeholder="Filter Date" class="input-sm form-control">
         </th>
-        <th ng-repeat="col in dataCtrl.columns" ng-show="col.ngShow">
+        <th>
+          <input st-search="domain_name" placeholder="Filter Domain" class="input-sm form-control">
+        </th>
+        <th>
+          <input st-search="url" placeholder="Filter Page" class="input-sm form-control">
+        </th>
+        <th>
+          <input st-search="meta_robots" placeholder="Filter Robots" class="input-sm form-control">
+        </th>
+        <th>
+          <input st-search="title" placeholder="Search Title" class="input-sm form-control">
+        </th>
+        <th>
+          <input st-search="meta_desc" placeholder="Search Desc" class="input-sm form-control">
+        </th>
+        <th>
+          <input st-search="og_title" placeholder="Search OG Title" class="input-sm form-control">
+        </th>
+        <th>
+          <input st-search="og_desc" placeholder="Search OG Desc" class="input-sm form-control">
+        </th>
+        <!-- <th ng-repeat="col in dataCtrl.columns" ng-show="col.ngShow">
           <input st-search="col.item" placeholder="Search {{col.name}}" class="input-sm form-control">
-        </th>
+        </th> -->
       </tr>
     </thead>
 
